@@ -327,7 +327,7 @@ export default function Navbar() {
                   },
                 }}
               >
-                {navLinks.map((link, index) => (
+                {navLinks.map((link, _index) => (
                   <motion.div
                     key={link.href}
                     variants={{

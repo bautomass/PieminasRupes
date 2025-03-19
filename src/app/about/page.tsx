@@ -1,10 +1,8 @@
 // app/about/page.tsx
 "use client";
-
 import Link from "next/link";
-import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
-import { HeartIcon, CheckIcon, SparklesIcon } from "@/components/Icons";
+import { HeartIcon, CheckIcon } from "@/components/Icons";
 
 // Language strings for the about page
 const translations = {

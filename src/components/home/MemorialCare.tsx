@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+// import { useInView } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
 import Image from "next/image";
@@ -12,7 +12,7 @@ export default function MemorialCare() {
   const { language } = useLanguage();
   const t = translations[language as keyof typeof translations];
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
+  // const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
 
   const features = [
     {
