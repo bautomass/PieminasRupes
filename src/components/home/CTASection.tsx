@@ -10,7 +10,7 @@ export default function CTASection() {
   const t = translations[language as keyof typeof translations];
 
   return (
-    <Section bgColor="gradient">
+    <Section bgColor="primary">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 font-serif sm:text-4xl dark:text-white">
           {t.cta.title}
