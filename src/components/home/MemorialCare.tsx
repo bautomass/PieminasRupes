@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion } from "framer-motion";
+// Removed unused motion import
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
 import Image from "next/image";
@@ -301,7 +301,7 @@ export default function MemorialCare() {
 // "use client";
 
 // import { useRef } from "react";
-// // import { useInView } from "framer-motion";
+// import { motion } from "framer-motion";
 // import { useLanguage } from "@/context/LanguageContext";
 // import { translations } from "@/lib/translations";
 // import Image from "next/image";
@@ -312,7 +312,6 @@ export default function MemorialCare() {
 //   const { language } = useLanguage();
 //   const t = translations[language as keyof typeof translations];
 //   const sectionRef = useRef(null);
-//   // const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
 
 //   const features = [
 //     {
@@ -369,7 +368,32 @@ export default function MemorialCare() {
 //           </p>
 //         </div>
 
-//         {/* Main content grid with refined spacing */}
+//         {/* Service ordering information */}
+//         <div className="mb-20 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-100 dark:border-gray-700">
+//           <h3 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+//             {t.memorial.orderTitle}
+//           </h3>
+//           <p className="text-gray-700 dark:text-gray-300 mb-4">
+//             {t.memorial.orderText}
+//           </p>
+//           <p className="text-gray-700 dark:text-gray-300 italic">
+//             {t.memorial.orderExtra}
+//           </p>
+
+//           <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8">
+//             <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+//               {t.memorial.graveSearchTitle}
+//             </h4>
+//             <p className="text-gray-700 dark:text-gray-300 mb-4">
+//               {t.memorial.graveSearchText}
+//             </p>
+//             <p className="text-gray-700 dark:text-gray-300 font-medium">
+//               {t.memorial.graveSearchNote}
+//             </p>
+//           </div>
+//         </div>
+
+//         {/* Main content grid with refinements */}
 //         <div className="grid grid-cols-1 gap-y-20 lg:grid-cols-12 lg:gap-x-16 lg:gap-y-0">
 //           {/* Left column: Enhanced image and process */}
 //           <div className="lg:col-span-6 space-y-20">
@@ -396,57 +420,37 @@ export default function MemorialCare() {
 //               </div>
 //             </div>
 
-//             {/* Refined process section */}
+//             {/* Pricing section */}
 //             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg overflow-hidden">
 //               <div className="p-6 md:p-10">
-//                 <div className="flex items-center mb-10">
-//                   <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center border border-emerald-200 dark:border-emerald-700 shadow-sm">
-//                     <svg
-//                       className="w-6 h-6 text-emerald-600 dark:text-emerald-400"
-//                       xmlns="http://www.w3.org/2000/svg"
-//                       fill="none"
-//                       viewBox="0 0 24 24"
-//                       strokeWidth={1.5}
-//                       stroke="currentColor"
+//                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 dark:text-white mb-8">
+//                   {t.serviceDetails.pricing.title}
+//                 </h3>
+
+//                 <div className="space-y-6">
+//                   {t.serviceDetails.pricing.sizes.map((size, index) => (
+//                     <div
+//                       key={index}
+//                       className="flex justify-between items-center border-b border-gray-100 dark:border-gray-700 pb-4"
 //                     >
-//                       <path
-//                         strokeLinecap="round"
-//                         strokeLinejoin="round"
-//                         d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12 12 0 0 1 21.582 7.96l-2.162.405a1.5 1.5 0 0 0-1.147 1.168L18 10.5"
-//                       />
-//                     </svg>
-//                   </div>
-//                   <h3 className="ml-5 text-2xl md:text-3xl font-serif font-bold text-gray-900 dark:text-white">
-//                     {t.process.title}
-//                   </h3>
-//                 </div>
-
-//                 <div className="space-y-10">
-//                   {t.process.steps.map((step, index) => (
-//                     <div key={index} className="relative">
-//                       {/* Connector line between steps */}
-//                       {index < t.process.steps.length - 1 && (
-//                         <div className="absolute left-6 top-16 bottom-0 w-px bg-gradient-to-b from-emerald-300 to-emerald-100 dark:from-emerald-700 dark:to-emerald-900/30"></div>
-//                       )}
-
-//                       <div className="flex items-start">
-//                         <div className="flex-shrink-0">
-//                           <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/40 dark:to-gray-800 text-emerald-700 dark:text-emerald-400 font-bold border border-emerald-200 dark:border-emerald-800 shadow-md">
-//                             {index + 1}
-//                           </div>
-//                         </div>
-//                         <div className="ml-6 pt-1">
-//                           <h4 className="text-xl md:text-2xl font-serif font-bold text-gray-900 dark:text-white mb-3">
-//                             {step.title}
-//                           </h4>
-//                           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-//                             {step.description}
-//                           </p>
-//                         </div>
+//                       <div>
+//                         <h4 className="font-bold text-gray-900 dark:text-white text-lg">
+//                           {size.title}
+//                         </h4>
+//                         <p className="text-gray-600 dark:text-gray-400">
+//                           {size.size}
+//                         </p>
+//                       </div>
+//                       <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">
+//                         {size.price}
 //                       </div>
 //                     </div>
 //                   ))}
 //                 </div>
+
+//                 <p className="mt-6 text-gray-500 dark:text-gray-400 text-sm italic">
+//                   {t.serviceDetails.pricing.note}
+//                 </p>
 //               </div>
 //             </div>
 //           </div>
@@ -506,6 +510,49 @@ export default function MemorialCare() {
 //                     </div>
 //                   ))}
 //                 </div>
+//               </div>
+//             </div>
+
+//             {/* Service Details - Regular Maintenance */}
+//             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg overflow-hidden">
+//               <div className="p-6 md:p-10">
+//                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 dark:text-white mb-6">
+//                   {t.serviceDetails.regular.title}
+//                 </h3>
+//                 <p className="text-gray-700 dark:text-gray-300 mb-6">
+//                   {t.serviceDetails.regular.description}
+//                 </p>
+
+//                 <h4 className="font-bold text-lg text-gray-900 dark:text-white mb-4">
+//                   {t.serviceDetails.regular.includes}
+//                 </h4>
+
+//                 <div className="space-y-8">
+//                   {t.serviceDetails.regular.services.map((service, index) => (
+//                     <div
+//                       key={index}
+//                       className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6"
+//                     >
+//                       <h5 className="font-bold text-gray-900 dark:text-white mb-4">
+//                         {service.title}
+//                       </h5>
+//                       <ul className="space-y-2">
+//                         {service.items.map((item, itemIndex) => (
+//                           <li key={itemIndex} className="flex items-start">
+//                             <CheckIcon className="flex-shrink-0 w-5 h-5 mt-1 text-emerald-600 dark:text-emerald-400" />
+//                             <span className="ml-3 text-gray-700 dark:text-gray-300">
+//                               {item}
+//                             </span>
+//                           </li>
+//                         ))}
+//                       </ul>
+//                     </div>
+//                   ))}
+//                 </div>
+
+//                 <p className="mt-6 text-gray-700 dark:text-gray-300 italic">
+//                   {t.serviceDetails.regular.note}
+//                 </p>
 //               </div>
 //             </div>
 
