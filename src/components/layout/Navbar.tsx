@@ -1,10 +1,15 @@
-// components/Navbar.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SunIcon, MoonIcon, MenuIcon, XIcon, GlobeIcon } from "../Icons";
+import {
+  SunIcon,
+  MoonIcon,
+  MenuIcon,
+  XIcon,
+  GlobeIcon,
+} from "@/components/Icons";
 import { useTheme } from "@/context/ThemeContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
@@ -48,7 +53,7 @@ const languages = [
   { code: "de", name: "Deutsch" },
 ];
 
-const Navbar = () => {
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -58,33 +63,38 @@ const Navbar = () => {
 
   const t = translations[language as keyof typeof translations];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  // Debounced scroll handler for better performance
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  useEffect(() => {
+    // Passive event listener for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
     if (isLangMenuOpen) setIsLangMenuOpen(false);
-  };
+  }, [isLangMenuOpen]);
 
-  const toggleLangMenu = () => {
-    setIsLangMenuOpen(!isLangMenuOpen);
+  const toggleLangMenu = useCallback(() => {
+    setIsLangMenuOpen((prev) => !prev);
     if (isMenuOpen) setIsMenuOpen(false);
-  };
+  }, [isMenuOpen]);
 
-  const handleLanguageChange = (lang: string) => {
-    setLanguage(lang);
-    setIsLangMenuOpen(false);
-  };
+  const handleLanguageChange = useCallback(
+    (lang: string) => {
+      setLanguage(lang);
+      setIsLangMenuOpen(false);
+    },
+    [setLanguage]
+  );
 
   const navLinks = [
     { href: "/", label: t.home },
@@ -98,12 +108,12 @@ const Navbar = () => {
     <header
       className={`fixed w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md py-2"
-          : "bg-transparent py-5"
+          ? "bg-white/98 dark:bg-gray-900/98 backdrop-blur-sm shadow-md py-3"
+          : "bg-transparent py-6"
       }`}
     >
       <div
-        className={`container mx-auto px-4 transition-all duration-500 ${
+        className={`mx-auto px-4 transition-all duration-500 ${
           scrolled ? "max-w-6xl" : "max-w-7xl"
         }`}
       >
@@ -111,13 +121,34 @@ const Navbar = () => {
           {/* Logo */}
           <Link
             href="/"
-            className={`text-xl font-serif font-bold tracking-tighter transition-all duration-300 ${
+            className={`flex items-center text-xl font-serif font-bold tracking-tight transition-all duration-300 ${
               scrolled
                 ? "text-emerald-600 dark:text-emerald-400"
                 : "text-gray-900 dark:text-white"
             }`}
           >
-            PiemiņasRūpes
+            <svg
+              className="w-8 h-8 mr-2"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 1.99V5.5M5.99 12H2.48M21.5 12H18M12 18.5V22.01M16.05 7.95L18.53 5.47M7.95 7.95L5.47 5.47M7.95 16.05L5.47 18.53M16.05 16.05L18.53 18.53"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            SkyGarden
           </Link>
 
           {/* Desktop Navigation */}
@@ -126,18 +157,20 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide relative overflow-hidden group transition-colors ${
+                className={`text-sm font-medium tracking-wide relative overflow-hidden group ${
                   pathname === link.href
                     ? "text-emerald-600 dark:text-emerald-400"
                     : scrolled
-                    ? "text-gray-700 dark:text-gray-300"
-                    : "text-gray-800 dark:text-gray-200"
+                      ? "text-gray-700 dark:text-gray-300"
+                      : "text-gray-800 dark:text-gray-200"
                 }`}
               >
                 {link.label}
                 <span
-                  className={`absolute left-0 bottom-0 w-full h-0.5 bg-emerald-500 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300 ease-out ${
-                    pathname === link.href ? "scale-x-100" : ""
+                  className={`absolute left-0 bottom-0 w-full h-0.5 bg-emerald-500 transform origin-left transition-transform duration-300 ease-out ${
+                    pathname === link.href
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
                   }`}
                 ></span>
               </Link>
@@ -145,14 +178,14 @@ const Navbar = () => {
           </nav>
 
           {/* Controls */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-1 sm:space-x-3">
             {/* Theme Toggle */}
             <motion.button
               onClick={toggleTheme}
               className={`p-2 rounded-full transition-colors ${
                 scrolled
-                  ? "hover:bg-gray-200 dark:hover:bg-gray-700"
-                  : "hover:bg-gray-200/50 dark:hover:bg-gray-700/50"
+                  ? "hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "hover:bg-gray-200/30 dark:hover:bg-gray-800/30"
               }`}
               aria-label={
                 theme === "dark"
@@ -174,8 +207,8 @@ const Navbar = () => {
                 onClick={toggleLangMenu}
                 className={`p-2 rounded-full flex items-center transition-colors ${
                   scrolled
-                    ? "hover:bg-gray-200 dark:hover:bg-gray-700"
-                    : "hover:bg-gray-200/50 dark:hover:bg-gray-700/50"
+                    ? "hover:bg-gray-100 dark:hover:bg-gray-800"
+                    : "hover:bg-gray-200/30 dark:hover:bg-gray-800/30"
                 }`}
                 aria-label="Change language"
                 whileTap={{ scale: 0.95 }}
@@ -201,7 +234,7 @@ const Navbar = () => {
               <AnimatePresence>
                 {isLangMenuOpen && (
                   <motion.div
-                    className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50"
+                    className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50 border border-gray-100 dark:border-gray-700"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
@@ -213,8 +246,8 @@ const Navbar = () => {
                         onClick={() => handleLanguageChange(lang.code)}
                         className={`block w-full text-left px-4 py-2 text-sm ${
                           language === lang.code
-                            ? "bg-gray-100 dark:bg-gray-700 text-emerald-600 dark:text-emerald-400"
-                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                            ? "bg-gray-50 dark:bg-gray-700 text-emerald-600 dark:text-emerald-400"
+                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
                         }`}
                       >
                         {lang.name}
@@ -231,16 +264,16 @@ const Navbar = () => {
               className={`hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 ${
                 scrolled
                   ? "bg-emerald-600 text-white hover:bg-emerald-700"
-                  : "bg-white/90 text-emerald-700 hover:bg-white"
+                  : "bg-white/90 text-emerald-700 hover:bg-white border border-transparent"
               }`}
             >
               {language === "lv"
                 ? "Sazināties"
                 : language === "en"
-                ? "Contact Us"
-                : language === "ru"
-                ? "Связаться"
-                : "Kontakt"}
+                  ? "Contact Us"
+                  : language === "ru"
+                    ? "Связаться"
+                    : "Kontakt"}
             </Link>
 
             {/* Mobile Menu Button */}
@@ -248,8 +281,8 @@ const Navbar = () => {
               onClick={toggleMenu}
               className={`md:hidden p-2 rounded-full transition-colors ${
                 scrolled
-                  ? "hover:bg-gray-200 dark:hover:bg-gray-700"
-                  : "hover:bg-gray-200/50 dark:hover:bg-gray-700/50"
+                  ? "hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "hover:bg-gray-200/30 dark:hover:bg-gray-800/30"
               }`}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               whileTap={{ scale: 0.9 }}
@@ -276,28 +309,55 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - with optimized animation */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             className="md:hidden bg-white dark:bg-gray-800 shadow-lg"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+              transition: {
+                height: { duration: 0.3 },
+                opacity: { duration: 0.2, delay: 0.1 },
+              },
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+              transition: {
+                height: { duration: 0.3 },
+                opacity: { duration: 0.2 },
+              },
+            }}
           >
             <div className="container mx-auto px-4 py-6">
-              <nav className="flex flex-col space-y-6">
-                {navLinks.map((link, index) => (
+              <motion.nav
+                className="flex flex-col space-y-6"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.1,
+                    },
+                  },
+                }}
+              >
+                {navLinks.map((link) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index }}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
                   >
                     <Link
                       href={link.href}
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={toggleMenu}
                       className={`block py-2 text-base font-medium tracking-wide border-b border-gray-100 dark:border-gray-700 ${
                         pathname === link.href
                           ? "text-emerald-600 dark:text-emerald-400"
@@ -310,47 +370,48 @@ const Navbar = () => {
                 ))}
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
                   className="pt-4"
                 >
                   <Link
                     href="/contact"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="w-full block py-3 text-center text-base font-medium text-white bg-emerald-600 rounded-md hover:bg-emerald-700"
+                    onClick={toggleMenu}
+                    className="w-full block py-3 text-center text-base font-medium text-white bg-emerald-600 rounded-md hover:bg-emerald-700 transition-colors"
                   >
                     {language === "lv"
                       ? "Sazināties ar mums"
                       : language === "en"
-                      ? "Contact Us"
-                      : language === "ru"
-                      ? "Связаться с нами"
-                      : "Kontaktieren Sie uns"}
+                        ? "Contact Us"
+                        : language === "ru"
+                          ? "Связаться с нами"
+                          : "Kontaktieren Sie uns"}
                   </Link>
                 </motion.div>
-              </nav>
+              </motion.nav>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
   );
-};
-
-export default Navbar;
+}
 
 // // components/Navbar.tsx
+
 // "use client";
 
 // import { useState, useEffect } from "react";
 // import Link from "next/link";
 // import { usePathname } from "next/navigation";
-// import { SunIcon, MoonIcon, MenuIcon, XIcon, GlobeIcon } from "./Icons";
+// import { SunIcon, MoonIcon, MenuIcon, XIcon, GlobeIcon } from "../Icons";
 // import { useTheme } from "@/context/ThemeContext";
 // import { useLanguage } from "@/context/LanguageContext";
+// import { motion, AnimatePresence } from "framer-motion";
 
-// // Language strings
+// // Language strings for the navbar
 // const translations = {
 //   lv: {
 //     home: "Sākums",
@@ -401,7 +462,7 @@ export default Navbar;
 
 //   useEffect(() => {
 //     const handleScroll = () => {
-//       if (window.scrollY > 10) {
+//       if (window.scrollY > 50) {
 //         setScrolled(true);
 //       } else {
 //         setScrolled(false);
@@ -437,18 +498,26 @@ export default Navbar;
 
 //   return (
 //     <header
-//       className={`fixed w-full z-50 transition-all duration-300 ${
+//       className={`fixed w-full z-50 transition-all duration-500 ${
 //         scrolled
-//           ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md"
-//           : "bg-transparent"
+//           ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md py-2"
+//           : "bg-transparent py-5"
 //       }`}
 //     >
-//       <div className="container mx-auto px-4">
-//         <div className="flex justify-between items-center h-16">
+//       <div
+//         className={`container mx-auto px-4 transition-all duration-500 ${
+//           scrolled ? "max-w-6xl" : "max-w-7xl"
+//         }`}
+//       >
+//         <div className="flex justify-between items-center">
 //           {/* Logo */}
 //           <Link
 //             href="/"
-//             className="text-xl font-serif font-bold tracking-tighter text-gray-900 dark:text-white"
+//             className={`text-xl font-serif font-bold tracking-tighter transition-all duration-300 ${
+//               scrolled
+//                 ? "text-emerald-600 dark:text-emerald-400"
+//                 : "text-gray-900 dark:text-white"
+//             }`}
 //           >
 //             PiemiņasRūpes
 //           </Link>
@@ -459,13 +528,20 @@ export default Navbar;
 //               <Link
 //                 key={link.href}
 //                 href={link.href}
-//                 className={`text-sm font-medium tracking-wide hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors ${
+//                 className={`text-sm font-medium tracking-wide relative overflow-hidden group transition-colors ${
 //                   pathname === link.href
 //                     ? "text-emerald-600 dark:text-emerald-400"
-//                     : "text-gray-700 dark:text-gray-300"
+//                     : scrolled
+//                       ? "text-gray-700 dark:text-gray-300"
+//                       : "text-gray-800 dark:text-gray-200"
 //                 }`}
 //               >
 //                 {link.label}
+//                 <span
+//                   className={`absolute left-0 bottom-0 w-full h-0.5 bg-emerald-500 transform scale-x-0 origin-left transition-transform group-hover:scale-x-100 duration-300 ease-out ${
+//                     pathname === link.href ? "scale-x-100" : ""
+//                   }`}
+//                 ></span>
 //               </Link>
 //             ))}
 //           </nav>
@@ -473,93 +549,193 @@ export default Navbar;
 //           {/* Controls */}
 //           <div className="flex items-center space-x-4">
 //             {/* Theme Toggle */}
-//             <button
+//             <motion.button
 //               onClick={toggleTheme}
-//               className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+//               className={`p-2 rounded-full transition-colors ${
+//                 scrolled
+//                   ? "hover:bg-gray-200 dark:hover:bg-gray-700"
+//                   : "hover:bg-gray-200/50 dark:hover:bg-gray-700/50"
+//               }`}
 //               aria-label={
 //                 theme === "dark"
 //                   ? "Switch to light mode"
 //                   : "Switch to dark mode"
 //               }
+//               whileTap={{ scale: 0.9 }}
 //             >
 //               {theme === "dark" ? (
 //                 <SunIcon className="h-5 w-5 text-gray-300" />
 //               ) : (
 //                 <MoonIcon className="h-5 w-5 text-gray-700" />
 //               )}
-//             </button>
+//             </motion.button>
 
 //             {/* Language Selector */}
 //             <div className="relative">
-//               <button
+//               <motion.button
 //                 onClick={toggleLangMenu}
-//                 className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex items-center"
+//                 className={`p-2 rounded-full flex items-center transition-colors ${
+//                   scrolled
+//                     ? "hover:bg-gray-200 dark:hover:bg-gray-700"
+//                     : "hover:bg-gray-200/50 dark:hover:bg-gray-700/50"
+//                 }`}
 //                 aria-label="Change language"
+//                 whileTap={{ scale: 0.95 }}
 //               >
-//                 <GlobeIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
-//                 <span className="ml-1 text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:inline">
+//                 <GlobeIcon
+//                   className={`h-5 w-5 ${
+//                     scrolled
+//                       ? "text-gray-700 dark:text-gray-300"
+//                       : "text-gray-800 dark:text-gray-200"
+//                   }`}
+//                 />
+//                 <span
+//                   className={`ml-1 text-sm font-medium hidden sm:inline ${
+//                     scrolled
+//                       ? "text-gray-700 dark:text-gray-300"
+//                       : "text-gray-800 dark:text-gray-200"
+//                   }`}
+//                 >
 //                   {language.toUpperCase()}
 //                 </span>
-//               </button>
+//               </motion.button>
 
-//               {isLangMenuOpen && (
-//                 <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50">
-//                   {languages.map((lang) => (
-//                     <button
-//                       key={lang.code}
-//                       onClick={() => handleLanguageChange(lang.code)}
-//                       className={`block w-full text-left px-4 py-2 text-sm ${
-//                         language === lang.code
-//                           ? "bg-gray-100 dark:bg-gray-700 text-emerald-600 dark:text-emerald-400"
-//                           : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-//                       }`}
-//                     >
-//                       {lang.name}
-//                     </button>
-//                   ))}
-//                 </div>
-//               )}
+//               <AnimatePresence>
+//                 {isLangMenuOpen && (
+//                   <motion.div
+//                     className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50"
+//                     initial={{ opacity: 0, y: -10 }}
+//                     animate={{ opacity: 1, y: 0 }}
+//                     exit={{ opacity: 0, y: -10 }}
+//                     transition={{ duration: 0.2 }}
+//                   >
+//                     {languages.map((lang) => (
+//                       <button
+//                         key={lang.code}
+//                         onClick={() => handleLanguageChange(lang.code)}
+//                         className={`block w-full text-left px-4 py-2 text-sm ${
+//                           language === lang.code
+//                             ? "bg-gray-100 dark:bg-gray-700 text-emerald-600 dark:text-emerald-400"
+//                             : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+//                         }`}
+//                       >
+//                         {lang.name}
+//                       </button>
+//                     ))}
+//                   </motion.div>
+//                 )}
+//               </AnimatePresence>
 //             </div>
 
+//             {/* Contact Button (desktop) */}
+//             <Link
+//               href="/contact"
+//               className={`hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 ${
+//                 scrolled
+//                   ? "bg-emerald-600 text-white hover:bg-emerald-700"
+//                   : "bg-white/90 text-emerald-700 hover:bg-white"
+//               }`}
+//             >
+//               {language === "lv"
+//                 ? "Sazināties"
+//                 : language === "en"
+//                   ? "Contact Us"
+//                   : language === "ru"
+//                     ? "Связаться"
+//                     : "Kontakt"}
+//             </Link>
+
 //             {/* Mobile Menu Button */}
-//             <button
+//             <motion.button
 //               onClick={toggleMenu}
-//               className="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+//               className={`md:hidden p-2 rounded-full transition-colors ${
+//                 scrolled
+//                   ? "hover:bg-gray-200 dark:hover:bg-gray-700"
+//                   : "hover:bg-gray-200/50 dark:hover:bg-gray-700/50"
+//               }`}
 //               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+//               whileTap={{ scale: 0.9 }}
 //             >
 //               {isMenuOpen ? (
-//                 <XIcon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+//                 <XIcon
+//                   className={`h-6 w-6 ${
+//                     scrolled
+//                       ? "text-gray-700 dark:text-gray-300"
+//                       : "text-gray-800 dark:text-gray-200"
+//                   }`}
+//                 />
 //               ) : (
-//                 <MenuIcon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+//                 <MenuIcon
+//                   className={`h-6 w-6 ${
+//                     scrolled
+//                       ? "text-gray-700 dark:text-gray-300"
+//                       : "text-gray-800 dark:text-gray-200"
+//                   }`}
+//                 />
 //               )}
-//             </button>
+//             </motion.button>
 //           </div>
 //         </div>
 //       </div>
 
 //       {/* Mobile Menu */}
-//       {isMenuOpen && (
-//         <div className="md:hidden bg-white dark:bg-gray-800 shadow-lg">
-//           <div className="container mx-auto px-4 py-4">
-//             <nav className="flex flex-col space-y-4">
-//               {navLinks.map((link) => (
-//                 <Link
-//                   key={link.href}
-//                   href={link.href}
-//                   onClick={() => setIsMenuOpen(false)}
-//                   className={`py-2 text-sm font-medium tracking-wide ${
-//                     pathname === link.href
-//                       ? "text-emerald-600 dark:text-emerald-400"
-//                       : "text-gray-700 dark:text-gray-300"
-//                   }`}
+//       <AnimatePresence>
+//         {isMenuOpen && (
+//           <motion.div
+//             className="md:hidden bg-white dark:bg-gray-800 shadow-lg"
+//             initial={{ opacity: 0, height: 0 }}
+//             animate={{ opacity: 1, height: "auto" }}
+//             exit={{ opacity: 0, height: 0 }}
+//             transition={{ duration: 0.3 }}
+//           >
+//             <div className="container mx-auto px-4 py-6">
+//               <nav className="flex flex-col space-y-6">
+//                 {navLinks.map((link, index) => (
+//                   <motion.div
+//                     key={link.href}
+//                     initial={{ opacity: 0, y: 20 }}
+//                     animate={{ opacity: 1, y: 0 }}
+//                     transition={{ delay: 0.1 * index }}
+//                   >
+//                     <Link
+//                       href={link.href}
+//                       onClick={() => setIsMenuOpen(false)}
+//                       className={`block py-2 text-base font-medium tracking-wide border-b border-gray-100 dark:border-gray-700 ${
+//                         pathname === link.href
+//                           ? "text-emerald-600 dark:text-emerald-400"
+//                           : "text-gray-700 dark:text-gray-300"
+//                       }`}
+//                     >
+//                       {link.label}
+//                     </Link>
+//                   </motion.div>
+//                 ))}
+
+//                 <motion.div
+//                   initial={{ opacity: 0, y: 20 }}
+//                   animate={{ opacity: 1, y: 0 }}
+//                   transition={{ delay: 0.5 }}
+//                   className="pt-4"
 //                 >
-//                   {link.label}
-//                 </Link>
-//               ))}
-//             </nav>
-//           </div>
-//         </div>
-//       )}
+//                   <Link
+//                     href="/contact"
+//                     onClick={() => setIsMenuOpen(false)}
+//                     className="w-full block py-3 text-center text-base font-medium text-white bg-emerald-600 rounded-md hover:bg-emerald-700"
+//                   >
+//                     {language === "lv"
+//                       ? "Sazināties ar mums"
+//                       : language === "en"
+//                         ? "Contact Us"
+//                         : language === "ru"
+//                           ? "Связаться с нами"
+//                           : "Kontaktieren Sie uns"}
+//                   </Link>
+//                 </motion.div>
+//               </nav>
+//             </div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
 //     </header>
 //   );
 // };

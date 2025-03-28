@@ -1,624 +1,799 @@
-// app/about/page.tsx
 "use client";
-import Link from "next/link";
-import { useLanguage } from "@/context/LanguageContext";
-import { HeartIcon, CheckIcon } from "@/components/Icons";
 
-// Language strings for the about page
-const translations = {
-  lv: {
-    title: "Par mums",
-    subtitle: "Profesionāli kapu kopšanas pakalpojumi ar cieņu un rūpēm",
-    ourStory: {
-      title: "Mūsu stāsts",
-      content: [
-        "PiemiņasRūpes ir radies no personīgās pieredzes un vēlmes palīdzēt citiem saglabāt cienīgu piemiņu saviem aizgājušajiem tuviniekiem. Mēs saprotam, cik grūti var būt rūpēties par kapa vietu, īpaši ja dzīvojat tālu vai jums ir ierobežots laiks.",
-        "Mūsu mērķis ir nodrošināt profesionālus kapu kopšanas pakalpojumus, kas atvieglo šo emocionālo nastu un ļauj jums būt drošiem, ka jūsu tuvinieku atdusas vietas tiek pienācīgi koptas.",
-        "Kopš darbības uzsākšanas mēs esam palīdzējuši daudzām ģimenēm visā Latvijā, nodrošinot individuālu pieeju katram klientam un katrai kapa vietai. Mēs lepojamies ar mūsu darbu un mūsu spēju sniegt sirdsmieru mūsu klientiem.",
-      ],
-    },
-    mission: {
-      title: "Mūsu misija",
-      content:
-        "Mūsu misija ir nodrošināt visaugstākās kvalitātes kapu kopšanas pakalpojumus, kas palīdz saglabāt cieņu un godu jūsu aizgājušo tuvinieku piemiņai. Mēs strādājam ar dziļu cieņu, rūpību un uzmanību pret detaļām, lai nodrošinātu, ka katra kapa vieta tiek kopta tā, it kā tā būtu mūsu pašu ģimenes locekļa atdusas vieta.",
-    },
-    values: {
-      title: "Mūsu vērtības",
+import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
+import Section from "@/components/ui/Section";
+import Stats from "@/components/home/Stats";
+import Testimonials from "@/components/home/Testimonials";
+import CTABanner from "@/components/CTABanner";
+import { motion } from "framer-motion";
+
+export default function AboutPage() {
+  const { language } = useLanguage();
+
+  // Page content based on language
+  const content = {
+    lv: {
+      title: "Par mums",
+      subtitle: "Mēs esam SkyGarden - profesionālā kapu kopšanas komanda",
+      missionTitle: "Mūsu misija",
+      missionText:
+        "Mūsu misija ir nodrošināt augstākās kvalitātes kapu kopšanas pakalpojumus, saglabājot jūsu tuvinieku piemiņas vietas cieņpilnā stāvoklī. Mēs saprotam, cik svarīga ir tuvinieku piemiņas godināšana, un mūsu mērķis ir sniegt jums mierinājumu un atbalstu šajā procesā.",
+      historyTitle: "Mūsu vēsture",
+      historyText:
+        "SkyGarden aizsākās 2019. gadā kā neliela ģimenes uzņēmuma iniciatīva, kad dibinātāji saprata, ka daudziem cilvēkiem, kuri dzīvo tālu no savu tuvinieku apbedījuma vietām, ir nepieciešams uzticams pakalpojums, kas par tām rūpētos. Gadu gaitā mēs esam paplašinājuši savu pakalpojumu klāstu un ieguvuši pieredzi, kas ļauj mums nodrošināt visaptverošu un profesionālu kapu kopšanu.",
+      valuesTitle: "Mūsu vērtības",
       values: [
         {
           title: "Cieņa",
           description:
-            "Mēs strādājam ar dziļu cieņu pret aizgājušajiem un viņu tuviniekiem.",
+            "Mēs strādājam ar dziļu cieņu pret jūsu aizgājušajiem tuviniekiem un viņu piemiņas vietām.",
         },
         {
           title: "Kvalitāte",
           description:
-            "Mēs neaprobežojamies tikai ar pamatuzdevumu izpildi, bet cenšamies pārsniegt klientu gaidas.",
+            "Mūsu darba pamatā ir augsti kvalitātes standarti un detalizēta pieeja.",
         },
         {
           title: "Uzticamība",
           description:
-            "Mūsu klienti var paļauties, ka darbs tiks paveikts rūpīgi un laikā.",
+            "Jūs varat paļauties, ka pakalpojums tiks veikts rūpīgi un savlaicīgi.",
         },
         {
-          title: "Empātija",
+          title: "Transparence",
           description:
-            "Mēs saprotam, cik svarīga ir piemiņa, un izturamies ar sirsnību un sapratni.",
+            "Mūsu darbā ir svarīga atklāta komunikācija un regulāras atskaites.",
         },
       ],
-    },
-    team: {
-      title: "Mūsu komanda",
-      content:
-        "Mūsu komandu veido pieredzējuši profesionāļi, kas specializējas kapu kopšanā un labiekārtošanā. Katrs komandas loceklis ir apmācīts strādāt ar cieņu un rūpību, lai nodrošinātu visaugstāko pakalpojumu kvalitāti.",
-      members: [
+      teamTitle: "Mūsu komanda",
+      teamText:
+        "Mūsu komandā strādā pieredzējuši speciālisti, kuri ir apņēmušies nodrošināt augstākās kvalitātes pakalpojumus. Katrs komandas loceklis ir apmācīts un kvalificēts savā jomā, ar izpratni par darba specifiku un nozīmīgumu.",
+      teamMembers: [
         {
-          name: "Jānis Bērziņš",
+          name: "Kārlis Bērziņš",
           role: "Dibinātājs un vadītājs",
-          bio: "Jānim ir vairāk nekā 10 gadu pieredze ainavu arhitektūrā un dārzkopībā. Viņa aizraušanās ar detaļām un kvalitāti ir PiemiņasRūpes pamatā.",
+          description:
+            "Kārlis ir uzņēmuma pamatlicējs ar vairāk nekā 10 gadu pieredzi dārzkopībā un ainavu arhitektūrā.",
         },
         {
-          name: "Anna Kļaviņa",
-          role: "Klientu apkalpošanas vadītāja",
-          bio: "Anna ir atbildīga par visu klientu pieprasījumu koordinēšanu un nodrošina, ka katra klienta vajadzības tiek uzklausītas un īstenotas.",
+          name: "Anna Kalniņa",
+          role: "Klientu attiecību vadītāja",
+          description:
+            "Anna rūpējas par to, lai mūsu klienti saņemtu izcilu servisu un personalizētu pieeju.",
         },
         {
-          name: "Mārtiņš Ozols",
-          role: "Galvenais speciālists",
-          bio: "Mārtiņam ir padziļinātas zināšanas par pieminekļu atjaunošanu un kopšanu. Viņš vada mūsu specializēto darbu komandu.",
+          name: "Mārtiņš Zariņš",
+          role: "Darbu vadītājs",
+          description:
+            "Mārtiņš vada mūsu lauka darbus un nodrošina, ka visi pakalpojumi tiek veikti augstākajā kvalitātē.",
         },
       ],
     },
-    whyChooseUs: {
-      title: "Kāpēc izvēlēties mūs",
-      reasons: [
-        {
-          title: "Profesionalitāte",
-          description:
-            "Mūsu komanda sastāv no pieredzējušiem speciālistiem ar padziļinātām zināšanām.",
-        },
-        {
-          title: "Individuāla pieeja",
-          description:
-            "Mēs piedāvājam personalizētus risinājumus, kas atbilst jūsu vajadzībām un vēlmēm.",
-        },
-        {
-          title: "Caurspīdīgums",
-          description:
-            "Mēs nodrošinām detalizētas atskaites un fotogrāfijas pirms un pēc mūsu darba.",
-        },
-        {
-          title: "Uzticamība",
-          description:
-            "Mūsu klienti var paļauties, ka darbs tiks paveikts laikā un ar augstu kvalitāti.",
-        },
-        {
-          title: "Pieejamība",
-          description:
-            "Mēs esam pieejami, lai atbildētu uz jūsu jautājumiem un risinātu jūsu bažas.",
-        },
-        {
-          title: "Vides apziņa",
-          description:
-            "Mēs izmantojam videi draudzīgus produktus un metodes mūsu darbā.",
-        },
-      ],
-    },
-    cta: {
-      title: "Gatavi sākt?",
-      description:
-        "Sazinieties ar mums, lai uzzinātu vairāk par mūsu pakalpojumiem un kā mēs varam palīdzēt.",
-      button: "Sazinieties ar mums",
-    },
-  },
-  en: {
-    title: "About Us",
-    subtitle: "Professional grave maintenance services with respect and care",
-    ourStory: {
-      title: "Our Story",
-      content: [
-        "PiemiņasRūpes was born from personal experience and a desire to help others maintain a dignified memory of their departed loved ones. We understand how difficult it can be to care for a grave site, especially if you live far away or have limited time.",
-        "Our goal is to provide professional grave maintenance services that ease this emotional burden and allow you to be confident that your loved ones' resting places are properly cared for.",
-        "Since our inception, we have helped many families throughout Latvia, providing an individual approach to each client and each grave site. We take pride in our work and our ability to provide peace of mind to our clients.",
-      ],
-    },
-    mission: {
-      title: "Our Mission",
-      content:
-        "Our mission is to provide the highest quality grave maintenance services that help preserve dignity and honor for the memory of your departed loved ones. We work with deep respect, care, and attention to detail to ensure that each grave site is maintained as if it were the resting place of our own family member.",
-    },
-    values: {
-      title: "Our Values",
+    en: {
+      title: "About Us",
+      subtitle: "We are SkyGarden - a professional grave maintenance team",
+      missionTitle: "Our Mission",
+      missionText:
+        "Our mission is to provide the highest quality grave care services, maintaining your loved ones' memorial sites in a dignified condition. We understand how important it is to honor the memory of loved ones, and our goal is to provide you with comfort and support in this process.",
+      historyTitle: "Our History",
+      historyText:
+        "SkyGarden started in 2019 as a small family business initiative, when the founders realized that many people who live far from their loved ones' burial sites need a reliable service to care for them. Over the years, we have expanded our range of services and gained experience that allows us to provide comprehensive and professional grave care.",
+      valuesTitle: "Our Values",
       values: [
         {
           title: "Respect",
           description:
-            "We work with deep respect for the departed and their loved ones.",
+            "We work with deep respect for your departed loved ones and their memorial sites.",
         },
         {
           title: "Quality",
           description:
-            "We don't just fulfill the basic tasks, but strive to exceed client expectations.",
+            "Our work is based on high quality standards and a detailed approach.",
         },
         {
           title: "Reliability",
           description:
-            "Our clients can rely on the work being done thoroughly and on time.",
-        },
-        {
-          title: "Empathy",
-          description:
-            "We understand the importance of remembrance and treat each case with warmth and understanding.",
-        },
-      ],
-    },
-    team: {
-      title: "Our Team",
-      content:
-        "Our team consists of experienced professionals who specialize in grave maintenance and improvement. Each team member is trained to work with respect and care to ensure the highest quality of service.",
-      members: [
-        {
-          name: "Jānis Bērziņš",
-          role: "Founder and Director",
-          bio: "Jānis has more than 10 years of experience in landscape architecture and gardening. His passion for detail and quality is the foundation of PiemiņasRūpes.",
-        },
-        {
-          name: "Anna Kļaviņa",
-          role: "Customer Service Manager",
-          bio: "Anna is responsible for coordinating all client requests and ensures that each client's needs are heard and implemented.",
-        },
-        {
-          name: "Mārtiņš Ozols",
-          role: "Chief Specialist",
-          bio: "Mārtiņš has in-depth knowledge of monument restoration and maintenance. He leads our specialized work team.",
-        },
-      ],
-    },
-    whyChooseUs: {
-      title: "Why Choose Us",
-      reasons: [
-        {
-          title: "Professionalism",
-          description:
-            "Our team consists of experienced specialists with in-depth knowledge.",
-        },
-        {
-          title: "Individual Approach",
-          description:
-            "We offer personalized solutions that meet your needs and wishes.",
+            "You can rely on our service to be performed carefully and in a timely manner.",
         },
         {
           title: "Transparency",
           description:
-            "We provide detailed reports and before/after photographs of our work.",
+            "Open communication and regular reports are important in our work.",
+        },
+      ],
+      teamTitle: "Our Team",
+      teamText:
+        "Our team consists of experienced specialists who are committed to providing the highest quality services. Each team member is trained and qualified in their field, with an understanding of the specifics and significance of the work.",
+      teamMembers: [
+        {
+          name: "Kārlis Bērziņš",
+          role: "Founder and Manager",
+          description:
+            "Kārlis is the founder of the company with more than 10 years of experience in gardening and landscape architecture.",
         },
         {
-          title: "Reliability",
+          name: "Anna Kalniņa",
+          role: "Customer Relations Manager",
           description:
-            "Our clients can rely on the work being done on time and with high quality.",
+            "Anna ensures that our clients receive excellent service and a personalized approach.",
         },
         {
-          title: "Accessibility",
+          name: "Mārtiņš Zariņš",
+          role: "Work Manager",
           description:
-            "We are available to answer your questions and address your concerns.",
-        },
-        {
-          title: "Environmental Awareness",
-          description:
-            "We use environmentally friendly products and methods in our work.",
+            "Mārtiņš manages our field work and ensures that all services are performed at the highest quality.",
         },
       ],
     },
-    cta: {
-      title: "Ready to get started?",
-      description:
-        "Contact us to learn more about our services and how we can help.",
-      button: "Contact Us",
-    },
-  },
-  ru: {
-    title: "О нас",
-    subtitle:
-      "Профессиональные услуги по уходу за могилами с уважением и заботой",
-    ourStory: {
-      title: "Наша история",
-      content: [
-        "PiemiņasRūpes родился из личного опыта и желания помочь другим сохранить достойную память о своих ушедших близких. Мы понимаем, насколько трудно может быть ухаживать за могилой, особенно если вы живете далеко или у вас ограниченное время.",
-        "Наша цель - предоставлять профессиональные услуги по уходу за могилами, которые облегчают это эмоциональное бремя и позволяют вам быть уверенными, что места упокоения ваших близких должным образом ухожены.",
-        "С момента нашего основания мы помогли многим семьям по всей Латвии, обеспечивая индивидуальный подход к каждому клиенту и каждой могиле. Мы гордимся нашей работой и нашей способностью обеспечить душевное спокойствие нашим клиентам.",
-      ],
-    },
-    mission: {
-      title: "Наша миссия",
-      content:
-        "Наша миссия - предоставлять услуги по уходу за могилами высочайшего качества, которые помогают сохранить достоинство и честь памяти ваших ушедших близких. Мы работаем с глубоким уважением, заботой и вниманием к деталям, чтобы гарантировать, что каждая могила поддерживается так, как если бы это было место упокоения члена нашей собственной семьи.",
-    },
-    values: {
-      title: "Наши ценности",
+    ru: {
+      title: "О нас",
+      subtitle: "Мы SkyGarden - профессиональная команда по уходу за могилами",
+      missionTitle: "Наша миссия",
+      missionText:
+        "Наша миссия - предоставлять услуги по уходу за могилами высочайшего качества, поддерживая места памяти ваших близких в достойном состоянии. Мы понимаем, насколько важно чтить память близких, и наша цель - обеспечить вам утешение и поддержку в этом процессе.",
+      historyTitle: "Наша история",
+      historyText:
+        "SkyGarden начался в 2019 году как инициатива небольшого семейного бизнеса, когда основатели поняли, что многим людям, живущим далеко от мест захоронения своих близких, нужна надежная служба, которая бы о них заботилась. За эти годы мы расширили спектр наших услуг и приобрели опыт, который позволяет нам обеспечивать комплексный и профессиональный уход за могилами.",
+      valuesTitle: "Наши ценности",
       values: [
         {
           title: "Уважение",
           description:
-            "Мы работаем с глубоким уважением к усопшим и их близким.",
+            "Мы работаем с глубоким уважением к вашим ушедшим близким и местам их памяти.",
         },
         {
           title: "Качество",
           description:
-            "Мы не просто выполняем основные задачи, но стремимся превзойти ожидания клиентов.",
+            "Наша работа основана на высоких стандартах качества и детальном подходе.",
         },
         {
           title: "Надежность",
           description:
-            "Наши клиенты могут рассчитывать на то, что работа будет выполнена тщательно и вовремя.",
-        },
-        {
-          title: "Эмпатия",
-          description:
-            "Мы понимаем важность памяти и относимся к каждому случаю с теплотой и пониманием.",
-        },
-      ],
-    },
-    team: {
-      title: "Наша команда",
-      content:
-        "Наша команда состоит из опытных профессионалов, специализирующихся на уходе за могилами и их улучшении. Каждый член команды обучен работать с уважением и заботой, чтобы обеспечить высочайшее качество обслуживания.",
-      members: [
-        {
-          name: "Янис Берзиньш",
-          role: "Основатель и директор",
-          bio: "У Яниса более 10 лет опыта в ландшафтной архитектуре и садоводстве. Его страсть к деталям и качеству является основой PiemiņasRūpes.",
-        },
-        {
-          name: "Анна Клявиня",
-          role: "Менеджер по обслуживанию клиентов",
-          bio: "Анна отвечает за координацию всех запросов клиентов и обеспечивает учет и реализацию потребностей каждого клиента.",
-        },
-        {
-          name: "Мартиньш Озолс",
-          role: "Главный специалист",
-          bio: "Мартиньш обладает глубокими знаниями в области реставрации и ухода за памятниками. Он руководит нашей специализированной рабочей командой.",
-        },
-      ],
-    },
-    whyChooseUs: {
-      title: "Почему выбирают нас",
-      reasons: [
-        {
-          title: "Профессионализм",
-          description:
-            "Наша команда состоит из опытных специалистов с глубокими знаниями.",
-        },
-        {
-          title: "Индивидуальный подход",
-          description:
-            "Мы предлагаем персонализированные решения, отвечающие вашим потребностям и пожеланиям.",
+            "Вы можете положиться на то, что наши услуги будут выполнены тщательно и своевременно.",
         },
         {
           title: "Прозрачность",
           description:
-            "Мы предоставляем подробные отчеты и фотографии до и после нашей работы.",
+            "Открытое общение и регулярные отчеты важны в нашей работе.",
+        },
+      ],
+      teamTitle: "Наша команда",
+      teamText:
+        "В нашей команде работают опытные специалисты, которые стремятся предоставлять услуги высочайшего качества. Каждый член команды обучен и квалифицирован в своей области, с пониманием специфики и значимости работы.",
+      teamMembers: [
+        {
+          name: "Карлис Берзиньш",
+          role: "Основатель и руководитель",
+          description:
+            "Карлис является основателем компании с более чем 10-летним опытом работы в садоводстве и ландшафтной архитектуре.",
         },
         {
-          title: "Надежность",
+          name: "Анна Калниня",
+          role: "Менеджер по работе с клиентами",
           description:
-            "Наши клиенты могут рассчитывать на то, что работа будет выполнена вовремя и с высоким качеством.",
+            "Анна заботится о том, чтобы наши клиенты получали отличный сервис и персонализированный подход.",
         },
         {
-          title: "Доступность",
+          name: "Мартиньш Зариньш",
+          role: "Руководитель работ",
           description:
-            "Мы доступны для ответов на ваши вопросы и решения ваших проблем.",
-        },
-        {
-          title: "Экологическая осознанность",
-          description:
-            "Мы используем экологически чистые продукты и методы в нашей работе.",
+            "Мартиньш руководит нашими полевыми работами и обеспечивает выполнение всех услуг на высочайшем уровне качества.",
         },
       ],
     },
-    cta: {
-      title: "Готовы начать?",
-      description:
-        "Свяжитесь с нами, чтобы узнать больше о наших услугах и о том, как мы можем вам помочь.",
-      button: "Связаться с нами",
-    },
-  },
-  de: {
-    title: "Über uns",
-    subtitle: "Professionelle Grabpflegedienste mit Respekt und Sorgfalt",
-    ourStory: {
-      title: "Unsere Geschichte",
-      content: [
-        "PiemiņasRūpes entstand aus persönlicher Erfahrung und dem Wunsch, anderen zu helfen, ein würdiges Andenken an ihre verstorbenen Angehörigen zu bewahren. Wir verstehen, wie schwierig es sein kann, eine Grabstätte zu pflegen, besonders wenn Sie weit weg leben oder wenig Zeit haben.",
-        "Unser Ziel ist es, professionelle Grabpflegedienste anzubieten, die diese emotionale Belastung erleichtern und Ihnen die Gewissheit geben, dass die Ruhestätten Ihrer Lieben angemessen gepflegt werden.",
-        "Seit unserer Gründung haben wir vielen Familien in ganz Lettland geholfen und dabei jeden Kunden und jede Grabstätte individuell betreut. Wir sind stolz auf unsere Arbeit und unsere Fähigkeit, unseren Kunden Seelenfrieden zu geben.",
-      ],
-    },
-    mission: {
-      title: "Unsere Mission",
-      content:
-        "Unsere Mission ist es, Grabpflegedienste von höchster Qualität anzubieten, die dazu beitragen, die Würde und Ehre im Andenken an Ihre verstorbenen Angehörigen zu bewahren. Wir arbeiten mit tiefem Respekt, Sorgfalt und Aufmerksamkeit für Details, um sicherzustellen, dass jede Grabstätte so gepflegt wird, als wäre es die Ruhestätte eines eigenen Familienmitglieds.",
-    },
-    values: {
-      title: "Unsere Werte",
+    de: {
+      title: "Über uns",
+      subtitle: "Wir sind SkyGarden - ein professionelles Team für Grabpflege",
+      missionTitle: "Unsere Mission",
+      missionText:
+        "Unsere Mission ist es, Grabpflegedienste von höchster Qualität anzubieten und die Gedenkstätten Ihrer Lieben in einem würdigen Zustand zu erhalten. Wir verstehen, wie wichtig es ist, das Andenken an Ihre Lieben zu ehren, und unser Ziel ist es, Ihnen Trost und Unterstützung in diesem Prozess zu bieten.",
+      historyTitle: "Unsere Geschichte",
+      historyText:
+        "SkyGarden begann 2019 als Initiative eines kleinen Familienunternehmens, als die Gründer erkannten, dass viele Menschen, die weit entfernt von den Grabstätten ihrer Lieben leben, einen zuverlässigen Service benötigen, der sich um sie kümmert. Im Laufe der Jahre haben wir unser Dienstleistungsangebot erweitert und Erfahrungen gesammelt, die es uns ermöglichen, umfassende und professionelle Grabpflege anzubieten.",
+      valuesTitle: "Unsere Werte",
       values: [
         {
           title: "Respekt",
           description:
-            "Wir arbeiten mit tiefem Respekt für die Verstorbenen und ihre Angehörigen.",
+            "Wir arbeiten mit tiefem Respekt für Ihre verstorbenen Angehörigen und ihre Gedenkstätten.",
         },
         {
           title: "Qualität",
           description:
-            "Wir erfüllen nicht nur die grundlegenden Aufgaben, sondern bemühen uns, die Erwartungen der Kunden zu übertreffen.",
+            "Unsere Arbeit basiert auf hohen Qualitätsstandards und einem detaillierten Ansatz.",
         },
         {
           title: "Zuverlässigkeit",
           description:
-            "Unsere Kunden können sich darauf verlassen, dass die Arbeit gründlich und pünktlich erledigt wird.",
-        },
-        {
-          title: "Empathie",
-          description:
-            "Wir verstehen die Bedeutung des Gedenkens und behandeln jeden Fall mit Wärme und Verständnis.",
-        },
-      ],
-    },
-    team: {
-      title: "Unser Team",
-      content:
-        "Unser Team besteht aus erfahrenen Fachleuten, die sich auf Grabpflege und -verbesserung spezialisiert haben. Jedes Teammitglied ist darauf geschult, mit Respekt und Sorgfalt zu arbeiten, um die höchste Servicequalität zu gewährleisten.",
-      members: [
-        {
-          name: "Jānis Bērziņš",
-          role: "Gründer und Direktor",
-          bio: "Jānis hat mehr als 10 Jahre Erfahrung in Landschaftsarchitektur und Gartenbau. Seine Leidenschaft für Details und Qualität ist die Grundlage von PiemiņasRūpes.",
-        },
-        {
-          name: "Anna Kļaviņa",
-          role: "Kundendienstleiterin",
-          bio: "Anna ist für die Koordination aller Kundenanfragen zuständig und stellt sicher, dass die Bedürfnisse jedes Kunden gehört und umgesetzt werden.",
-        },
-        {
-          name: "Mārtiņš Ozols",
-          role: "Chefexperte",
-          bio: "Mārtiņš verfügt über fundierte Kenntnisse in der Denkmalrestaurierung und -pflege. Er leitet unser spezialisiertes Arbeitsteam.",
-        },
-      ],
-    },
-    whyChooseUs: {
-      title: "Warum uns wählen",
-      reasons: [
-        {
-          title: "Professionalität",
-          description:
-            "Unser Team besteht aus erfahrenen Spezialisten mit fundiertem Wissen.",
-        },
-        {
-          title: "Individueller Ansatz",
-          description:
-            "Wir bieten personalisierte Lösungen, die Ihren Bedürfnissen und Wünschen entsprechen.",
+            "Sie können sich darauf verlassen, dass unser Service sorgfältig und zeitnah durchgeführt wird.",
         },
         {
           title: "Transparenz",
           description:
-            "Wir erstellen detaillierte Berichte und Vorher/Nachher-Fotos unserer Arbeit.",
+            "Offene Kommunikation und regelmäßige Berichte sind in unserer Arbeit wichtig.",
+        },
+      ],
+      teamTitle: "Unser Team",
+      teamText:
+        "Unser Team besteht aus erfahrenen Spezialisten, die sich der Bereitstellung von Dienstleistungen höchster Qualität verschrieben haben. Jedes Teammitglied ist in seinem Bereich ausgebildet und qualifiziert und versteht die Besonderheiten und Bedeutung der Arbeit.",
+      teamMembers: [
+        {
+          name: "Kārlis Bērziņš",
+          role: "Gründer und Manager",
+          description:
+            "Kārlis ist der Gründer des Unternehmens mit mehr als 10 Jahren Erfahrung in Gartenbau und Landschaftsarchitektur.",
         },
         {
-          title: "Zuverlässigkeit",
+          name: "Anna Kalniņa",
+          role: "Kundenbeziehungsmanagerin",
           description:
-            "Unsere Kunden können sich darauf verlassen, dass die Arbeit pünktlich und in hoher Qualität erledigt wird.",
+            "Anna sorgt dafür, dass unsere Kunden einen ausgezeichneten Service und einen personalisierten Ansatz erhalten.",
         },
         {
-          title: "Erreichbarkeit",
+          name: "Mārtiņš Zariņš",
+          role: "Arbeitsleiter",
           description:
-            "Wir stehen zur Verfügung, um Ihre Fragen zu beantworten und auf Ihre Anliegen einzugehen.",
-        },
-        {
-          title: "Umweltbewusstsein",
-          description:
-            "Wir verwenden umweltfreundliche Produkte und Methoden in unserer Arbeit.",
+            "Mārtiņš leitet unsere Feldarbeit und stellt sicher, dass alle Dienstleistungen in höchster Qualität ausgeführt werden.",
         },
       ],
     },
-    cta: {
-      title: "Bereit anzufangen?",
-      description:
-        "Kontaktieren Sie uns, um mehr über unsere Dienstleistungen zu erfahren und wie wir Ihnen helfen können.",
-      button: "Kontaktieren Sie uns",
-    },
-  },
-};
+  };
 
-export default function AboutPage() {
-  const { language } = useLanguage();
-  const t = translations[language as keyof typeof translations];
+  // Select content based on current language
+  const t = content[language as keyof typeof content];
 
   return (
-    <div>
+    <div className="bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900 md:py-20 lg:py-24">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
-              {t.title}
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              {t.subtitle}
-            </p>
-          </div>
+      <Section bgColor="white" spacing="large">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h1
+            className="text-4xl font-serif font-bold text-gray-900 dark:text-white md:text-5xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {t.title}
+          </motion.h1>
+          <motion.p
+            className="mt-6 text-xl text-gray-600 dark:text-gray-300"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            {t.subtitle}
+          </motion.p>
         </div>
-      </section>
+      </Section>
 
-      {/* Our Story Section */}
-      <section className="py-16 bg-white dark:bg-gray-800 md:py-20">
-        <div className="container">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
-                {t.ourStory.title}
+      {/* Mission and Story Section */}
+      <Section bgColor="light" spacing="large">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+                {t.missionTitle}
               </h2>
-              <div className="mt-6 space-y-6">
-                {t.ourStory.content.map((paragraph, index) => (
-                  <p key={index} className="text-gray-600 dark:text-gray-300">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                {t.missionText}
+              </p>
 
-            {/* Image placeholder */}
-            <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:h-full">
-              <div className="absolute inset-0 bg-gray-300 dark:bg-gray-700">
-                <div className="flex items-center justify-center w-full h-full text-gray-500 dark:text-gray-400">
-                  {language === "lv" && "Mūsu stāsta attēls"}
-                  {language === "en" && "Our story image"}
-                  {language === "ru" && "Изображение нашей истории"}
-                  {language === "de" && "Bild unserer Geschichte"}
-                </div>
-              </div>
-            </div>
+              <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+                {t.historyTitle}
+              </h2>
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                {t.historyText}
+              </p>
+            </motion.div>
           </div>
-        </div>
-      </section>
 
-      {/* Mission Section */}
-      <section className="py-16 bg-emerald-600 dark:bg-emerald-700 md:py-20">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-white sm:text-3xl">
-              {t.mission.title}
-            </h2>
-            <p className="mt-6 text-lg text-emerald-50">{t.mission.content}</p>
-          </div>
+          <motion.div
+            className="relative rounded-lg overflow-hidden shadow-xl"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Image
+              src="/images/about-us.jpg"
+              alt="SkyGarden Team"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          </motion.div>
         </div>
-      </section>
+      </Section>
+
+      {/* Stats Section */}
+      <Stats />
 
       {/* Values Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900 md:py-20">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
-              {t.values.title}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 mt-12 sm:grid-cols-2 md:grid-cols-4">
-            {t.values.values.map((value, index) => (
-              <div
-                key={index}
-                className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
-              >
-                <div className="p-3 mb-4 rounded-full bg-emerald-100 dark:bg-emerald-900/30 w-fit">
-                  <HeartIcon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
+      <Section bgColor="white" spacing="large">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+            {t.valuesTitle}
+          </h2>
+          <div className="w-20 h-1 mx-auto bg-emerald-500 mb-10"></div>
         </div>
-      </section>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {t.values.map((value, index) => (
+            <motion.div
+              key={index}
+              className="bg-emerald-50 dark:bg-emerald-900/20 p-8 rounded-lg border border-emerald-100 dark:border-emerald-800/30"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                {value.title}
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                {value.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
 
       {/* Team Section */}
-      <section className="py-16 bg-white dark:bg-gray-800 md:py-20">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
-              {t.team.title}
+      <Section bgColor="light" spacing="large">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+              {t.teamTitle}
             </h2>
-            <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
-              {t.team.content}
+            <div className="w-20 h-1 mx-auto bg-emerald-500 mb-6"></div>
+            <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+              {t.teamText}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {t.team.members.map((member, index) => (
-              <div
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {t.teamMembers.map((member, index) => (
+              <motion.div
                 key={index}
-                className="p-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm dark:bg-gray-900 dark:border-gray-700"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                {/* Member image placeholder */}
-                <div className="relative w-24 h-24 mx-auto overflow-hidden rounded-full bg-gray-300 dark:bg-gray-700">
-                  <div className="flex items-center justify-center w-full h-full text-gray-500 dark:text-gray-400">
-                    {member.name.split(" ")[0].charAt(0)}
-                    {member.name.split(" ")[1].charAt(0)}
-                  </div>
+                <div className="h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                  <span className="text-gray-500 dark:text-gray-400">
+                    {member.name}
+                  </span>
                 </div>
-
-                <h3 className="mt-4 text-xl font-bold text-center text-gray-900 dark:text-white">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-sm text-center text-emerald-600 dark:text-emerald-400">
-                  {member.role}
-                </p>
-                <p className="mt-4 text-gray-600 dark:text-gray-300">
-                  {member.bio}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900 md:py-20">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
-              {t.whyChooseUs.title}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
-            {t.whyChooseUs.reasons.map((reason, index) => (
-              <div
-                key={index}
-                className="flex p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
-              >
-                <div className="flex-shrink-0 mr-4">
-                  <div className="p-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30">
-                    <CheckIcon className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
-                    {reason.title}
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                    {member.name}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    {reason.description}
+                  <p className="text-emerald-600 dark:text-emerald-400 font-medium mb-4">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {member.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </Section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* CTA Section */}
-      <section className="py-16 bg-white dark:bg-gray-800 md:py-20">
-        <div className="container">
-          <div className="px-6 py-10 text-center bg-emerald-600 rounded-lg dark:bg-emerald-700 md:py-16 md:px-12">
-            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              {t.cta.title}
-            </h2>
-            <p className="max-w-2xl mx-auto mt-4 text-lg text-emerald-50">
-              {t.cta.description}
-            </p>
-            <div className="mt-8">
-              <Link
-                href="/contact"
-                className="inline-block px-6 py-3 text-base font-medium text-emerald-700 bg-white border border-transparent rounded-md shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-700"
-              >
-                {t.cta.button}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Section bgColor="white" spacing="large">
+        <CTABanner variant="primary" buttonLink="/contact" />
+      </Section>
     </div>
   );
 }
+
+// "use client";
+
+// import Image from "next/image";
+// import { useLanguage } from "@/context/LanguageContext";
+// import Section from "@/components/ui/Section";
+// import Stats from "@/components/home/Stats";
+// import Testimonials from "@/components/home/Testimonials";
+// import CTABanner from "@/components/CTABanner";
+// import { motion } from "framer-motion";
+
+// export default function AboutPage() {
+//   const { language } = useLanguage();
+
+//   // Page content based on language
+//   const content = {
+//     lv: {
+//       title: "Par mums",
+//       subtitle: "Mēs esam SkyGarden - profesionālā kapu kopšanas komanda",
+//       missionTitle: "Mūsu misija",
+//       missionText:
+//         "Mūsu misija ir nodrošināt augstākās kvalitātes kapu kopšanas pakalpojumus, saglabājot jūsu tuvinieku piemiņas vietas cieņpilnā stāvoklī. Mēs saprotam, cik svarīga ir tuvinieku piemiņas godināšana, un mūsu mērķis ir sniegt jums mierinājumu un atbalstu šajā procesā.",
+//       historyTitle: "Mūsu vēsture",
+//       historyText:
+//         "SkyGarden aizsākās 2019. gadā kā neliela ģimenes uzņēmuma iniciatīva, kad dibinātāji saprata, ka daudziem cilvēkiem, kuri dzīvo tālu no savu tuvinieku apbedījuma vietām, ir nepieciešams uzticams pakalpojums, kas par tām rūpētos. Gadu gaitā mēs esam paplašinājuši savu pakalpojumu klāstu un ieguvuši pieredzi, kas ļauj mums nodrošināt visaptverošu un profesionālu kapu kopšanu.",
+//       valuesTitle: "Mūsu vērtības",
+//       values: [
+//         {
+//           title: "Cieņa",
+//           description:
+//             "Mēs strādājam ar dziļu cieņu pret jūsu aizgājušajiem tuviniekiem un viņu piemiņas vietām.",
+//         },
+//         {
+//           title: "Kvalitāte",
+//           description:
+//             "Mūsu darba pamatā ir augsti kvalitātes standarti un detalizēta pieeja.",
+//         },
+//         {
+//           title: "Uzticamība",
+//           description:
+//             "Jūs varat paļauties, ka pakalpojums tiks veikts rūpīgi un savlaicīgi.",
+//         },
+//         {
+//           title: "Transparence",
+//           description:
+//             "Mūsu darbā ir svarīga atklāta komunikācija un regulāras atskaites.",
+//         },
+//       ],
+//       teamTitle: "Mūsu komanda",
+//       teamText:
+//         "Mūsu komandā strādā pieredzējuši speciālisti, kuri ir apņēmušies nodrošināt augstākās kvalitātes pakalpojumus. Katrs komandas loceklis ir apmācīts un kvalificēts savā jomā, ar izpratni par darba specifiku un nozīmīgumu.",
+//       teamMembers: [
+//         {
+//           name: "Kārlis Bērziņš",
+//           role: "Dibinātājs un vadītājs",
+//           description:
+//             "Kārlis ir uzņēmuma pamatlicējs ar vairāk nekā 10 gadu pieredzi dārzkopībā un ainavu arhitektūrā.",
+//         },
+//         {
+//           name: "Anna Kalniņa",
+//           role: "Klientu attiecību vadītāja",
+//           description:
+//             "Anna rūpējas par to, lai mūsu klienti saņemtu izcilu servisu un personalizētu pieeju.",
+//         },
+//         {
+//           name: "Mārtiņš Zariņš",
+//           role: "Darbu vadītājs",
+//           description:
+//             "Mārtiņš vada mūsu lauka darbus un nodrošina, ka visi pakalpojumi tiek veikti augstākajā kvalitātē.",
+//         },
+//       ],
+//     },
+//     en: {
+//       title: "About Us",
+//       subtitle: "We are SkyGarden - a professional grave maintenance team",
+//       missionTitle: "Our Mission",
+//       missionText:
+//         "Our mission is to provide the highest quality grave care services, maintaining your loved ones' memorial sites in a dignified condition. We understand how important it is to honor the memory of loved ones, and our goal is to provide you with comfort and support in this process.",
+//       historyTitle: "Our History",
+//       historyText:
+//         "SkyGarden started in 2019 as a small family business initiative, when the founders realized that many people who live far from their loved ones' burial sites need a reliable service to care for them. Over the years, we have expanded our range of services and gained experience that allows us to provide comprehensive and professional grave care.",
+//       valuesTitle: "Our Values",
+//       values: [
+//         {
+//           title: "Respect",
+//           description:
+//             "We work with deep respect for your departed loved ones and their memorial sites.",
+//         },
+//         {
+//           title: "Quality",
+//           description:
+//             "Our work is based on high quality standards and a detailed approach.",
+//         },
+//         {
+//           title: "Reliability",
+//           description:
+//             "You can rely on our service to be performed carefully and in a timely manner.",
+//         },
+//         {
+//           title: "Transparency",
+//           description:
+//             "Open communication and regular reports are important in our work.",
+//         },
+//       ],
+//       teamTitle: "Our Team",
+//       teamText:
+//         "Our team consists of experienced specialists who are committed to providing the highest quality services. Each team member is trained and qualified in their field, with an understanding of the specifics and significance of the work.",
+//       teamMembers: [
+//         {
+//           name: "Kārlis Bērziņš",
+//           role: "Founder and Manager",
+//           description:
+//             "Kārlis is the founder of the company with more than 10 years of experience in gardening and landscape architecture.",
+//         },
+//         {
+//           name: "Anna Kalniņa",
+//           role: "Customer Relations Manager",
+//           description:
+//             "Anna ensures that our clients receive excellent service and a personalized approach.",
+//         },
+//         {
+//           name: "Mārtiņš Zariņš",
+//           role: "Work Manager",
+//           description:
+//             "Mārtiņš manages our field work and ensures that all services are performed at the highest quality.",
+//         },
+//       ],
+//     },
+//     ru: {
+//       title: "О нас",
+//       subtitle: "Мы SkyGarden - профессиональная команда по уходу за могилами",
+//       missionTitle: "Наша миссия",
+//       missionText:
+//         "Наша миссия - предоставлять услуги по уходу за могилами высочайшего качества, поддерживая места памяти ваших близких в достойном состоянии. Мы понимаем, насколько важно чтить память близких, и наша цель - обеспечить вам утешение и поддержку в этом процессе.",
+//       historyTitle: "Наша история",
+//       historyText:
+//         "SkyGarden начался в 2019 году как инициатива небольшого семейного бизнеса, когда основатели поняли, что многим людям, живущим далеко от мест захоронения своих близких, нужна надежная служба, которая бы о них заботилась. За эти годы мы расширили спектр наших услуг и приобрели опыт, который позволяет нам обеспечивать комплексный и профессиональный уход за могилами.",
+//       valuesTitle: "Наши ценности",
+//       values: [
+//         {
+//           title: "Уважение",
+//           description:
+//             "Мы работаем с глубоким уважением к вашим ушедшим близким и местам их памяти.",
+//         },
+//         {
+//           title: "Качество",
+//           description:
+//             "Наша работа основана на высоких стандартах качества и детальном подходе.",
+//         },
+//         {
+//           title: "Надежность",
+//           description:
+//             "Вы можете положиться на то, что наши услуги будут выполнены тщательно и своевременно.",
+//         },
+//         {
+//           title: "Прозрачность",
+//           description:
+//             "Открытое общение и регулярные отчеты важны в нашей работе.",
+//         },
+//       ],
+//       teamTitle: "Наша команда",
+//       teamText:
+//         "В нашей команде работают опытные специалисты, которые стремятся предоставлять услуги высочайшего качества. Каждый член команды обучен и квалифицирован в своей области, с пониманием специфики и значимости работы.",
+//       teamMembers: [
+//         {
+//           name: "Карлис Берзиньш",
+//           role: "Основатель и руководитель",
+//           description:
+//             "Карлис является основателем компании с более чем 10-летним опытом работы в садоводстве и ландшафтной архитектуре.",
+//         },
+//         {
+//           name: "Анна Калниня",
+//           role: "Менеджер по работе с клиентами",
+//           description:
+//             "Анна заботится о том, чтобы наши клиенты получали отличный сервис и персонализированный подход.",
+//         },
+//         {
+//           name: "Мартиньш Зариньш",
+//           role: "Руководитель работ",
+//           description:
+//             "Мартиньш руководит нашими полевыми работами и обеспечивает выполнение всех услуг на высочайшем уровне качества.",
+//         },
+//       ],
+//     },
+//     de: {
+//       title: "Über uns",
+//       subtitle: "Wir sind SkyGarden - ein professionelles Team für Grabpflege",
+//       missionTitle: "Unsere Mission",
+//       missionText:
+//         "Unsere Mission ist es, Grabpflegedienste von höchster Qualität anzubieten und die Gedenkstätten Ihrer Lieben in einem würdigen Zustand zu erhalten. Wir verstehen, wie wichtig es ist, das Andenken an Ihre Lieben zu ehren, und unser Ziel ist es, Ihnen Trost und Unterstützung in diesem Prozess zu bieten.",
+//       historyTitle: "Unsere Geschichte",
+//       historyText:
+//         "SkyGarden begann 2019 als Initiative eines kleinen Familienunternehmens, als die Gründer erkannten, dass viele Menschen, die weit entfernt von den Grabstätten ihrer Lieben leben, einen zuverlässigen Service benötigen, der sich um sie kümmert. Im Laufe der Jahre haben wir unser Dienstleistungsangebot erweitert und Erfahrungen gesammelt, die es uns ermöglichen, umfassende und professionelle Grabpflege anzubieten.",
+//       valuesTitle: "Unsere Werte",
+//       values: [
+//         {
+//           title: "Respekt",
+//           description:
+//             "Wir arbeiten mit tiefem Respekt für Ihre verstorbenen Angehörigen und ihre Gedenkstätten.",
+//         },
+//         {
+//           title: "Qualität",
+//           description:
+//             "Unsere Arbeit basiert auf hohen Qualitätsstandards und einem detaillierten Ansatz.",
+//         },
+//         {
+//           title: "Zuverlässigkeit",
+//           description:
+//             "Sie können sich darauf verlassen, dass unser Service sorgfältig und zeitnah durchgeführt wird.",
+//         },
+//         {
+//           title: "Transparenz",
+//           description:
+//             "Offene Kommunikation und regelmäßige Berichte sind in unserer Arbeit wichtig.",
+//         },
+//       ],
+//       teamTitle: "Unser Team",
+//       teamText:
+//         "Unser Team besteht aus erfahrenen Spezialisten, die sich der Bereitstellung von Dienstleistungen höchster Qualität verschrieben haben. Jedes Teammitglied ist in seinem Bereich ausgebildet und qualifiziert und versteht die Besonderheiten und Bedeutung der Arbeit.",
+//       teamMembers: [
+//         {
+//           name: "Kārlis Bērziņš",
+//           role: "Gründer und Manager",
+//           description:
+//             "Kārlis ist der Gründer des Unternehmens mit mehr als 10 Jahren Erfahrung in Gartenbau und Landschaftsarchitektur.",
+//         },
+//         {
+//           name: "Anna Kalniņa",
+//           role: "Kundenbeziehungsmanagerin",
+//           description:
+//             "Anna sorgt dafür, dass unsere Kunden einen ausgezeichneten Service und einen personalisierten Ansatz erhalten.",
+//         },
+//         {
+//           name: "Mārtiņš Zariņš",
+//           role: "Arbeitsleiter",
+//           description:
+//             "Mārtiņš leitet unsere Feldarbeit und stellt sicher, dass alle Dienstleistungen in höchster Qualität ausgeführt werden.",
+//         },
+//       ],
+//     },
+//   };
+
+//   // Select content based on current language
+//   const t = content[language as keyof typeof content];
+
+//   return (
+//     <div className="bg-gray-50 dark:bg-gray-900">
+//       {/* Hero Section */}
+//       <Section bgColor="white" spacing="large">
+//         <div className="max-w-4xl mx-auto text-center">
+//           <motion.h1
+//             className="text-4xl font-serif font-bold text-gray-900 dark:text-white md:text-5xl"
+//             initial={{ opacity: 0, y: -20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5 }}
+//           >
+//             {t.title}
+//           </motion.h1>
+//           <motion.p
+//             className="mt-6 text-xl text-gray-600 dark:text-gray-300"
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.5, delay: 0.1 }}
+//           >
+//             {t.subtitle}
+//           </motion.p>
+//         </div>
+//       </Section>
+
+//       {/* Mission and Story Section */}
+//       <Section bgColor="light" spacing="large">
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+//           <div>
+//             <motion.div
+//               initial={{ opacity: 0, x: -30 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 0.6 }}
+//             >
+//               <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+//                 {t.missionTitle}
+//               </h2>
+//               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+//                 {t.missionText}
+//               </p>
+
+//               <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+//                 {t.historyTitle}
+//               </h2>
+//               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+//                 {t.historyText}
+//               </p>
+//             </motion.div>
+//           </div>
+
+//           <motion.div
+//             className="relative rounded-lg overflow-hidden shadow-xl"
+//             initial={{ opacity: 0, scale: 0.9 }}
+//             animate={{ opacity: 1, scale: 1 }}
+//             transition={{ duration: 0.6, delay: 0.2 }}
+//           >
+//             <Image
+//               src="/images/about-us.jpg"
+//               alt="SkyGarden Team"
+//               width={600}
+//               height={400}
+//               className="w-full h-auto object-cover"
+//             />
+//             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+//           </motion.div>
+//         </div>
+//       </Section>
+
+//       {/* Stats Section */}
+//       <Stats />
+
+//       {/* Values Section */}
+//       <Section bgColor="white" spacing="large">
+//         <div className="max-w-4xl mx-auto text-center mb-16">
+//           <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+//             {t.valuesTitle}
+//           </h2>
+//           <div className="w-20 h-1 mx-auto bg-emerald-500 mb-10"></div>
+//         </div>
+
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+//           {t.values.map((value, index) => (
+//             <motion.div
+//               key={index}
+//               className="bg-emerald-50 dark:bg-emerald-900/20 p-8 rounded-lg border border-emerald-100 dark:border-emerald-800/30"
+//               initial={{ opacity: 0, y: 30 }}
+//               whileInView={{ opacity: 1, y: 0 }}
+//               viewport={{ once: true }}
+//               transition={{ duration: 0.5, delay: index * 0.1 }}
+//             >
+//               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+//                 {value.title}
+//               </h3>
+//               <p className="text-gray-700 dark:text-gray-300">
+//                 {value.description}
+//               </p>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </Section>
+
+//       {/* Team Section */}
+//       <Section bgColor="light" spacing="large">
+//         <div className="max-w-4xl mx-auto">
+//           <div className="text-center mb-16">
+//             <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+//               {t.teamTitle}
+//             </h2>
+//             <div className="w-20 h-1 mx-auto bg-emerald-500 mb-6"></div>
+//             <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+//               {t.teamText}
+//             </p>
+//           </div>
+
+//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+//             {t.teamMembers.map((member, index) => (
+//               <motion.div
+//                 key={index}
+//                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+//                 initial={{ opacity: 0, y: 30 }}
+//                 whileInView={{ opacity: 1, y: 0 }}
+//                 viewport={{ once: true }}
+//                 transition={{ duration: 0.5, delay: index * 0.1 }}
+//               >
+//                 <div className="h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+//                   <span className="text-gray-500 dark:text-gray-400">
+//                     {member.name}
+//                   </span>
+//                 </div>
+//                 <div className="p-6">
+//                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+//                     {member.name}
+//                   </h3>
+//                   <p className="text-emerald-600 dark:text-emerald-400 font-medium mb-4">
+//                     {member.role}
+//                   </p>
+//                   <p className="text-gray-600 dark:text-gray-300">
+//                     {member.description}
+//                   </p>
+//                 </div>
+//               </motion.div>
+//             ))}
+//           </div>
+//         </div>
+//       </Section>
+
+//       {/* Testimonials Section */}
+//       <Testimonials />
+
+//       {/* CTA Section */}
+//       <Section bgColor="white" spacing="large">
+//         <CTABanner variant="primary" buttonLink="/contact" />
+//       </Section>
+//     </div>
+//   );
+// }

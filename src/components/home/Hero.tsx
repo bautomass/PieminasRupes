@@ -2,152 +2,200 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import Button from "@/components/ui/Button";
 import { translations } from "@/lib/translations";
+import {
+  SparklesIcon,
+  FlowerIcon,
+  ToolsIcon,
+  HeartIcon,
+  MapPinIcon,
+} from "@/components/Icons";
 
 export default function Hero() {
   const { language } = useLanguage();
   const t = translations[language as keyof typeof translations];
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Subtle parallax effect
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const clipPathValue = "polygon(0 0, 100% 0, 100% 85%, 0 100%)";
+  const services = [
+    {
+      id: "regular",
+      icon: SparklesIcon,
+      title: t.services.regular.title,
+      description: t.services.regular.description,
+    },
+    {
+      id: "seasonal",
+      icon: FlowerIcon,
+      title: t.services.seasonal.title,
+      description: t.services.seasonal.description,
+    },
+    {
+      id: "restoration",
+      icon: ToolsIcon,
+      title: t.services.restoration.title,
+      description: t.services.restoration.description,
+    },
+    {
+      id: "custom",
+      icon: HeartIcon,
+      title: t.services.custom.title,
+      description: t.services.custom.description,
+    },
+  ];
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden"
-      style={{ clipPath: clipPathValue }}
+      className="relative w-full bg-gray-50 dark:bg-gray-900 overflow-hidden"
     >
-      {/* Background image with dynamic overlay */}
-      <motion.div
-        className="absolute inset-0 z-0 h-full w-full"
-        style={{ y: backgroundY }}
-      >
-        <Image
-          src="/images/hero-bg.png"
-          alt="Memorial Garden"
-          fill
-          priority
-          sizes="100vw"
-          className="h-full w-full object-cover object-center"
-          quality={100}
-        />
-        {/* Angular gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent"></div>
-      </motion.div>
-
-      {/* Angled layers */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-950/80 to-transparent"
-          style={{ clipPath: "polygon(0 30%, 100% 0, 100% 100%, 0% 100%)" }}
-        ></div>
-        <div
-          className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-emerald-900/30 to-transparent"
-          style={{ clipPath: "polygon(0 40%, 100% 10%, 100% 100%, 0% 100%)" }}
-        ></div>
-      </div>
-
-      {/* Content container */}
-      <div className="relative z-10 flex h-full w-full">
-        {/* Left content column */}
-        <div className="flex h-full w-full flex-col justify-center p-8 lg:pl-24 lg:w-3/5">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="mb-6 flex items-center">
-              <div className="h-[3px] w-12 rounded-full bg-emerald-400 mr-4"></div>
-              <span className="text-sm font-medium uppercase tracking-widest text-emerald-300">
-                PiemiņasRūpes
-              </span>
-            </div>
-
-            <h1 className="mb-6 font-serif text-5xl font-bold tracking-wide text-white drop-shadow-md md:text-6xl">
-              {t.hero.title}
-            </h1>
-
-            <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/90 drop-shadow-sm">
-              {t.hero.subtitle}
-            </p>
-
-            <div className="flex flex-wrap items-center gap-6">
-              <Button
-                href="/contact"
-                variant="primary"
-                size="lg"
-                className="bg-emerald-600 px-8 py-4 text-base font-medium shadow-lg hover:bg-emerald-700"
-              >
-                {t.hero.cta}
-              </Button>
-
-              <Button
-                href="/services"
-                variant="outline"
-                size="lg"
-                className="border-white/30 px-8 py-4 text-base font-medium text-white backdrop-blur-sm hover:bg-white/10"
-              >
-                {t.hero.secondaryLink}
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Right floating element */}
-        <div className="hidden lg:flex items-center justify-center w-2/5 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="absolute right-24 w-80 h-80 rounded-full bg-gradient-to-br from-emerald-500/10 to-emerald-800/10 border border-emerald-400/20 backdrop-blur-sm flex items-center justify-center"
-          >
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Image */}
+          <div className="order-2 lg:order-1 relative">
             <motion.div
-              animate={{
-                scale: [1, 1.05, 1],
-                rotate: [0, 2, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-              className="text-center p-12"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative rounded-xl overflow-hidden shadow-xl h-[400px] md:h-[500px]"
             >
-              <div className="mb-4 flex justify-center">
-                <div className="h-12 w-12 rounded-full flex items-center justify-center bg-emerald-500/30 backdrop-blur-md border border-emerald-500/50">
-                  <svg
-                    className="h-6 w-6 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M5 13l4 4L19 7"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+              <Image
+                src="https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743146265/tradicionala-latvijas-kapsetu-kopsana-pirms-pec-atjaunosanas_sinvbh.jpg"
+                alt="SkyGarden memorial care services"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+                quality={100}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <p className="text-lg font-serif italic">
+                    {t.memorial.imageCaption}
+                  </p>
                 </div>
               </div>
-              <h3 className="text-xl font-medium text-white mb-2">
-                {t.why.respect.title}
-              </h3>
-              <p className="text-white/80 text-sm line-clamp-2">
-                {t.why.respect.description.substring(0, 80)}...
-              </p>
             </motion.div>
-          </motion.div>
+          </div>
+
+          {/* Right side - Content */}
+          <div className="order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="mb-6 flex items-center">
+                <div className="h-[3px] w-12 rounded-full bg-emerald-500 mr-4"></div>
+                <span className="text-sm font-medium uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+                  SkyGarden
+                </span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6">
+                {t.hero.title}
+              </h1>
+
+              <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8 max-w-xl">
+                {t.hero.subtitle}
+              </p>
+
+              <div className="flex flex-wrap items-center gap-6 mb-12">
+                <Button
+                  href="/contact"
+                  variant="primary"
+                  size="lg"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-md"
+                >
+                  {t.hero.cta}
+                </Button>
+
+                <Button
+                  href="/services"
+                  variant="outline"
+                  size="lg"
+                  className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-500 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
+                >
+                  {t.hero.secondaryLink}
+                </Button>
+              </div>
+
+              {/* Service Areas - Improved styling */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-gradient-to-r from-emerald-50 to-white dark:from-emerald-900/20 dark:to-gray-800 rounded-lg p-6 shadow-lg border border-emerald-100 dark:border-emerald-800/30 mb-6"
+              >
+                <h3 className="font-medium text-emerald-700 dark:text-emerald-300 mb-4 flex items-center">
+                  <span className="bg-emerald-100 dark:bg-emerald-800/40 p-1.5 rounded-full mr-3">
+                    <MapPinIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  </span>
+                  {t.memorial.serviceArea}
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {t.memorial.serviceAreas.map((area, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center bg-white dark:bg-gray-700 px-4 py-2 rounded-full shadow-sm border border-gray-100 dark:border-gray-600"
+                    >
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 mr-2"></div>
+                      <span className="text-gray-700 dark:text-gray-200">
+                        {area}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Services Preview */}
+        <div className="mt-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white">
+              {t.services.title}
+            </h2>
+            <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
+              {t.services.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="p-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 w-fit mb-4">
+                  <service.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Button
+              href="/services"
+              variant="outline"
+              size="lg"
+              className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-500 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
+            >
+              {t.services.all}
+            </Button>
+          </div>
         </div>
       </div>
     </section>
@@ -158,210 +206,185 @@ export default function Hero() {
 
 // import { useRef } from "react";
 // import Image from "next/image";
-// import { motion, useScroll, useTransform } from "framer-motion";
+// import { motion } from "framer-motion";
 // import { useLanguage } from "@/context/LanguageContext";
 // import Button from "@/components/ui/Button";
 // import { translations } from "@/lib/translations";
+// import {
+//   SparklesIcon,
+//   FlowerIcon,
+//   ToolsIcon,
+//   HeartIcon,
+// } from "@/components/Icons";
 
 // export default function Hero() {
 //   const { language } = useLanguage();
 //   const t = translations[language as keyof typeof translations];
 //   const sectionRef = useRef<HTMLElement>(null);
 
-//   // Subtle parallax effect
-//   const { scrollYProgress } = useScroll({
-//     target: sectionRef,
-//     offset: ["start start", "end start"],
-//   });
-
-//   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+//   const services = [
+//     {
+//       id: "regular",
+//       icon: SparklesIcon,
+//       title: t.services.regular.title,
+//       description: t.services.regular.description,
+//     },
+//     {
+//       id: "seasonal",
+//       icon: FlowerIcon,
+//       title: t.services.seasonal.title,
+//       description: t.services.seasonal.description,
+//     },
+//     {
+//       id: "restoration",
+//       icon: ToolsIcon,
+//       title: t.services.restoration.title,
+//       description: t.services.restoration.description,
+//     },
+//     {
+//       id: "custom",
+//       icon: HeartIcon,
+//       title: t.services.custom.title,
+//       description: t.services.custom.description,
+//     },
+//   ];
 
 //   return (
 //     <section
 //       ref={sectionRef}
-//       className="relative h-screen w-full overflow-hidden"
+//       className="relative w-full bg-gray-50 dark:bg-gray-900 overflow-hidden"
 //     >
-//       {/* Background image with gradient overlay */}
-//       <motion.div
-//         className="absolute inset-0 z-0 h-full w-full"
-//         style={{ y: backgroundY }}
-//       >
-//         <Image
-//           src="/images/hero-bg.png"
-//           alt="Memorial Garden"
-//           fill
-//           priority
-//           sizes="100vw"
-//           className="h-full w-full object-cover object-center"
-//           quality={100}
-//         />
-//         {/* Cinematic gradient overlay */}
-//         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
-//       </motion.div>
-
-//       {/* Two column layout */}
-//       <div className="relative z-10 grid h-full w-full grid-cols-1 lg:grid-cols-5">
-//         {/* Left column - Main content */}
-//         <div className="col-span-3 flex h-full flex-col justify-center px-8 md:px-16 lg:px-24">
-//           <motion.div
-//             initial={{ opacity: 0, x: -30 }}
-//             animate={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 1, delay: 0.2 }}
-//           >
-//             <div className="mb-2 inline-block overflow-hidden">
-//               <motion.span
-//                 initial={{ y: "100%" }}
-//                 animate={{ y: 0 }}
-//                 transition={{ duration: 0.7, delay: 0.1 }}
-//                 className="block text-sm font-medium uppercase tracking-widest text-emerald-400"
-//               >
-//                 PiemiņasRūpes
-//               </motion.span>
-//             </div>
-
-//             <div className="overflow-hidden">
-//               <motion.h1
-//                 initial={{ y: "100%" }}
-//                 animate={{ y: 0 }}
-//                 transition={{ duration: 0.8, delay: 0.2 }}
-//                 className="mb-4 block font-serif text-4xl font-bold tracking-wide text-white drop-shadow-md md:text-5xl lg:text-6xl"
-//               >
-//                 {t.hero.title}
-//               </motion.h1>
-//             </div>
-
+//       <div className="container mx-auto px-4 py-16 md:py-24">
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+//           {/* Left side - Image */}
+//           <div className="order-2 lg:order-1 relative">
 //             <motion.div
-//               initial={{ opacity: 0, width: 0 }}
-//               animate={{ opacity: 1, width: "100px" }}
-//               transition={{ duration: 1, delay: 0.6 }}
-//               className="mb-6 h-[2px] bg-emerald-400"
-//             />
-
-//             <motion.p
-//               initial={{ opacity: 0 }}
-//               animate={{ opacity: 1 }}
-//               transition={{ duration: 1, delay: 0.7 }}
-//               className="mb-8 max-w-xl text-lg leading-relaxed text-white/90 drop-shadow-sm"
+//               initial={{ opacity: 0, scale: 0.95 }}
+//               animate={{ opacity: 1, scale: 1 }}
+//               transition={{ duration: 0.8 }}
+//               className="relative rounded-xl overflow-hidden shadow-xl h-[400px] md:h-[500px]"
 //             >
-//               {t.hero.subtitle}
-//             </motion.p>
+//               <Image
+//                 src="https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743146265/tradicionala-latvijas-kapsetu-kopsana-pirms-pec-atjaunosanas_sinvbh.jpg"
+//                 alt="SkyGarden memorial care services"
+//                 fill
+//                 priority
+//                 sizes="(max-width: 768px) 100vw, 50vw"
+//                 className="object-cover object-center"
+//                 quality={100}
+//               />
+//               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent">
+//                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+//                   <p className="text-lg font-serif italic">
+//                     {t.memorial.imageCaption}
+//                   </p>
+//                 </div>
+//               </div>
+//             </motion.div>
+//           </div>
 
+//           {/* Right side - Content */}
+//           <div className="order-1 lg:order-2">
 //             <motion.div
 //               initial={{ opacity: 0, y: 20 }}
 //               animate={{ opacity: 1, y: 0 }}
-//               transition={{ duration: 0.8, delay: 0.9 }}
-//               className="flex flex-wrap gap-4"
+//               transition={{ duration: 0.8 }}
 //             >
-//               <Button
-//                 href="/contact"
-//                 variant="primary"
-//                 size="lg"
-//                 className="bg-emerald-600 px-8 py-4 text-base font-medium shadow-lg hover:bg-emerald-700"
-//               >
-//                 {t.hero.cta}
-//                 <svg
-//                   className="ml-2 inline-block h-5 w-5"
-//                   fill="none"
-//                   stroke="currentColor"
-//                   viewBox="0 0 24 24"
-//                 >
-//                   <path
-//                     strokeLinecap="round"
-//                     strokeLinejoin="round"
-//                     strokeWidth={2}
-//                     d="M17 8l4 4m0 0l-4 4m4-4H3"
-//                   />
-//                 </svg>
-//               </Button>
+//               <div className="mb-6 flex items-center">
+//                 <div className="h-[3px] w-12 rounded-full bg-emerald-500 mr-4"></div>
+//                 <span className="text-sm font-medium uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+//                   SkyGarden
+//                 </span>
+//               </div>
 
-//               <Button
-//                 href="/services"
-//                 variant="outline"
-//                 size="lg"
-//                 className="border-white/80 px-8 py-4 text-base font-medium text-white backdrop-blur-sm hover:bg-white/10"
-//               >
-//                 {t.hero.secondaryLink}
-//               </Button>
+//               <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6">
+//                 {t.hero.title}
+//               </h1>
+
+//               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8 max-w-xl">
+//                 {t.hero.subtitle}
+//               </p>
+
+//               <div className="flex flex-wrap items-center gap-6 mb-12">
+//                 <Button
+//                   href="/contact"
+//                   variant="primary"
+//                   size="lg"
+//                   className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-md"
+//                 >
+//                   {t.hero.cta}
+//                 </Button>
+
+//                 <Button
+//                   href="/services"
+//                   variant="outline"
+//                   size="lg"
+//                   className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-500 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
+//                 >
+//                   {t.hero.secondaryLink}
+//                 </Button>
+//               </div>
+
+//               {/* Service Areas */}
+//               <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md border border-gray-100 dark:border-gray-700 mb-6">
+//                 <h3 className="font-medium text-gray-900 dark:text-white mb-2">
+//                   {t.memorial.serviceArea}
+//                 </h3>
+//                 <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300">
+//                   {t.memorial.serviceAreas.map((area, index) => (
+//                     <li key={index}>{area}</li>
+//                   ))}
+//                 </ul>
+//               </div>
 //             </motion.div>
-//           </motion.div>
+//           </div>
 //         </div>
 
-//         {/* Right column - Feature highlights */}
-//         <div className="col-span-2 hidden lg:flex items-center p-16">
-//           <div className="grid grid-cols-1 gap-6">
-//             {[
-//               { title: t.why.respect.title, desc: t.why.respect.description },
-//               { title: t.why.quality.title, desc: t.why.quality.description },
-//               {
-//                 title: t.why.individual.title,
-//                 desc: t.why.individual.description,
-//               },
-//             ].map((feature, i) => (
+//         {/* Services Preview */}
+//         <div className="mt-16">
+//           <div className="text-center mb-12">
+//             <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white">
+//               {t.services.title}
+//             </h2>
+//             <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
+//               {t.services.subtitle}
+//             </p>
+//           </div>
+
+//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+//             {services.map((service, index) => (
 //               <motion.div
-//                 key={i}
-//                 initial={{ opacity: 0, x: 30 }}
-//                 animate={{ opacity: 1, x: 0 }}
-//                 transition={{ duration: 0.7, delay: 0.4 + i * 0.2 }}
-//                 className="flex items-center gap-4 rounded-lg bg-white/5 backdrop-blur-sm p-4 border border-white/10"
+//                 key={service.id}
+//                 initial={{ opacity: 0, y: 30 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.6, delay: index * 0.1 }}
+//                 className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
 //               >
-//                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-500/30">
-//                   <svg
-//                     className="h-5 w-5 text-emerald-400"
-//                     viewBox="0 0 24 24"
-//                     fill="none"
-//                   >
-//                     <path
-//                       d="M5 13l4 4L19 7"
-//                       stroke="currentColor"
-//                       strokeWidth="2"
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                     />
-//                   </svg>
+//                 <div className="p-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 w-fit mb-4">
+//                   <service.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
 //                 </div>
-//                 <div>
-//                   <h3 className="text-white font-medium">{feature.title}</h3>
-//                   <p className="text-sm text-white/70 line-clamp-1">
-//                     {feature.desc.substring(0, 60)}...
-//                   </p>
-//                 </div>
+//                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+//                   {service.title}
+//                 </h3>
+//                 <p className="text-gray-700 dark:text-gray-300">
+//                   {service.description}
+//                 </p>
 //               </motion.div>
 //             ))}
 //           </div>
-//         </div>
-//       </div>
 
-//       {/* Scroll indicator */}
-//       <motion.div
-//         initial={{ opacity: 0 }}
-//         animate={{ opacity: 1 }}
-//         transition={{ duration: 1, delay: 1.2 }}
-//         className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer transition-opacity duration-300 hover:opacity-90"
-//         onClick={() =>
-//           window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
-//         }
-//       >
-//         <div className="flex flex-col items-center">
-//           <span className="mb-2 text-sm font-medium text-white opacity-90">
-//             {t.hero.scrollText}
-//           </span>
-//           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-500/20 backdrop-blur-sm transition-colors duration-300 animate-pulse">
-//             <svg
-//               className="h-5 w-5 text-white"
-//               fill="none"
-//               viewBox="0 0 24 24"
-//               stroke="currentColor"
+//           <div className="text-center mt-10">
+//             <Button
+//               href="/services"
+//               variant="outline"
+//               size="lg"
+//               className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-500 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
 //             >
-//               <path
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth={2}
-//                 d="M19 14l-7 7m0 0l-7-7m7 7V3"
-//               />
-//             </svg>
+//               {t.services.all}
+//             </Button>
 //           </div>
 //         </div>
-//       </motion.div>
+//       </div>
 //     </section>
 //   );
 // }
