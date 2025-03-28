@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import Section from "@/components/ui/Section";
-import Stats from "@/components/home/Stats";
-import Testimonials from "@/components/home/Testimonials";
 import CTABanner from "@/components/CTABanner";
 import { motion } from "framer-motion";
 
@@ -45,29 +43,6 @@ export default function AboutPage() {
             "Mūsu darbā ir svarīga atklāta komunikācija un regulāras atskaites.",
         },
       ],
-      teamTitle: "Mūsu komanda",
-      teamText:
-        "Mūsu komandā strādā pieredzējuši speciālisti, kuri ir apņēmušies nodrošināt augstākās kvalitātes pakalpojumus. Katrs komandas loceklis ir apmācīts un kvalificēts savā jomā, ar izpratni par darba specifiku un nozīmīgumu.",
-      teamMembers: [
-        {
-          name: "Kārlis Bērziņš",
-          role: "Dibinātājs un vadītājs",
-          description:
-            "Kārlis ir uzņēmuma pamatlicējs ar vairāk nekā 10 gadu pieredzi dārzkopībā un ainavu arhitektūrā.",
-        },
-        {
-          name: "Anna Kalniņa",
-          role: "Klientu attiecību vadītāja",
-          description:
-            "Anna rūpējas par to, lai mūsu klienti saņemtu izcilu servisu un personalizētu pieeju.",
-        },
-        {
-          name: "Mārtiņš Zariņš",
-          role: "Darbu vadītājs",
-          description:
-            "Mārtiņš vada mūsu lauka darbus un nodrošina, ka visi pakalpojumi tiek veikti augstākajā kvalitātē.",
-        },
-      ],
     },
     en: {
       title: "About Us",
@@ -99,29 +74,6 @@ export default function AboutPage() {
           title: "Transparency",
           description:
             "Open communication and regular reports are important in our work.",
-        },
-      ],
-      teamTitle: "Our Team",
-      teamText:
-        "Our team consists of experienced specialists who are committed to providing the highest quality services. Each team member is trained and qualified in their field, with an understanding of the specifics and significance of the work.",
-      teamMembers: [
-        {
-          name: "Kārlis Bērziņš",
-          role: "Founder and Manager",
-          description:
-            "Kārlis is the founder of the company with more than 10 years of experience in gardening and landscape architecture.",
-        },
-        {
-          name: "Anna Kalniņa",
-          role: "Customer Relations Manager",
-          description:
-            "Anna ensures that our clients receive excellent service and a personalized approach.",
-        },
-        {
-          name: "Mārtiņš Zariņš",
-          role: "Work Manager",
-          description:
-            "Mārtiņš manages our field work and ensures that all services are performed at the highest quality.",
         },
       ],
     },
@@ -157,29 +109,6 @@ export default function AboutPage() {
             "Открытое общение и регулярные отчеты важны в нашей работе.",
         },
       ],
-      teamTitle: "Наша команда",
-      teamText:
-        "В нашей команде работают опытные специалисты, которые стремятся предоставлять услуги высочайшего качества. Каждый член команды обучен и квалифицирован в своей области, с пониманием специфики и значимости работы.",
-      teamMembers: [
-        {
-          name: "Карлис Берзиньш",
-          role: "Основатель и руководитель",
-          description:
-            "Карлис является основателем компании с более чем 10-летним опытом работы в садоводстве и ландшафтной архитектуре.",
-        },
-        {
-          name: "Анна Калниня",
-          role: "Менеджер по работе с клиентами",
-          description:
-            "Анна заботится о том, чтобы наши клиенты получали отличный сервис и персонализированный подход.",
-        },
-        {
-          name: "Мартиньш Зариньш",
-          role: "Руководитель работ",
-          description:
-            "Мартиньш руководит нашими полевыми работами и обеспечивает выполнение всех услуг на высочайшем уровне качества.",
-        },
-      ],
     },
     de: {
       title: "Über uns",
@@ -211,29 +140,6 @@ export default function AboutPage() {
           title: "Transparenz",
           description:
             "Offene Kommunikation und regelmäßige Berichte sind in unserer Arbeit wichtig.",
-        },
-      ],
-      teamTitle: "Unser Team",
-      teamText:
-        "Unser Team besteht aus erfahrenen Spezialisten, die sich der Bereitstellung von Dienstleistungen höchster Qualität verschrieben haben. Jedes Teammitglied ist in seinem Bereich ausgebildet und qualifiziert und versteht die Besonderheiten und Bedeutung der Arbeit.",
-      teamMembers: [
-        {
-          name: "Kārlis Bērziņš",
-          role: "Gründer und Manager",
-          description:
-            "Kārlis ist der Gründer des Unternehmens mit mehr als 10 Jahren Erfahrung in Gartenbau und Landschaftsarchitektur.",
-        },
-        {
-          name: "Anna Kalniņa",
-          role: "Kundenbeziehungsmanagerin",
-          description:
-            "Anna sorgt dafür, dass unsere Kunden einen ausgezeichneten Service und einen personalisierten Ansatz erhalten.",
-        },
-        {
-          name: "Mārtiņš Zariņš",
-          role: "Arbeitsleiter",
-          description:
-            "Mārtiņš leitet unsere Feldarbeit und stellt sicher, dass alle Dienstleistungen in höchster Qualität ausgeführt werden.",
         },
       ],
     },
@@ -309,9 +215,6 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Stats Section */}
-      <Stats />
-
       {/* Values Section */}
       <Section bgColor="white" spacing="large">
         <div className="max-w-4xl mx-auto text-center mb-16">
@@ -342,56 +245,8 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Team Section */}
-      <Section bgColor="light" spacing="large">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
-              {t.teamTitle}
-            </h2>
-            <div className="w-20 h-1 mx-auto bg-emerald-500 mb-6"></div>
-            <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-              {t.teamText}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {t.teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                  <span className="text-gray-500 dark:text-gray-400">
-                    {member.name}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-emerald-600 dark:text-emerald-400 font-medium mb-4">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {member.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Testimonials Section */}
-      <Testimonials />
-
       {/* CTA Section */}
-      <Section bgColor="white" spacing="large">
+      <Section bgColor="light" spacing="large">
         <CTABanner variant="primary" buttonLink="/contact" />
       </Section>
     </div>
