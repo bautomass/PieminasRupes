@@ -11,7 +11,7 @@ export const translations = {
     },
     services: {
       title: "Mūsu pakalpojumi",
-      subtitle: "Pilns serviss kapu kopšanā",
+      subtitle: "Visaptverošs kapu kopšanas serviss",
       regular: {
         title: "Regulāra kopšana",
         description:
@@ -73,16 +73,16 @@ export const translations = {
       ctaButton: "Sazināties ar mums",
       serviceArea: "Savus pakalpojumus sniedzam:",
       serviceAreas: ["visā Dienvidkurzemes novadā", "Liepājā"],
-      orderTitle: "Kā pieteikt pakalpojumu",
+      orderTitle: "Kā pasūtīt mūsu pakalpojumus",
       orderText:
-        "Lai pieteiktu pakalpojumu, jānosūta apbedītās personas dati - vārds uzvārds, miršanas gads un datums, kapsētas nosaukums. Ja ir zināms vietas, rindas Nr., tas atvieglos kapavietas uzmeklēšanu.",
+        "Pakalpojuma pasūtīšanai, lūdzam norādīt aizgājēja informāciju - pilnu vārdu un uzvārdu, miršanas datumu un gadu, kā arī kapsētas nosaukumu. Ja zināt kapuvietas numuru vai rindu, tas ievērojami atvieglos kapavietas atrašanu.",
       orderExtra:
-        "Ja ir zināms, ka kapavietā atrodas piemineklis vai kādas citas piemiņas zīmes un ir fotogrāfija, lūdzam pievienot arī šo informāciju.",
-      graveSearchTitle: "Kapavietas meklēšana",
+        "Ja iespējams, lūdzam pievienot fotogrāfiju vai aprakstu par pieminekli vai citām atpazīšanas zīmēm, kas atrodas kapavietā. Tas palīdzēs mums precīzāk identificēt konkrēto vietu.",
+      graveSearchTitle: "Kapavietas atrašanas pakalpojums",
       graveSearchText:
-        "Ja cilvēks, kas vēlas pasūtīt pakalpojumu ilgu laiku nav bijis apbedījuma vietā un viņam nav zināmi nekādi citi dati kā vien vārds, miršanas datums un zināma kapsēta, kurā apglabāta persona, tad varat arī pieteikt tādu pakalpojumu kā kapavietas uzmeklēšana un situācijas novērtējums.",
+        "Ja ilgāku laiku neesat apmeklējuši tuvinieka kapavietu un zināt tikai vārdu, miršanas datumu un kapsētu, mēs varam palīdzēt ar kapavietas atrašanas un stāvokļa novērtēšanas pakalpojumu. Mūsu speciālisti apzinīgi meklēs un dokumentēs situāciju.",
       graveSearchNote:
-        "Kapavietas meklēšana, ja nav zināmi dati - tas ir specifisks maksas pakalpojums, kuram izcenojumi tiek noteikti individuāli, izsverot cik daudz informācijas ir jāāizseko, lai iegūtu meklēto.",
+        "Lūdzu, ņemiet vērā, ka kapavietas meklēšana ar ierobežotu informāciju ir specializēts pakalpojums. Tā cena tiek noteikta individuāli, atkarībā no nepieciešamās izpētes apjoma, lai atrastu meklēto kapavietu.",
     },
     process: {
       title: "Mūsu darba process",
@@ -334,7 +334,7 @@ export const translations = {
     },
     services: {
       title: "Our Services",
-      subtitle: "Complete grave care service",
+      subtitle: "Comprehensive grave care service",
       regular: {
         title: "Regular Maintenance",
         description:
@@ -397,14 +397,14 @@ export const translations = {
       serviceAreas: ["the entire Dienvidkurzeme region", "Liepāja"],
       orderTitle: "How to order our service",
       orderText:
-        "To order the service, you need to provide the deceased person's data - full name, year and date of death, cemetery name. If you know the plot location or row number, this will help us locate the grave more easily.",
+        "To order our service, please provide details about the deceased - full name, date and year of death, and cemetery name. If you know the plot location or row number, this will greatly help us locate the grave site more efficiently.",
       orderExtra:
-        "If you know that there is a monument or other memorial signs at the grave site and you have a photograph, please include this information as well.",
-      graveSearchTitle: "Grave site location service",
+        "If possible, please include a photograph or description of any monument or distinctive markers at the grave site. This will assist us in precisely identifying the specific location.",
+      graveSearchTitle: "Grave location service",
       graveSearchText:
-        "If a person who wants to order the service has not visited the burial site for a long time and only knows the name, date of death, and cemetery where the person is buried, you can also request a grave site location and situation assessment service.",
+        "If you haven't visited a loved one's grave for an extended period and only know their name, date of death, and cemetery, we can assist with our grave location and condition assessment service. Our specialists will diligently search and document the situation.",
       graveSearchNote:
-        "Grave site location when details are limited is a specific paid service, with prices determined individually based on how much information needs to be traced to find what you're looking for.",
+        "Please note that locating graves with limited information is a specialized service. Pricing is determined individually, based on the extent of research required to find the grave you're looking for.",
     },
     process: {
       title: "Our Work Process",
@@ -653,7 +653,7 @@ export const translations = {
     },
     services: {
       title: "Наши услуги",
-      subtitle: "Полный комплекс услуг по уходу за могилами",
+      subtitle: "Комплексный уход за могилами",
       regular: {
         title: "Регулярный уход",
         description:
@@ -715,16 +715,16 @@ export const translations = {
       ctaButton: "Связаться с нами",
       serviceArea: "Мы предоставляем наши услуги в:",
       serviceAreas: ["по всему Южнокурземскому краю", "Лиепае"],
-      orderTitle: "Как заказать услугу",
+      orderTitle: "Как заказать нашу услугу",
       orderText:
-        "Чтобы заказать услугу, необходимо предоставить данные усопшего - полное имя, год и дату смерти, название кладбища. Если вы знаете местоположение участка или номер ряда, это поможет нам найти могилу более легко.",
+        "Для заказа нашей услуги, пожалуйста, предоставьте данные об усопшем - полное имя, дату и год смерти, а также название кладбища. Если вы знаете расположение участка или номер ряда, это значительно поможет нам более эффективно найти могилу.",
       orderExtra:
-        "Если вам известно, что на могиле есть памятник или другие памятные знаки, и у вас есть фотография, пожалуйста, включите эту информацию.",
+        "По возможности, приложите фотографию или описание памятника или отличительных знаков на могиле. Это поможет нам точно идентифицировать конкретное место.",
       graveSearchTitle: "Услуга поиска могилы",
       graveSearchText:
-        "Если человек, желающий заказать услугу, давно не посещал место захоронения и знает только имя, дату смерти и кладбище, где похоронен человек, вы можете также запросить услугу поиска могилы и оценки ситуации.",
+        "Если вы не посещали могилу близкого человека в течение длительного времени и знаете только его имя, дату смерти и кладбище, мы можем помочь с нашей услугой по поиску могилы и оценке её состояния. Наши специалисты будут тщательно искать и документировать ситуацию.",
       graveSearchNote:
-        "Поиск могилы при ограниченной информации - это специальная платная услуга, цены на которую определяются индивидуально в зависимости от того, сколько информации необходимо отследить, чтобы найти то, что вы ищете.",
+        "Обратите внимание, что поиск могил при ограниченной информации - это специализированная услуга. Цена определяется индивидуально, в зависимости от объема исследований, необходимых для поиска нужной вам могилы.",
     },
     process: {
       title: "Наш рабочий процесс",
@@ -974,7 +974,7 @@ export const translations = {
     },
     services: {
       title: "Unsere Dienstleistungen",
-      subtitle: "Kompletter Grabpflegeservice",
+      subtitle: "Umfassender Grabpflegeservice",
       regular: {
         title: "Regelmäßige Pflege",
         description:
@@ -1038,14 +1038,14 @@ export const translations = {
       serviceAreas: ["der gesamten Region Dienvidkurzeme", "Liepāja"],
       orderTitle: "So bestellen Sie unseren Service",
       orderText:
-        "Um den Service zu bestellen, müssen Sie die Daten des Verstorbenen angeben - vollständiger Name, Todes- und Sterbedatum, Name des Friedhofs. Wenn Sie den Standort des Grabes oder die Reihennummer kennen, erleichtert dies die Lokalisierung des Grabes.",
+        "Um unseren Service zu bestellen, geben Sie bitte Informationen über den Verstorbenen an - vollständiger Name, Sterbedatum und -jahr sowie Name des Friedhofs. Wenn Sie den Grabstandort oder die Reihennummer kennen, hilft uns dies, das Grab effizienter zu finden.",
       orderExtra:
-        "Falls Sie wissen, dass sich ein Denkmal oder andere Gedenkzeichen am Grab befinden und Sie ein Foto haben, fügen Sie bitte diese Informationen hinzu.",
-      graveSearchTitle: "Grabstellenortungsdienst",
+        "Wenn möglich, fügen Sie bitte ein Foto oder eine Beschreibung von Denkmälern oder markanten Merkmalen am Grab bei. Dies hilft uns bei der genauen Identifizierung des spezifischen Standorts.",
+      graveSearchTitle: "Grabsuchdienst",
       graveSearchText:
-        "Wenn eine Person, die den Service bestellen möchte, die Grabstätte seit langem nicht besucht hat und nur den Namen, das Sterbedatum und den Friedhof kennt, auf dem die Person begraben ist, können Sie auch einen Grabstellenortungs- und Situationsbewertungsdienst anfordern.",
+        "Wenn Sie das Grab eines Angehörigen längere Zeit nicht besucht haben und nur den Namen, das Sterbedatum und den Friedhof kennen, können wir Ihnen mit unserem Grabsuch- und Zustandsbewertungsdienst helfen. Unsere Spezialisten werden sorgfältig suchen und die Situation dokumentieren.",
       graveSearchNote:
-        "Die Grabstellenortung bei begrenzten Details ist ein spezieller kostenpflichtiger Service, dessen Preise individuell festgelegt werden, je nachdem, wie viele Informationen zurückverfolgt werden müssen, um das zu finden, was Sie suchen.",
+        "Bitte beachten Sie, dass die Suche nach Gräbern mit begrenzten Informationen ein spezialisierter Service ist. Die Preisgestaltung erfolgt individuell, basierend auf dem Umfang der Recherche, die erforderlich ist, um das gesuchte Grab zu finden.",
     },
     process: {
       title: "Unser Arbeitsprozess",
@@ -1449,7 +1449,7 @@ export type TranslationKey = keyof typeof translations.lv;
 //             ],
 //           },
 //         ],
-//         note: "Pēc klienta vēlēšanās, iespējams pievienot biežāku kapavietas apmeklējumu skaitu vasaras periodā, lai apkoptu/aplaistītu stādījumus. Jebkura papildus reizes izmaksas tiek saskaņotas individuāli.",
+//         note: "Pēc klienta vēlēšanās, iespējams pievienot biežāku kapavietas apmeklējumu skaitu, lai apkoptu/aplaistītu stādījumus. Jebkura papildus reizes izmaksas tiek saskaņotas individuāli.",
 //       },
 //       seasonal: {
 //         title: "Sezonālie darbi",
@@ -1475,29 +1475,138 @@ export type TranslationKey = keyof typeof translations.lv;
 //       },
 //       pricing: {
 //         title: "Cenas atkarīgas no kapavietas izmēra",
+//         quarterly: "reizi 3 mēnešos",
+//         yearly: "gadā",
+//         paymentNote:
+//           "Jāmaksā 50% no kopējās summas pirms darbu uzsākšanas. Atlikums jāmaksā pēc darbu pabeigšanas.",
+//         additionalNote:
+//           "Klienti var pievienot papildu pakalpojumus par papildu maksu, atkarībā no produkta cenas.",
 //         sizes: [
 //           {
 //             title: "Maza",
 //             size: "līdz 7,5m²",
-//             price: "25 EUR mēnesī",
+//             price: "35",
+//             yearlyPrice: "315",
 //           },
 //           {
 //             title: "Vidēja",
 //             size: "7,5 - 9m²",
-//             price: "35 EUR mēnesī",
+//             price: "45",
+//             yearlyPrice: "405",
 //           },
 //           {
 //             title: "Liela",
 //             size: "9 - 15m²",
-//             price: "40 EUR mēnesī",
+//             price: "50",
+//             yearlyPrice: "450",
 //           },
 //           {
 //             title: "Ļoti liela",
 //             size: "15 - 30m²",
-//             price: "50 EUR mēnesī",
+//             price: "60",
+//             yearlyPrice: "540",
 //           },
 //         ],
 //         note: "* Transports NAV iekļauts cenā",
+//       },
+//       packages: {
+//         title: "Kapu kopšanas pakalpojumu paketes",
+//         subtitle: "Izvēlieties piemērotāko paketi atbilstoši jūsu vajadzībām",
+//         standard: {
+//           title: "Standarta",
+//           price: "34",
+//           yearlyPrice: "374",
+//           description: "Visaptverošs pamata kopšanas pakalpojums",
+//           dressing: "Kapa vietas dekorēšana šajos gadījumos:",
+//           features: [
+//             "Ziemassvētki",
+//             "Lieldienas",
+//             "Kapu svētki",
+//             "Nāves gadadienas",
+//           ],
+//         },
+//         plus: {
+//           title: "Plus",
+//           price: "37",
+//           yearlyPrice: "407",
+//           description: "Paplašināts kopšanas pakalpojums ar papildu dekorēšanu",
+//           dressing: "Kapa vietas dekorēšana šajos gadījumos:",
+//           features: [
+//             "Ziemassvētki",
+//             "Lieldienas",
+//             "Kapu svētki",
+//             "Nāves gadadienas",
+//             "Mātes diena un Tēva diena",
+//           ],
+//         },
+//         premium: {
+//           title: "Premium",
+//           price: "44",
+//           yearlyPrice: "484",
+//           description:
+//             "Pilnīga kapu vietas kopšana ar visiem dekorēšanas pakalpojumiem",
+//           dressing: "Kapa vietas dekorēšana šajos gadījumos:",
+//           features: [
+//             "Ziemassvētki",
+//             "Lieldienas",
+//             "Kapu svētki",
+//             "Nāves gadadienas",
+//             "Mātes diena un Tēva diena",
+//             "Dzimšanas dienas",
+//             "Kāzu gadadienas",
+//             "Valentīndiena",
+//             "Visu dvēseļu diena",
+//           ],
+//         },
+//       },
+//       additionalServices: {
+//         title: "Papildus pakalpojumi",
+//         monthsMind: {
+//           title: "Mēneša piemiņas pakalpojums",
+//           description:
+//             "Mēs saprotam, cik grūts un emocionāls ir šis laiks, tāpēc piedāvājam mēneša piemiņas kapu kopšanas pakalpojumu. Tas tiek veikts pirms jūsu mīļā cilvēka piemiņas mēneša. Tas ietver akmeņu, veco ziedu noņemšanu, kapa sakārtošanu un pārklāšanu ar jūsu izvēlētu sūnu kūdru, augsni vai šķembām. Visbeidzot, mēs piegādājam un novietojam svaigi grieztu ziedu izlasi piemiņas vāzē.",
+//         },
+//         graveTending: {
+//           title: "Kapu kopšanas pakalpojums ietver",
+//           features: [
+//             "Zāles apgriešanu ap kapakmeni un kapa laukumu",
+//             "Nezāļu noņemšanu",
+//             "Vieglu kapakmeņa, podu un ziedu turētāju mazgāšanu",
+//             "Vieglu ēriku, krūmu, mazo koku un citu augu apgriešanu, ja nepieciešams",
+//             "Visu gružu - veco ziedu, augu un lapu u.c. noņemšanu",
+//             "Sezonālu kapu krūmu, sīpolu un jūsu izvēlēto augu stādīšanu",
+//           ],
+//         },
+//         yearlyServices: {
+//           title: "Kapu ikgadējie pakalpojumi",
+//           description:
+//             "Jūs varat izlemt, cik bieži vēlaties, lai jūsu mīļā cilvēka kaps tiktu uzturēts. Jūs varat izvēlēties no šādiem kapu kopšanas pakalpojumiem:",
+//           options: [
+//             "Reizi mēnesī",
+//             "Reizi divos mēnešos",
+//             "Reizi ceturksnī",
+//             "Reizi 6 mēnešos",
+//             "Reizi gadā",
+//           ],
+//         },
+//         floralDelivery: {
+//           title: "Ziedu piegādes pakalpojums",
+//           description:
+//             "Mēs nodrošinām svaigu ziedu vai vainagu piegādi un novietošanu. Jūs varat izvēlēties, lai tie tiktu novietoti katrā apmeklējumā vai jūsu izvēlētās īpašās dienās, lai atzīmētu gadadienas, dzimšanas dienas, mātes vai tēva dienu, kapu svētkus. Ziemassvētku rotājumi tiek piegādāti dienu vai divas pirms Ziemassvētku dienas.",
+//           photoNote:
+//             "Mēs fotografējam kapa laukumu pirms un pēc kapu kopšanas pakalpojuma. Jūs saņemsiet šīs fotogrāfijas pa pastu vai e-pastu.",
+//         },
+//         additional: {
+//           title: "Papildu pakalpojumi",
+//           features: [
+//             "Kapa šķembu tīrīšana un atjaunošana",
+//             "Sūnu kūdras vai augsnes atjaunošana",
+//             "Betona pamats, pārklāts ar jūsu izvēlētām kapa šķembām",
+//             "Specializēta kapakmeņa un apkārtnes tīrīšana – cena pēc apskates",
+//             "Kapa pieminekļa restaurācija – cena pēc apskates",
+//             "Epitāfa uzraksta atjaunošana – cena pēc apskates",
+//           ],
+//         },
 //       },
 //     },
 //   },
@@ -1660,7 +1769,7 @@ export type TranslationKey = keyof typeof translations.lv;
 //             ],
 //           },
 //         ],
-//         note: "At the client's request, it is possible to add more frequent grave site visits during the summer period to maintain/water the plantings. The cost of any additional visits is agreed upon individually.",
+//         note: "At the client's request, it is possible to add more frequent grave site visits to maintain/water the plantings. The cost of any additional visits is agreed upon individually.",
 //       },
 //       seasonal: {
 //         title: "Seasonal Work",
@@ -1686,29 +1795,137 @@ export type TranslationKey = keyof typeof translations.lv;
 //       },
 //       pricing: {
 //         title: "Prices depend on grave site size",
+//         quarterly: "per quarter",
+//         yearly: "yearly",
+//         paymentNote:
+//           "50% of the total amount is due before work begins. The remainder is to be paid upon completion of the work.",
+//         additionalNote:
+//           "Customers can add additional services at extra cost, depending on the product price.",
 //         sizes: [
 //           {
 //             title: "Small",
 //             size: "up to 7.5m²",
-//             price: "25 EUR per month",
+//             price: "35",
+//             yearlyPrice: "315",
 //           },
 //           {
 //             title: "Medium",
 //             size: "7.5 - 9m²",
-//             price: "35 EUR per month",
+//             price: "45",
+//             yearlyPrice: "405",
 //           },
 //           {
 //             title: "Large",
 //             size: "9 - 15m²",
-//             price: "40 EUR per month",
+//             price: "50",
+//             yearlyPrice: "450",
 //           },
 //           {
 //             title: "Very large",
 //             size: "15 - 30m²",
-//             price: "50 EUR per month",
+//             price: "60",
+//             yearlyPrice: "540",
 //           },
 //         ],
 //         note: "* Transportation is NOT included in the price",
+//       },
+//       packages: {
+//         title: "Grave Care Service Packages",
+//         subtitle: "Choose the most suitable package according to your needs",
+//         standard: {
+//           title: "Standard",
+//           price: "34",
+//           yearlyPrice: "374",
+//           description: "Comprehensive basic care service",
+//           dressing: "Grave is dressed for:",
+//           features: [
+//             "Christmas",
+//             "Easter",
+//             "Cemetery Mass",
+//             "Anniversaries of Death",
+//           ],
+//         },
+//         plus: {
+//           title: "Plus",
+//           price: "37",
+//           yearlyPrice: "407",
+//           description: "Extended care service with additional decorations",
+//           dressing: "Grave is dressed for:",
+//           features: [
+//             "Christmas",
+//             "Easter",
+//             "Cemetery Mass",
+//             "Anniversaries of Death",
+//             "Mother's Day & Father's Day",
+//           ],
+//         },
+//         premium: {
+//           title: "Premium",
+//           price: "44",
+//           yearlyPrice: "484",
+//           description: "Complete grave care with all decoration services",
+//           dressing: "Grave is dressed for:",
+//           features: [
+//             "Christmas",
+//             "Easter",
+//             "Cemetery Mass",
+//             "Anniversaries of Death",
+//             "Mother's Day & Father's Day",
+//             "Birthdays",
+//             "Wedding Anniversary",
+//             "Valentine's Day",
+//             "All Souls Day",
+//           ],
+//         },
+//       },
+//       additionalServices: {
+//         title: "Additional Services",
+//         monthsMind: {
+//           title: "Month's Mind Service",
+//           description:
+//             "We understand how difficult and emotional this time is so we offer a month's mind grave tending service. It is carried out prior to your loved one's month's mind. It involves removal of stones, old flowers, tidying of the grave and topping it with a choice of moss peat, top soil or chippings. Lastly, we supply and place a selection of freshly cut flowers in a memorial vase.",
+//         },
+//         graveTending: {
+//           title: "Grave tending service involves",
+//           features: [
+//             "Trimming of grass around the headstone and grave plot",
+//             "Removal of weeds",
+//             "Light wash of headstone, pots and flower holders",
+//             "Light pruning of heathers, shrubs, small trees and other plants if required",
+//             "Removal of all debris – old flowers, plants, and leaves etc.",
+//             "Seasonal planting of graves shrubs, bulbs and plants of your choice",
+//           ],
+//         },
+//         yearlyServices: {
+//           title: "Grave Yearly Services",
+//           description:
+//             "You can decide how often you would like your loved one's grave to be maintained. You can choose from the following grave tending services:",
+//           options: [
+//             "Monthly",
+//             "Bi-monthly",
+//             "Quarterly",
+//             "Every 6 months",
+//             "Yearly",
+//           ],
+//         },
+//         floralDelivery: {
+//           title: "Floral Delivery Service",
+//           description:
+//             "We provide the supply, delivery, and placing of fresh flowers or wreath tributes. You can choose to have them placed on each visit, or on special days of your choice to acknowledge anniversaries, birthdays, mother's or father's day, cemetery Sunday. Christmas tributes are delivered a day or so before Christmas Day.",
+//           photoNote:
+//             "We photograph the grave plot before and after our tending service. You will receive these photographs by post or e-mail.",
+//         },
+//         additional: {
+//           title: "Additional services",
+//           features: [
+//             "Cleaning and renewal of grave chippings",
+//             "Renewal of moss peat or topsoil",
+//             "Concrete base covered with grave chippings of your choice",
+//             "Specialist cleaning of headstone and surround – price on inspection",
+//             "Grave headstone restoration – price on inspection",
+//             "Re-gilding of epitaph inscription – price on inspection",
+//           ],
+//         },
 //       },
 //     },
 //   },
@@ -1872,7 +2089,7 @@ export type TranslationKey = keyof typeof translations.lv;
 //             ],
 //           },
 //         ],
-//         note: "По желанию клиента возможно добавление более частых посещений могилы в летний период для ухода/полива насаждений. Стоимость любых дополнительных посещений согласовывается индивидуально.",
+//         note: "По желанию клиента возможно добавление более частых посещений могилы для ухода/полива насаждений. Стоимость любых дополнительных посещений согласовывается индивидуально.",
 //       },
 //       seasonal: {
 //         title: "Сезонные работы",
@@ -1898,29 +2115,138 @@ export type TranslationKey = keyof typeof translations.lv;
 //       },
 //       pricing: {
 //         title: "Цены зависят от размера могилы",
+//         quarterly: "в квартал",
+//         yearly: "в год",
+//         paymentNote:
+//           "50% от общей суммы оплачивается до начала работ. Оставшаяся сумма оплачивается после завершения работ.",
+//         additionalNote:
+//           "Клиенты могут добавить дополнительные услуги за дополнительную плату, в зависимости от цены продукта.",
 //         sizes: [
 //           {
 //             title: "Маленькая",
 //             size: "до 7,5м²",
-//             price: "25 EUR в месяц",
+//             price: "35",
+//             yearlyPrice: "315",
 //           },
 //           {
 //             title: "Средняя",
 //             size: "7,5 - 9м²",
-//             price: "35 EUR в месяц",
+//             price: "45",
+//             yearlyPrice: "405",
 //           },
 //           {
 //             title: "Большая",
 //             size: "9 - 15м²",
-//             price: "40 EUR в месяц",
+//             price: "50",
+//             yearlyPrice: "450",
 //           },
 //           {
 //             title: "Очень большая",
 //             size: "15 - 30м²",
-//             price: "50 EUR в месяц",
+//             price: "60",
+//             yearlyPrice: "540",
 //           },
 //         ],
 //         note: "* Транспорт НЕ включен в цену",
+//       },
+//       packages: {
+//         title: "Пакеты услуг по уходу за могилами",
+//         subtitle:
+//           "Выберите наиболее подходящий пакет в соответствии с вашими потребностями",
+//         standard: {
+//           title: "Стандарт",
+//           price: "34",
+//           yearlyPrice: "374",
+//           description: "Комплексный базовый уход",
+//           dressing: "Могила украшается для:",
+//           features: [
+//             "Рождества",
+//             "Пасхи",
+//             "Кладбищенской мессы",
+//             "Годовщин смерти",
+//           ],
+//         },
+//         plus: {
+//           title: "Плюс",
+//           price: "37",
+//           yearlyPrice: "407",
+//           description: "Расширенный уход с дополнительными украшениями",
+//           dressing: "Могила украшается для:",
+//           features: [
+//             "Рождества",
+//             "Пасхи",
+//             "Кладбищенской мессы",
+//             "Годовщин смерти",
+//             "Дня матери и Дня отца",
+//           ],
+//         },
+//         premium: {
+//           title: "Премиум",
+//           price: "44",
+//           yearlyPrice: "484",
+//           description: "Полный уход за могилой со всеми услугами по украшению",
+//           dressing: "Могила украшается для:",
+//           features: [
+//             "Рождества",
+//             "Пасхи",
+//             "Кладбищенской мессы",
+//             "Годовщин смерти",
+//             "Дня матери и Дня отца",
+//             "Дней рождения",
+//             "Годовщин свадьбы",
+//             "Дня Святого Валентина",
+//             "Дня всех душ",
+//           ],
+//         },
+//       },
+//       additionalServices: {
+//         title: "Дополнительные услуги",
+//         monthsMind: {
+//           title: "Месячный поминальный сервис",
+//           description:
+//             "Мы понимаем, насколько трудным и эмоциональным является это время, поэтому предлагаем месячный поминальный сервис по уходу за могилой. Он проводится перед месячной памятью вашего близкого. Включает в себя удаление камней, старых цветов, уборку могилы и покрытие её на ваш выбор торфяным мхом, верхним слоем почвы или щебнем. В завершение мы поставляем и размещаем набор свежесрезанных цветов в мемориальной вазе.",
+//         },
+//         graveTending: {
+//           title: "Уход за могилой включает",
+//           features: [
+//             "Подстригание травы вокруг надгробия и могильного участка",
+//             "Удаление сорняков",
+//             "Легкое мытье надгробия, горшков и держателей для цветов",
+//             "Легкую обрезку вереска, кустарников, небольших деревьев и других растений при необходимости",
+//             "Удаление всего мусора – старых цветов, растений, листьев и т.д.",
+//             "Сезонную посадку кустарников, луковиц и растений на могиле по вашему выбору",
+//           ],
+//         },
+//         yearlyServices: {
+//           title: "Годовые услуги по уходу за могилой",
+//           description:
+//             "Вы можете решить, как часто вы хотите, чтобы за могилой вашего близкого ухаживали. Вы можете выбрать из следующих услуг по уходу за могилой:",
+//           options: [
+//             "Ежемесячно",
+//             "Раз в два месяца",
+//             "Ежеквартально",
+//             "Раз в 6 месяцев",
+//             "Ежегодно",
+//           ],
+//         },
+//         floralDelivery: {
+//           title: "Услуга доставки цветов",
+//           description:
+//             "Мы обеспечиваем поставку, доставку и размещение свежих цветов или венков. Вы можете выбрать их размещение при каждом посещении или в особые дни по вашему выбору, чтобы отметить годовщины, дни рождения, день матери или отца, кладбищенское воскресенье. Рождественские венки доставляются за день или два до Рождества.",
+//           photoNote:
+//             "Мы фотографируем могильный участок до и после нашего ухода. Вы получите эти фотографии по почте или по электронной почте.",
+//         },
+//         additional: {
+//           title: "Дополнительные услуги",
+//           features: [
+//             "Чистка и обновление могильной щебенки",
+//             "Обновление торфяного мха или верхнего слоя почвы",
+//             "Бетонное основание, покрытое могильной щебенкой по вашему выбору",
+//             "Специализированная чистка надгробия и окружения – цена по осмотру",
+//             "Реставрация надгробия – цена по осмотру",
+//             "Обновление позолоты эпитафической надписи – цена по осмотру",
+//           ],
+//         },
 //       },
 //     },
 //   },
@@ -2084,7 +2410,7 @@ export type TranslationKey = keyof typeof translations.lv;
 //             ],
 //           },
 //         ],
-//         note: "Auf Wunsch des Kunden ist es möglich, häufigere Besuche der Grabstätte während der Sommerperiode hinzuzufügen, um die Bepflanzung zu pflegen/zu gießen. Die Kosten für zusätzliche Besuche werden individuell vereinbart.",
+//         note: "Auf Wunsch des Kunden ist es möglich, häufigere Besuche der Grabstätte hinzuzufügen, um die Bepflanzung zu pflegen/zu gießen. Die Kosten für zusätzliche Besuche werden individuell vereinbart.",
 //       },
 //       seasonal: {
 //         title: "Saisonale Arbeiten",
@@ -2110,29 +2436,133 @@ export type TranslationKey = keyof typeof translations.lv;
 //       },
 //       pricing: {
 //         title: "Preise abhängig von der Grabstättengröße",
+//         quarterly: "pro Quartal",
+//         yearly: "jährlich",
+//         paymentNote:
+//           "50% der Gesamtsumme sind vor Beginn der Arbeiten zu zahlen. Der Rest ist nach Abschluss der Arbeiten zu zahlen.",
+//         additionalNote:
+//           "Kunden können zusätzliche Leistungen gegen Aufpreis hinzufügen, abhängig vom Produktpreis.",
 //         sizes: [
 //           {
 //             title: "Klein",
 //             size: "bis zu 7,5m²",
-//             price: "25 EUR pro Monat",
+//             price: "35",
+//             yearlyPrice: "315",
 //           },
 //           {
 //             title: "Mittel",
 //             size: "7,5 - 9m²",
-//             price: "35 EUR pro Monat",
+//             price: "45",
+//             yearlyPrice: "405",
 //           },
 //           {
 //             title: "Groß",
 //             size: "9 - 15m²",
-//             price: "40 EUR pro Monat",
+//             price: "50",
+//             yearlyPrice: "450",
 //           },
 //           {
 //             title: "Sehr groß",
 //             size: "15 - 30m²",
-//             price: "50 EUR pro Monat",
+//             price: "60",
+//             yearlyPrice: "540",
 //           },
 //         ],
 //         note: "* Transport ist NICHT im Preis inbegriffen",
+//       },
+//       packages: {
+//         title: "Grabpflegeservicepakete",
+//         subtitle: "Wählen Sie das für Sie am besten geeignete Paket",
+//         standard: {
+//           title: "Standard",
+//           price: "34",
+//           yearlyPrice: "374",
+//           description: "Umfassender Grundpflegeservice",
+//           dressing: "Grab wird geschmückt für:",
+//           features: ["Weihnachten", "Ostern", "Friedhofsmesse", "Todestage"],
+//         },
+//         plus: {
+//           title: "Plus",
+//           price: "37",
+//           yearlyPrice: "407",
+//           description:
+//             "Erweiterter Pflegeservice mit zusätzlichen Dekorationen",
+//           dressing: "Grab wird geschmückt für:",
+//           features: [
+//             "Weihnachten",
+//             "Ostern",
+//             "Friedhofsmesse",
+//             "Todestage",
+//             "Muttertag & Vatertag",
+//           ],
+//         },
+//         premium: {
+//           title: "Premium",
+//           price: "44",
+//           yearlyPrice: "484",
+//           description: "Komplette Grabpflege mit allen Dekorationsservices",
+//           dressing: "Grab wird geschmückt für:",
+//           features: [
+//             "Weihnachten",
+//             "Ostern",
+//             "Friedhofsmesse",
+//             "Todestage",
+//             "Muttertag & Vatertag",
+//             "Geburtstage",
+//             "Hochzeitstag",
+//             "Valentinstag",
+//             "Allerseelen",
+//           ],
+//         },
+//       },
+//       additionalServices: {
+//         title: "Zusätzliche Dienstleistungen",
+//         monthsMind: {
+//           title: "Monatsgedenkservice",
+//           description:
+//             "Wir verstehen, wie schwierig und emotional diese Zeit ist, daher bieten wir einen monatlichen Grabpflegedienst zum Gedenken an. Er wird vor dem Monatsgedenken Ihres Verstorbenen durchgeführt. Es beinhaltet das Entfernen von Steinen, alten Blumen, das Aufräumen des Grabes und das Auffüllen mit einer Auswahl an Torfmoos, Oberboden oder Kies. Schließlich liefern und platzieren wir eine Auswahl frisch geschnittener Blumen in einer Gedenkvasen.",
+//         },
+//         graveTending: {
+//           title: "Grabpflege beinhaltet",
+//           features: [
+//             "Trimmen von Gras um den Grabstein und das Grab",
+//             "Entfernung von Unkraut",
+//             "Leichte Reinigung von Grabstein, Töpfen und Blumenhaltern",
+//             "Leichter Schnitt von Heidekraut, Sträuchern, kleinen Bäumen und anderen Pflanzen, falls erforderlich",
+//             "Entfernung aller Abfälle – alte Blumen, Pflanzen und Blätter usw.",
+//             "Saisonale Anpflanzung von Grabsträuchern, Zwiebeln und Pflanzen Ihrer Wahl",
+//           ],
+//         },
+//         yearlyServices: {
+//           title: "Jährliche Grabdienste",
+//           description:
+//             "Sie können entscheiden, wie oft Sie das Grab Ihres Verstorbenen pflegen lassen möchten. Sie können aus den folgenden Grabpflegediensten wählen:",
+//           options: [
+//             "Monatlich",
+//             "Zweimonatlich",
+//             "Vierteljährlich",
+//             "Alle 6 Monate",
+//             "Jährlich",
+//           ],
+//         },
+//         floralDelivery: {
+//           title: "Blumenlieferservice",
+//           description:
+//             "Wir bieten die Lieferung und Platzierung von frischen Blumen oder Kranzbeigaben an. Sie können wählen, ob diese bei jedem Besuch oder an besonderen Tagen Ihrer Wahl platziert werden sollen, um Jahrestage, Geburtstage, Mutter- oder Vatertag, Friedhofssonntag zu würdigen. Weihnachtsbeigaben werden einen Tag oder so vor dem Weihnachtstag geliefert.",
+//           photoNote:
+//             "Wir fotografieren das Grab vor und nach unserem Pflegedienst. Sie erhalten diese Fotos per Post oder E-Mail.",
+//         },
+//         additional: {
+//           title: "Zusätzliche Dienstleistungen",
+//           features: [
+//             "Reinigung und Erneuerung von Grabkies",
+//             "Erneuerung von Torfmoos oder Oberboden",
+//             "Betonbasis bedeckt mit Grabkies Ihrer Wahl",
+//             "Spezialreinigung von Grabstein und Umgebung – Preis nach Inspektion",
+//             "Grabsteinrestaurierung – Preis nach Inspektion",
+//             "Neuvergoldung der Epitaphinschrift – Preis nach Inspektion",
+//           ],
+//         },
 //       },
 //     },
 //   },
