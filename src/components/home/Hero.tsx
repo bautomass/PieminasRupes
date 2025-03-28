@@ -6,45 +6,12 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import Button from "@/components/ui/Button";
 import { translations } from "@/lib/translations";
-import {
-  SparklesIcon,
-  FlowerIcon,
-  ToolsIcon,
-  HeartIcon,
-  MapPinIcon,
-} from "@/components/Icons";
+import { MapPinIcon } from "@/components/Icons";
 
 export default function Hero() {
   const { language } = useLanguage();
   const t = translations[language as keyof typeof translations];
   const sectionRef = useRef<HTMLElement>(null);
-
-  const services = [
-    {
-      id: "regular",
-      icon: SparklesIcon,
-      title: t.services.regular.title,
-      description: t.services.regular.description,
-    },
-    {
-      id: "seasonal",
-      icon: FlowerIcon,
-      title: t.services.seasonal.title,
-      description: t.services.seasonal.description,
-    },
-    {
-      id: "restoration",
-      icon: ToolsIcon,
-      title: t.services.restoration.title,
-      description: t.services.restoration.description,
-    },
-    {
-      id: "custom",
-      icon: HeartIcon,
-      title: t.services.custom.title,
-      description: t.services.custom.description,
-    },
-  ];
 
   return (
     <section
@@ -152,51 +119,6 @@ export default function Hero() {
             </motion.div>
           </div>
         </div>
-
-        {/* Services Preview */}
-        <div className="mt-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white">
-              {t.services.title}
-            </h2>
-            <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
-              {t.services.subtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="p-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 w-fit mb-4">
-                  <service.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Button
-              href="/services"
-              variant="outline"
-              size="lg"
-              className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-500 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
-            >
-              {t.services.all}
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -215,6 +137,7 @@ export default function Hero() {
 //   FlowerIcon,
 //   ToolsIcon,
 //   HeartIcon,
+//   MapPinIcon,
 // } from "@/components/Icons";
 
 // export default function Hero() {
@@ -325,17 +248,33 @@ export default function Hero() {
 //                 </Button>
 //               </div>
 
-//               {/* Service Areas */}
-//               <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md border border-gray-100 dark:border-gray-700 mb-6">
-//                 <h3 className="font-medium text-gray-900 dark:text-white mb-2">
+//               {/* Service Areas - Improved styling */}
+//               <motion.div
+//                 initial={{ opacity: 0, y: 10 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ duration: 0.5, delay: 0.3 }}
+//                 className="bg-gradient-to-r from-emerald-50 to-white dark:from-emerald-900/20 dark:to-gray-800 rounded-lg p-6 shadow-lg border border-emerald-100 dark:border-emerald-800/30 mb-6"
+//               >
+//                 <h3 className="font-medium text-emerald-700 dark:text-emerald-300 mb-4 flex items-center">
+//                   <span className="bg-emerald-100 dark:bg-emerald-800/40 p-1.5 rounded-full mr-3">
+//                     <MapPinIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+//                   </span>
 //                   {t.memorial.serviceArea}
 //                 </h3>
-//                 <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300">
+//                 <div className="flex flex-wrap gap-3">
 //                   {t.memorial.serviceAreas.map((area, index) => (
-//                     <li key={index}>{area}</li>
+//                     <div
+//                       key={index}
+//                       className="flex items-center bg-white dark:bg-gray-700 px-4 py-2 rounded-full shadow-sm border border-gray-100 dark:border-gray-600"
+//                     >
+//                       <div className="w-2 h-2 rounded-full bg-emerald-500 mr-2"></div>
+//                       <span className="text-gray-700 dark:text-gray-200">
+//                         {area}
+//                       </span>
+//                     </div>
 //                   ))}
-//                 </ul>
-//               </div>
+//                 </div>
+//               </motion.div>
 //             </motion.div>
 //           </div>
 //         </div>

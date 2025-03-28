@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 
@@ -39,7 +39,7 @@ export default function RootLayout({
             <div className="flex flex-col min-h-screen">
               <Navbar />
               <main className="flex-grow pt-16">{children}</main>
-              {/* <Footer /> */}
+              <Footer />
             </div>
           </LanguageProvider>
         </ThemeProvider>
