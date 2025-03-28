@@ -11,7 +11,6 @@ import {
   ToolsIcon,
   HeartIcon,
 } from "@/components/Icons";
-import Button from "@/components/ui/Button";
 import Image from "next/image";
 
 export default function MemorialCare() {
