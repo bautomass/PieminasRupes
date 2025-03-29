@@ -397,7 +397,6 @@ const CategoryTabs = ({
 
 export default function FAQPage() {
   const { language } = useLanguage();
-  const _t = translations[language as keyof typeof translations];
   const [activeTab, setActiveTab] = useState<number>(-1);
   const [activeCategory, setActiveCategory] = useState<string>("general");
 
