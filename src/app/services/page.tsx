@@ -1016,15 +1016,6 @@ export default function ServicesPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                  {language === "lv"
-                    ? "Tālāka piemiņa"
-                    : language === "en"
-                      ? "Distance No Longer a Barrier"
-                      : language === "ru"
-                        ? "Расстояние больше не преграда"
-                        : "Entfernung ist kein Hindernis mehr"}
-                </h3>
                 <p className="text-gray-700 dark:text-gray-300">
                   {language === "lv"
                     ? "Mūsu pakalpojumi ir īpaši noderīgi, ja dzīvojat tālu no tuvinieku atdusas vietas, bet vēlaties nodrošināt, ka tā tiek pienācīgi kopta un atcerēta nozīmīgās dienās. Pēc katras apmeklējuma reizes, mēs nosūtīsim jums fotoatskaiti, lai jūs varētu redzēt kapavietas stāvokli."

@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect, useCallback, memo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -280,6 +279,7 @@ const NavLink = memo(
 NavLink.displayName = "NavLink";
 
 export default function Navbar() {
+  const [isMounted, setIsMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -289,21 +289,30 @@ export default function Navbar() {
 
   const t = translations[language as keyof typeof translations];
 
+  // Set mounted state after initial render
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // Debounced scroll handler with requestAnimationFrame for better performance
   const handleScroll = useCallback(() => {
-    requestAnimationFrame(() => {
-      setScrolled(window.scrollY > 50);
-    });
+    if (typeof window !== "undefined") {
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+      });
+    }
   }, []);
 
   useEffect(() => {
+    if (!isMounted) return;
+
     // Check initial scroll position
     handleScroll();
 
     // Passive event listener for better performance
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+  }, [handleScroll, isMounted]);
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
@@ -325,6 +334,8 @@ export default function Navbar() {
 
   // Close menus when clicking outside
   useEffect(() => {
+    if (!isMounted) return;
+
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (isLangMenuOpen && !target.closest("[data-lang-menu]")) {
@@ -334,7 +345,7 @@ export default function Navbar() {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isLangMenuOpen]);
+  }, [isLangMenuOpen, isMounted]);
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -343,6 +354,8 @@ export default function Navbar() {
 
   // Handle keyboard navigation for accessibility
   useEffect(() => {
+    if (!isMounted) return;
+
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         if (isLangMenuOpen) setIsLangMenuOpen(false);
@@ -352,7 +365,7 @@ export default function Navbar() {
 
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
-  }, [isLangMenuOpen, isMenuOpen]);
+  }, [isLangMenuOpen, isMenuOpen, isMounted]);
 
   const navLinks: NavItem[] = [
     { href: "/", label: t.home },
@@ -363,9 +376,64 @@ export default function Navbar() {
     { href: "/contact", label: t.contact },
   ];
 
+  // Server-side and initial client render - simplified version
+  if (!isMounted) {
+    return (
+      <header
+        className="fixed w-full z-50 bg-white dark:bg-gray-900 py-5"
+        role="banner"
+      >
+        <div className="mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="flex justify-between items-center">
+            {/* Logo (minimal version) */}
+            <Link
+              href="/"
+              className="flex items-center text-xl font-serif font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              <svg
+                className="w-8 h-8 mr-2"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 1.99V5.5M5.99 12H2.48M21.5 12H18M12 18.5V22.01M16.05 7.95L18.53 5.47M7.95 7.95L5.47 5.47M7.95 16.05L5.47 18.53M16.05 16.05L18.53 18.53"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>SkyGarden</span>
+            </Link>
+
+            {/* Static placeholders for nav and controls */}
+            <div className="flex items-center">
+              <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+                {/* Placeholder for nav links */}
+              </div>
+              <div className="flex items-center space-x-1 sm:space-x-3">
+                {/* Placeholder for controls */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    );
+  }
+
+  // Full client-side render with all interactive elements
   return (
     <>
-      {/* Skip to content link for screen readers */}
+      {/* Skip to content link - only rendered on client */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-white focus:text-black focus:outline-emerald-600"
@@ -549,7 +617,7 @@ export default function Navbar() {
                     visible: {
                       opacity: 1,
                       transition: {
-                        staggerChildren: 0.05, // Reduced from 0.1 for faster rendering
+                        staggerChildren: 0.05,
                       },
                     },
                   }}
@@ -558,10 +626,10 @@ export default function Navbar() {
                     <motion.div
                       key={link.href}
                       variants={{
-                        hidden: { opacity: 0, y: 10 }, // Reduced from 20 for less movement
+                        hidden: { opacity: 0, y: 10 },
                         visible: { opacity: 1, y: 0 },
                       }}
-                      transition={{ type: "tween" }} // Use tween for more efficient animation
+                      transition={{ type: "tween" }}
                     >
                       <Link
                         href={link.href}
@@ -582,10 +650,10 @@ export default function Navbar() {
 
                   <motion.div
                     variants={{
-                      hidden: { opacity: 0, y: 10 }, // Reduced from 20 for less movement
+                      hidden: { opacity: 0, y: 10 },
                       visible: { opacity: 1, y: 0 },
                     }}
-                    transition={{ type: "tween" }} // Use tween for more efficient animation
+                    transition={{ type: "tween" }}
                     className="pt-4"
                   >
                     <Link
