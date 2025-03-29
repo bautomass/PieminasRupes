@@ -17,11 +17,12 @@ export default function Hero() {
     <section
       ref={sectionRef}
       className="relative w-full bg-gray-50 dark:bg-gray-900 overflow-hidden"
+      aria-labelledby="hero-heading"
     >
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Image */}
-          <div className="order-2 lg:order-1 relative">
+          <div className="order-1 lg:order-1 relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -30,12 +31,14 @@ export default function Hero() {
             >
               <Image
                 src="https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743146265/tradicionala-latvijas-kapsetu-kopsana-pirms-pec-atjaunosanas_sinvbh.jpg"
-                alt="SkyGarden memorial care services"
+                alt="SkyGarden memorial care services showing before and after cemetery maintenance"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"
-                quality={100}
+                quality={85}
+                loading="eager"
+                fetchPriority="high"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent">
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -48,20 +51,26 @@ export default function Hero() {
           </div>
 
           {/* Right side - Content */}
-          <div className="order-1 lg:order-2">
+          <div className="order-2 lg:order-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               <div className="mb-6 flex items-center">
-                <div className="h-[3px] w-12 rounded-full bg-emerald-500 mr-4"></div>
+                <div
+                  className="h-[3px] w-12 rounded-full bg-emerald-500 mr-4"
+                  aria-hidden="true"
+                ></div>
                 <span className="text-sm font-medium uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
                   SkyGarden
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6">
+              <h1
+                id="hero-heading"
+                className="text-4xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-6"
+              >
                 {t.hero.title}
               </h1>
 
@@ -75,6 +84,7 @@ export default function Hero() {
                   variant="primary"
                   size="lg"
                   className="bg-emerald-600 hover:bg-emerald-700 text-white shadow-md"
+                  aria-label={t.hero.cta}
                 >
                   {t.hero.cta}
                 </Button>
@@ -84,6 +94,7 @@ export default function Hero() {
                   variant="outline"
                   size="lg"
                   className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-500 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
+                  aria-label={t.hero.secondaryLink}
                 >
                   {t.hero.secondaryLink}
                 </Button>
@@ -97,7 +108,10 @@ export default function Hero() {
                 className="bg-gradient-to-r from-emerald-50 to-white dark:from-emerald-900/20 dark:to-gray-800 rounded-lg p-6 shadow-lg border border-emerald-100 dark:border-emerald-800/30 mb-6"
               >
                 <h3 className="font-medium text-emerald-700 dark:text-emerald-300 mb-4 flex items-center">
-                  <span className="bg-emerald-100 dark:bg-emerald-800/40 p-1.5 rounded-full mr-3">
+                  <span
+                    className="bg-emerald-100 dark:bg-emerald-800/40 p-1.5 rounded-full mr-3"
+                    aria-hidden="true"
+                  >
                     <MapPinIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   </span>
                   {t.memorial.serviceArea}
@@ -108,7 +122,10 @@ export default function Hero() {
                       key={index}
                       className="flex items-center bg-white dark:bg-gray-700 px-4 py-2 rounded-full shadow-sm border border-gray-100 dark:border-gray-600"
                     >
-                      <div className="w-2 h-2 rounded-full bg-emerald-500 mr-2"></div>
+                      <div
+                        className="w-2 h-2 rounded-full bg-emerald-500 mr-2"
+                        aria-hidden="true"
+                      ></div>
                       <span className="text-gray-700 dark:text-gray-200">
                         {area}
                       </span>
@@ -132,45 +149,12 @@ export default function Hero() {
 // import { useLanguage } from "@/context/LanguageContext";
 // import Button from "@/components/ui/Button";
 // import { translations } from "@/lib/translations";
-// import {
-//   SparklesIcon,
-//   FlowerIcon,
-//   ToolsIcon,
-//   HeartIcon,
-//   MapPinIcon,
-// } from "@/components/Icons";
+// import { MapPinIcon } from "@/components/Icons";
 
 // export default function Hero() {
 //   const { language } = useLanguage();
 //   const t = translations[language as keyof typeof translations];
 //   const sectionRef = useRef<HTMLElement>(null);
-
-//   const services = [
-//     {
-//       id: "regular",
-//       icon: SparklesIcon,
-//       title: t.services.regular.title,
-//       description: t.services.regular.description,
-//     },
-//     {
-//       id: "seasonal",
-//       icon: FlowerIcon,
-//       title: t.services.seasonal.title,
-//       description: t.services.seasonal.description,
-//     },
-//     {
-//       id: "restoration",
-//       icon: ToolsIcon,
-//       title: t.services.restoration.title,
-//       description: t.services.restoration.description,
-//     },
-//     {
-//       id: "custom",
-//       icon: HeartIcon,
-//       title: t.services.custom.title,
-//       description: t.services.custom.description,
-//     },
-//   ];
 
 //   return (
 //     <section
@@ -276,51 +260,6 @@ export default function Hero() {
 //                 </div>
 //               </motion.div>
 //             </motion.div>
-//           </div>
-//         </div>
-
-//         {/* Services Preview */}
-//         <div className="mt-16">
-//           <div className="text-center mb-12">
-//             <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white">
-//               {t.services.title}
-//             </h2>
-//             <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
-//               {t.services.subtitle}
-//             </p>
-//           </div>
-
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-//             {services.map((service, index) => (
-//               <motion.div
-//                 key={service.id}
-//                 initial={{ opacity: 0, y: 30 }}
-//                 animate={{ opacity: 1, y: 0 }}
-//                 transition={{ duration: 0.6, delay: index * 0.1 }}
-//                 className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
-//               >
-//                 <div className="p-3 rounded-full bg-emerald-100 dark:bg-emerald-900/30 w-fit mb-4">
-//                   <service.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-//                 </div>
-//                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-//                   {service.title}
-//                 </h3>
-//                 <p className="text-gray-700 dark:text-gray-300">
-//                   {service.description}
-//                 </p>
-//               </motion.div>
-//             ))}
-//           </div>
-
-//           <div className="text-center mt-10">
-//             <Button
-//               href="/services"
-//               variant="outline"
-//               size="lg"
-//               className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-500 dark:text-emerald-400 dark:hover:bg-emerald-900/30"
-//             >
-//               {t.services.all}
-//             </Button>
 //           </div>
 //         </div>
 //       </div>
