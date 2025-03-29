@@ -1,10 +1,28 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import Section from "@/components/ui/Section";
 import CTABanner from "@/components/CTABanner";
 import { motion } from "framer-motion";
+import Head from "next/head";
+
+// Animation presets with performance optimizations
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+};
 
 export default function AboutPage() {
   const { language } = useLanguage();
@@ -12,6 +30,10 @@ export default function AboutPage() {
   // Page content based on language
   const content = {
     lv: {
+      metaTitle:
+        "Par mums | SkyGarden - Profesionālie kapu kopšanas pakalpojumi",
+      metaDescription:
+        "SkyGarden profesionāli kapu kopšanas pakalpojumi. Uzziniet par mūsu vēsturi, misiju un vērtībām, kas ir mūsu pakalpojumu pamatā.",
       title: "Par mums",
       subtitle: "Mēs esam SkyGarden - profesionālā kapu kopšanas komanda",
       missionTitle: "Mūsu misija",
@@ -21,6 +43,7 @@ export default function AboutPage() {
       historyText:
         "SkyGarden aizsākās 2019. gadā kā neliela ģimenes uzņēmuma iniciatīva, kad dibinātāji saprata, ka daudziem cilvēkiem, kuri dzīvo tālu no savu tuvinieku apbedījuma vietām, ir nepieciešams uzticams pakalpojums, kas par tām rūpētos. Gadu gaitā mēs esam paplašinājuši savu pakalpojumu klāstu un ieguvuši pieredzi, kas ļauj mums nodrošināt visaptverošu un profesionālu kapu kopšanu.",
       valuesTitle: "Mūsu vērtības",
+      imageAlt: "SkyGarden komanda kapu kopšanas darbā",
       values: [
         {
           title: "Cieņa",
@@ -45,6 +68,10 @@ export default function AboutPage() {
       ],
     },
     en: {
+      metaTitle:
+        "About Us | SkyGarden - Professional Grave Maintenance Services",
+      metaDescription:
+        "SkyGarden professional grave care services. Learn about our history, mission and values that form the foundation of our services.",
       title: "About Us",
       subtitle: "We are SkyGarden - a professional grave maintenance team",
       missionTitle: "Our Mission",
@@ -54,6 +81,7 @@ export default function AboutPage() {
       historyText:
         "SkyGarden started in 2019 as a small family business initiative, when the founders realized that many people who live far from their loved ones' burial sites need a reliable service to care for them. Over the years, we have expanded our range of services and gained experience that allows us to provide comprehensive and professional grave care.",
       valuesTitle: "Our Values",
+      imageAlt: "SkyGarden team performing grave maintenance work",
       values: [
         {
           title: "Respect",
@@ -78,6 +106,10 @@ export default function AboutPage() {
       ],
     },
     ru: {
+      metaTitle:
+        "О нас | SkyGarden - Профессиональные услуги по уходу за могилами",
+      metaDescription:
+        "SkyGarden профессиональные услуги по уходу за могилами. Узнайте о нашей истории, миссии и ценностях, которые лежат в основе наших услуг.",
       title: "О нас",
       subtitle: "Мы SkyGarden - профессиональная команда по уходу за могилами",
       missionTitle: "Наша миссия",
@@ -87,6 +119,7 @@ export default function AboutPage() {
       historyText:
         "SkyGarden начался в 2019 году как инициатива небольшого семейного бизнеса, когда основатели поняли, что многим людям, живущим далеко от мест захоронения своих близких, нужна надежная служба, которая бы о них заботилась. За эти годы мы расширили спектр наших услуг и приобрели опыт, который позволяет нам обеспечивать комплексный и профессиональный уход за могилами.",
       valuesTitle: "Наши ценности",
+      imageAlt: "Команда SkyGarden выполняет работы по уходу за могилами",
       values: [
         {
           title: "Уважение",
@@ -111,6 +144,9 @@ export default function AboutPage() {
       ],
     },
     de: {
+      metaTitle: "Über uns | SkyGarden - Professionelle Grabpflegedienste",
+      metaDescription:
+        "SkyGarden professionelle Grabpflegedienste. Erfahren Sie mehr über unsere Geschichte, Mission und Werte, die die Grundlage unserer Dienstleistungen bilden.",
       title: "Über uns",
       subtitle: "Wir sind SkyGarden - ein professionelles Team für Grabpflege",
       missionTitle: "Unsere Mission",
@@ -120,6 +156,7 @@ export default function AboutPage() {
       historyText:
         "SkyGarden begann 2019 als Initiative eines kleinen Familienunternehmens, als die Gründer erkannten, dass viele Menschen, die weit entfernt von den Grabstätten ihrer Lieben leben, einen zuverlässigen Service benötigen, der sich um sie kümmert. Im Laufe der Jahre haben wir unser Dienstleistungsangebot erweitert und Erfahrungen gesammelt, die es uns ermöglichen, umfassende und professionelle Grabpflege anzubieten.",
       valuesTitle: "Unsere Werte",
+      imageAlt: "SkyGarden-Team bei der Grabpflege",
       values: [
         {
           title: "Respekt",
@@ -148,107 +185,166 @@ export default function AboutPage() {
   // Select content based on current language
   const t = content[language as keyof typeof content];
 
+  // Update page metadata
+  useEffect(() => {
+    // Update the document title
+    document.title = t.metaTitle;
+
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", t.metaDescription);
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content = t.metaDescription;
+      document.head.appendChild(meta);
+    }
+  }, [t.metaTitle, t.metaDescription]);
+
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
-      {/* Hero Section */}
-      <Section bgColor="white" spacing="large">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h1
-            className="text-4xl font-serif font-bold text-gray-900 dark:text-white md:text-5xl"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            {t.title}
-          </motion.h1>
-          <motion.p
-            className="mt-6 text-xl text-gray-600 dark:text-gray-300"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            {t.subtitle}
-          </motion.p>
-        </div>
-      </Section>
+    <>
+      <Head>
+        <title>{t.metaTitle}</title>
+        <meta name="description" content={t.metaDescription} />
+        <meta property="og:title" content={t.metaTitle} />
+        <meta property="og:description" content={t.metaDescription} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourdomain.com/about" />
+        <link rel="canonical" href="https://yourdomain.com/about" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "SkyGarden",
+            url: "https://yourdomain.com",
+            logo: "https://yourdomain.com/logo.png",
+            description: t.metaDescription,
+            foundingDate: "2019",
+            areaServed: ["Latvia", "Baltic States"],
+          })}
+        </script>
+      </Head>
 
-      {/* Mission and Story Section */}
-      <Section bgColor="light" spacing="large">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+      <main className="bg-gray-50 dark:bg-gray-900">
+        {/* Hero Section */}
+        <Section bgColor="white" spacing="large">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.h1
+              className="text-4xl font-serif font-bold text-gray-900 dark:text-white md:text-5xl"
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUp}
+              transition={{ duration: 0.5 }}
             >
-              <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
-                {t.missionTitle}
-              </h2>
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                {t.missionText}
-              </p>
+              {t.title}
+            </motion.h1>
+            <motion.p
+              className="mt-6 text-xl text-gray-600 dark:text-gray-300"
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUp}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              {t.subtitle}
+            </motion.p>
+          </div>
+        </Section>
 
-              <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
-                {t.historyTitle}
-              </h2>
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                {t.historyText}
-              </p>
+        {/* Mission and Story Section */}
+        <Section bgColor="light" spacing="large">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeInLeft}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+                  {t.missionTitle}
+                </h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                  {t.missionText}
+                </p>
+
+                <h2 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+                  {t.historyTitle}
+                </h2>
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {t.historyText}
+                </p>
+              </motion.div>
+            </div>
+
+            <motion.div
+              className="relative rounded-lg overflow-hidden shadow-xl h-[600px]"
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{
+                willChange: "transform, opacity",
+                translateZ: 0,
+              }}
+            >
+              <Image
+                src="https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743266639/pieminas-vietu-uzturesana-tirisana-pakalpojumi-latvija-profesionali-rezultati_ighcwd.jpg"
+                alt={t.imageAlt}
+                width={600}
+                height={600}
+                sizes="(max-width: 768px) 100vw, 800px"
+                className="w-full h-full object-cover"
+                priority={true}
+                quality={85}
+              />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                aria-hidden="true"
+              ></div>
             </motion.div>
           </div>
+        </Section>
 
-          <motion.div
-            className="relative rounded-lg overflow-hidden shadow-xl"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <Image
-              src="/images/about-us.jpg"
-              alt="SkyGarden Team"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          </motion.div>
-        </div>
-      </Section>
+        {/* Values Section */}
+        <Section bgColor="white" spacing="large">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+              {t.valuesTitle}
+            </h2>
+            <div
+              className="w-20 h-1 mx-auto bg-emerald-500 mb-10"
+              aria-hidden="true"
+            ></div>
+          </div>
 
-      {/* Values Section */}
-      <Section bgColor="white" spacing="large">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-serif font-bold text-gray-900 dark:text-white mb-4">
-            {t.valuesTitle}
-          </h2>
-          <div className="w-20 h-1 mx-auto bg-emerald-500 mb-10"></div>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {t.values.map((value, index) => (
+              <motion.div
+                key={index}
+                className="bg-emerald-50 dark:bg-emerald-900/20 p-8 rounded-lg border border-emerald-100 dark:border-emerald-800/30"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={fadeInUp}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+              >
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  {value.title}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300">
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </Section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {t.values.map((value, index) => (
-            <motion.div
-              key={index}
-              className="bg-emerald-50 dark:bg-emerald-900/20 p-8 rounded-lg border border-emerald-100 dark:border-emerald-800/30"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                {value.title}
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                {value.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
-      {/* CTA Section */}
-      <Section bgColor="light" spacing="large">
-        <CTABanner variant="primary" buttonLink="/contact" />
-      </Section>
-    </div>
+        {/* CTA Section */}
+        <Section bgColor="light" spacing="large">
+          <CTABanner variant="primary" buttonLink="/contact" />
+        </Section>
+      </main>
+    </>
   );
 }
