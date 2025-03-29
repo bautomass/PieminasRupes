@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import Section from "@/components/ui/Section";
-import CTABanner from "@/components/CTABanner";
 import { motion } from "framer-motion";
 import Head from "next/head";
 
@@ -338,11 +337,6 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
-        </Section>
-
-        {/* CTA Section */}
-        <Section bgColor="light" spacing="large">
-          <CTABanner variant="primary" buttonLink="/contact" />
         </Section>
       </main>
     </>
