@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { useLanguage } from "@/context/LanguageContext";
-import { translations } from "@/lib/translations";
 import { motion } from "framer-motion";
 
 // Define types for our data structures
