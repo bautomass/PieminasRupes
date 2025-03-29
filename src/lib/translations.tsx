@@ -34,6 +34,7 @@ export const translations = {
       },
       learnMore: "UZZINĀT VAIRĀK",
       all: "Visi pakalpojumi",
+      viewPricing: "Apskatīt visas cenas",
     },
     why: {
       title: "Kāpēc izvēlēties mūs?",
@@ -234,6 +235,10 @@ export const translations = {
           },
         ],
         note: "* Transports NAV iekļauts cenā",
+        subscriptionBadge: "Abonements",
+        oneTimeBadge: "Vienreizējs pakalpojums",
+        subscriptionNote: "Regulāra apkope ar abonementu",
+        oneTimeNote: "Cena par vienreizēju pakalpojumu",
       },
       packages: {
         title: "Kapu kopšanas pakalpojumu paketes",
@@ -370,6 +375,7 @@ export const translations = {
       },
       learnMore: "LEARN MORE",
       all: "All Services",
+      viewPricing: "View All Prices",
     },
     why: {
       title: "Why Choose Us?",
@@ -567,6 +573,10 @@ export const translations = {
           },
         ],
         note: "* Transportation is NOT included in the price",
+        subscriptionBadge: "Subscription",
+        oneTimeBadge: "One-time Service",
+        subscriptionNote: "Regular maintenance with subscription",
+        oneTimeNote: "Price for one-time service",
       },
       packages: {
         title: "Grave Care Service Packages",
@@ -702,6 +712,7 @@ export const translations = {
       },
       learnMore: "УЗНАТЬ БОЛЬШЕ",
       all: "Все услуги",
+      viewPricing: "Посмотреть все цены",
     },
     why: {
       title: "Почему выбирают нас?",
@@ -901,6 +912,10 @@ export const translations = {
           },
         ],
         note: "* Транспорт НЕ включен в цену",
+        subscriptionBadge: "Абонемент",
+        oneTimeBadge: "Разовая услуга",
+        subscriptionNote: "Регулярное обслуживание по подписке",
+        oneTimeNote: "Цена за разовую услугу",
       },
       packages: {
         title: "Пакеты услуг по уходу за могилами",
@@ -1037,6 +1052,7 @@ export const translations = {
       },
       learnMore: "MEHR ERFAHREN",
       all: "Alle Dienstleistungen",
+      viewPricing: "Alle Preise ansehen",
     },
     why: {
       title: "Warum uns wählen?",
@@ -1236,6 +1252,10 @@ export const translations = {
           },
         ],
         note: "* Transport ist NICHT im Preis inbegriffen",
+        subscriptionBadge: "Abonnement",
+        oneTimeBadge: "Einmalige Dienstleistung",
+        subscriptionNote: "Regelmäßige Wartung mit Abonnement",
+        oneTimeNote: "Preis für einmalige Dienstleistung",
       },
       packages: {
         title: "Grabpflegeservicepakete",
