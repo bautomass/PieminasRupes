@@ -108,10 +108,11 @@ export default function Footer() {
                 {t.companyInfo}
               </h4>
               <ul className="text-gray-500 text-xs space-y-1">
-                <li>SIA "MARLIN"</li>
+                <li>SIA &quot;MARLIN&quot;</li>
                 <li>Reģ. Nr.: 42103083865</li>
                 <li className="break-words">
-                  Dienvidkurzemes nov., Vērgales pag., Ploce, "Audzes", LV-3463
+                  Dienvidkurzemes nov., Vērgales pag., Ploce,
+                  &quot;Audzes&quot;, LV-3463
                 </li>
               </ul>
             </div>
