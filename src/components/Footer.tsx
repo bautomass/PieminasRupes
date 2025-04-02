@@ -2,13 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
-import {
-  PhoneIcon,
-  EmailIcon,
-  MapPinIcon,
-  LogoIcon,
-  GlobeIcon,
-} from "@/components/Icons";
+import { PhoneIcon, EmailIcon, LogoIcon, GlobeIcon } from "@/components/Icons";
 
 export default function Footer() {
   const { language, setLanguage } = useLanguage();
