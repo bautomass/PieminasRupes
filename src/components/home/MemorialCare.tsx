@@ -167,7 +167,7 @@ export default function MemorialCare() {
                         {service.title}
                       </h3>
 
-                      <p className="text-white text-opacity-80 mb-6 line-clamp-3 group-hover:text-opacity-100 transition-all duration-300">
+                      <p className="text-white text-opacity-80 mb-6 line-clamp-3 group-hover:line-clamp-none group-hover:text-opacity-100 transition-all duration-300">
                         {service.description}
                       </p>
 

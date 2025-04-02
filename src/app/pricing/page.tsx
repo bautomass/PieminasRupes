@@ -793,19 +793,36 @@ export default function PricingPage(): React.ReactElement {
               role="alert"
               aria-label="Important payment information"
             >
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                {language === "lv"
-                  ? "Svarīga informācija par maksājumiem"
-                  : language === "en"
-                    ? "Important payment information"
-                    : language === "ru"
-                      ? "Важная информация об оплате"
-                      : "Wichtige Zahlungsinformationen"}
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3 flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 md:h-6 md:w-6 mr-1.5 md:mr-2 text-emerald-600 dark:text-emerald-400 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span className="leading-tight">
+                  {language === "lv"
+                    ? "Kā Norit Sadarbība ar SkyGarden"
+                    : language === "en"
+                      ? "How Your SkyGarden Service Works"
+                      : language === "ru"
+                        ? "Как Происходит Сотрудничество с SkyGarden"
+                        : "So Funktioniert Ihr Service mit SkyGarden"}
+                </span>
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-2 font-medium">
+              <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-2 md:mb-3 font-medium leading-tight md:leading-normal">
                 {t.serviceDetails?.pricing?.paymentNote}
               </p>
-              <p className="text-gray-700 dark:text-gray-300">
+              <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-tight md:leading-normal">
                 {t.serviceDetails?.pricing?.additionalNote}
               </p>
             </div>

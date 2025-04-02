@@ -23,14 +23,14 @@ export const translations = {
           "Kapu vietas sagatavošana atbilstoši sezonai - pavasara uzkopšana, vasaras kopšanas darbi, rudens lapu savākšana un ziemas ieziemošana.",
       },
       restoration: {
-        title: "Pieminekļu atjaunošana",
+        title: "Pieminekļu kopšana",
         description:
-          "Pieminekļu tīrīšana, kapu plākšņu atjaunošana un kapu vietas infrastruktūras labiekārtošana.",
+          "Profesionāla pieminekļu un kapu plākšņu tīrīšana, sūnu un ķērpju noņemšana, dekoratīvo elementu kopšana un sezonas netīrumu attīrīšana, kas uzlabo piemiņas vietas kopējo izskatu.",
       },
       custom: {
         title: "Individuāli risinājumi",
         description:
-          "Pielāgoti pakalpojumi atbilstoši jūsu vēlmēm un vajadzībām kapu kopšanas jomā.",
+          "Pielāgoti pakalpojumi atbilstoši Jūsu īpašajām vēlmēm - svētku dekorācijas, īpaši stādījumi, fotogrāfiju izvietošana vai citi piemiņas elementi. Ja Jums ir kāda cita specifiska vajadzība, ko neesat atraduši mūsu pakalpojumu klāstā, lūdzu, sazinieties ar mums, un mēs centīsimies Jums palīdzēt.",
       },
       learnMore: "UZZINĀT VAIRĀK",
       all: "Visi pakalpojumi",
@@ -38,11 +38,11 @@ export const translations = {
     },
     why: {
       title: "Kāpēc izvēlēties mūs?",
-      subtitle: "Mēs rūpējamies par jūsu tuvinieku miera vietu",
+      subtitle: "Mēs rūpējamies par Jūsu tuvinieku miera vietu",
       respect: {
         title: "Cieņa un pietāte",
         description:
-          "Mēs strādājam ar dziļu cieņu pret jūsu aizgājušajiem tuviniekiem un viņu piemiņas vietām.",
+          "Mēs strādājam ar dziļu cieņu pret Jūsu aizgājušajiem tuviniekiem un viņu piemiņas vietām.",
       },
       quality: {
         title: "Augsta kvalitāte",
@@ -52,7 +52,7 @@ export const translations = {
       individual: {
         title: "Individuāla pieeja",
         description:
-          "Katrs klienta pieprasījums tiek uzklausīts un īstenots atbilstoši jūsu vēlmēm.",
+          "Katrs klienta pieprasījums tiek uzklausīts un īstenots atbilstoši Jūsu vēlmēm.",
       },
       experience: {
         title: "Pieredze un zināšanas",
@@ -64,7 +64,7 @@ export const translations = {
       preTitle: "Mūsu pieeja",
       title: "Kā mēs varam palīdzēt jums godināt piemiņu",
       subtitle:
-        "Piedāvājam profesionālus kapu kopšanas pakalpojumus, lai saglabātu jūsu tuvinieku piemiņas vietas cieņpilnā stāvoklī gadu gaitā",
+        "Piedāvājam profesionālus kapu kopšanas pakalpojumus, lai saglabātu Jūsu tuvinieku piemiņas vietas cieņpilnā stāvoklī gadu gaitā",
       valuesTitle: "Mūsu vērtības",
       imageAlt: "Sakārtota piemiņas vieta",
       imageCaption:
@@ -74,7 +74,7 @@ export const translations = {
         "Sazinieties ar mums, lai iegūtu personalizētu kapu kopšanas plānu.",
       ctaButton: "Sazināties ar mums",
       serviceArea: "Savus pakalpojumus sniedzam:",
-      serviceAreas: ["visā Dienvidkurzemes novadā", "Liepājā"],
+      serviceAreas: ["Visā Dienvidkurzemes Novadā", "Liepājā"],
       orderTitle: "Kā pasūtīt mūsu pakalpojumus",
       orderText:
         "Pakalpojuma pasūtīšanai, lūdzam norādīt aizgājēja informāciju - pilnu vārdu un uzvārdu, miršanas datumu un gadu, kā arī kapsētas nosaukumu. Ja zināt kapuvietas numuru vai rindu, tas ievērojami atvieglos kapavietas atrašanu.",
@@ -105,12 +105,12 @@ export const translations = {
         {
           title: "Konsultācija",
           description:
-            "Sazināmies, lai saprastu jūsu vēlmes par piemiņas vietas kopšanu un iekārtošanu.",
+            "Sazināmies, lai saprastu Jūsu vēlmes par piemiņas vietas kopšanu un iekārtošanu.",
         },
         {
           title: "Piedāvājums",
           description:
-            "Sagatavojam individuālu risinājumu, kas atbilst jūsu prasībām un budžetam.",
+            "Sagatavojam individuālu risinājumu, kas atbilst Jūsu prasībām un budžetam.",
         },
         {
           title: "Darbu izpilde",
@@ -127,7 +127,7 @@ export const translations = {
     cta: {
       title: "Pieteikt konsultāciju",
       description:
-        "Mēs palīdzēsim jums nodrošināt cienīgu piemiņu jūsu tuviniekiem",
+        "Mēs palīdzēsim jums nodrošināt cienīgu piemiņu Jūsu tuviniekiem",
       button: "Sazināties ar mums",
       or: "vai",
       call: "Zvaniet mums: +371 2X XXX XXX",
@@ -205,9 +205,9 @@ export const translations = {
         quarterly: "reizi 3 mēnešos",
         yearly: "gadā",
         paymentNote:
-          "Jāmaksā 50% no kopējās summas pirms darbu uzsākšanas. Atlikums jāmaksā pēc darbu pabeigšanas.",
+          "SkyGarden speciālisti atradīs apbedījuma vietu, nosūtīs fotoatskaiti par esošo situāciju, izrunās veicamo darbu apjomu un pēc saskaņošanas nosūtīs tāmi un rēķinu, kuru var apmaksāt elektroniski.",
         additionalNote:
-          "Klienti var pievienot papildu pakalpojumus par papildu maksu, atkarībā no produkta cenas.",
+          "Parasti tiek prasīta avansa maksa 30-50% apmērā, atlikušo daļu jāmaksā pēc paveikto darbu fotoatskaites saņemšanas. Visi maksājumi tiek apstrādāti drošā veidā un klientiem tiek garantēta darbu kvalitāte.",
         sizes: [
           {
             title: "Maza",
@@ -242,7 +242,7 @@ export const translations = {
       },
       packages: {
         title: "Kapu kopšanas pakalpojumu paketes",
-        subtitle: "Izvēlieties piemērotāko paketi atbilstoši jūsu vajadzībām",
+        subtitle: "Izvēlieties piemērotāko paketi atbilstoši Jūsu vajadzībām",
         standard: {
           title: "Standarta",
           price: "34",
@@ -295,23 +295,23 @@ export const translations = {
         monthsMind: {
           title: "Mēneša piemiņas pakalpojums",
           description:
-            "Mēs saprotam, cik grūts un emocionāls ir šis laiks, tāpēc piedāvājam mēneša piemiņas kapu kopšanas pakalpojumu. Tas tiek veikts pirms jūsu mīļā cilvēka piemiņas mēneša. Tas ietver akmeņu, veco ziedu noņemšanu, kapa sakārtošanu un pārklāšanu ar jūsu izvēlētu sūnu kūdru, augsni vai šķembām. Visbeidzot, mēs piegādājam un novietojam svaigi grieztu ziedu izlasi piemiņas vāzē.",
+            "Mēs saprotam, cik grūts un emocionāls ir šis laiks, tāpēc piedāvājam mēneša piemiņas kapu kopšanas pakalpojumu. Tas tiek veikts pirms Jūsu mīļā cilvēka piemiņas mēneša. Tas ietver akmeņu, veco ziedu noņemšanu, kapa sakārtošanu un pārklāšanu ar Jūsu izvēlētu sūnu kūdru, augsni vai šķembām. Visbeidzot, mēs piegādājam un novietojam svaigi grieztu ziedu izlasi piemiņas vāzē.",
         },
         graveTending: {
           title: "Kapu kopšanas pakalpojums ietver",
           features: [
-            "Zāles apgriešanu ap kapakmeni un kapa laukumu",
+            "Zāles apgriešanu ap kapakmeni un kapa vietu",
             "Nezāļu noņemšanu",
             "Vieglu kapakmeņa, podu un ziedu turētāju mazgāšanu",
             "Vieglu ēriku, krūmu, mazo koku un citu augu apgriešanu, ja nepieciešams",
             "Visu gružu - veco ziedu, augu un lapu u.c. noņemšanu",
-            "Sezonālu kapu krūmu, sīpolu un jūsu izvēlēto augu stādīšanu",
+            "Sezonālu kapu krūmu, sīpolu un Jūsu izvēlēto augu stādīšanu",
           ],
         },
         yearlyServices: {
           title: "Kapu ikgadējie pakalpojumi",
           description:
-            "Jūs varat izlemt, cik bieži vēlaties, lai jūsu mīļā cilvēka kaps tiktu uzturēts. Jūs varat izvēlēties no šādiem kapu kopšanas pakalpojumiem:",
+            "Jūs varat izlemt, cik bieži vēlaties, lai Jūsu mīļā cilvēka kaps tiktu uzturēts. Jūs varat izvēlēties no šādiem kapu kopšanas pakalpojumiem:",
           options: [
             "Reizi mēnesī",
             "Reizi divos mēnešos",
@@ -323,16 +323,16 @@ export const translations = {
         floralDelivery: {
           title: "Ziedu piegādes pakalpojums",
           description:
-            "Mēs nodrošinām svaigu ziedu vai vainagu piegādi un novietošanu. Jūs varat izvēlēties, lai tie tiktu novietoti katrā apmeklējumā vai jūsu izvēlētās īpašās dienās, lai atzīmētu gadadienas, dzimšanas dienas, mātes vai tēva dienu, kapu svētkus. Ziemassvētku rotājumi tiek piegādāti dienu vai divas pirms Ziemassvētku dienas.",
+            "Mēs nodrošinām svaigu ziedu vai vainagu piegādi un novietošanu. Jūs varat izvēlēties, lai tie tiktu novietoti katrā apmeklējumā vai Jūsu izvēlētās īpašās dienās, lai atzīmētu gadadienas, dzimšanas dienas, mātes vai tēva dienu, kapu svētkus. Ziemassvētku rotājumi tiek piegādāti dienu vai divas pirms Ziemassvētku dienas.",
           photoNote:
-            "Mēs fotografējam kapa laukumu pirms un pēc kapu kopšanas pakalpojuma. Jūs saņemsiet šīs fotogrāfijas pa pastu vai e-pastu.",
+            "Mēs nofotogrāfēsim kapa vietu pirms un pēc kapu kopšanas pakalpojuma. Jūs saņemsiet šīs fotogrāfijas Jums ērtā veidā.",
         },
         additional: {
           title: "Papildu pakalpojumi",
           features: [
             "Kapa šķembu tīrīšana un atjaunošana",
             "Sūnu kūdras vai augsnes atjaunošana",
-            "Betona pamats, pārklāts ar jūsu izvēlētām kapa šķembām",
+            "Betona pamats, pārklāts ar Jūsu izvēlētām kapa šķembām",
             "Specializēta kapakmeņa un apkārtnes tīrīšana – cena pēc apskates",
             "Kapa pieminekļa restaurācija – cena pēc apskates",
             "Epitāfa uzraksta atjaunošana – cena pēc apskates",
@@ -364,14 +364,14 @@ export const translations = {
           "Grave site preparation according to the season - spring cleaning, summer maintenance, autumn leaf collection, and winter preparation.",
       },
       restoration: {
-        title: "Monument Restoration",
+        title: "Monument Care",
         description:
-          "Monument cleaning, grave plate restoration, and grave site infrastructure improvement.",
+          "Professional cleaning of monuments and grave plates, moss and lichen removal, maintenance of decorative elements, and seasonal debris clearing that enhances the overall appearance of the memorial site.",
       },
       custom: {
         title: "Custom Solutions",
         description:
-          "Tailored services according to your wishes and needs in grave maintenance.",
+          "Tailored services according to your specific wishes - holiday decorations, special plantings, photograph placement, or other memorial elements. If you have any other specific needs not found in our service list, please contact us, and we will do our best to assist you.",
       },
       learnMore: "LEARN MORE",
       all: "All Services",
@@ -543,9 +543,10 @@ export const translations = {
         quarterly: "per quarter",
         yearly: "yearly",
         paymentNote:
-          "50% of the total amount is due before work begins. The remainder is to be paid upon completion of the work.",
+          "SkyGarden specialists will locate the burial site, send a photo report of the current situation, discuss the scope of work to be done, and after approval, will send a quote and invoice that can be paid electronically.",
+
         additionalNote:
-          "Customers can add additional services at extra cost, depending on the product price.",
+          "An advance payment of 30-50% is typically required, with the remaining balance due after receiving the photo report of the completed work. All payments are processed securely and we guarantee the quality of our services.",
         sizes: [
           {
             title: "Small",
@@ -701,14 +702,14 @@ export const translations = {
           "Подготовка могилы в соответствии с сезоном - весенняя уборка, летний уход, осенний сбор листьев и зимняя подготовка.",
       },
       restoration: {
-        title: "Реставрация памятников",
+        title: "Уход за памятниками",
         description:
-          "Чистка памятников, реставрация надгробных плит и улучшение инфраструктуры места захоронения.",
+          "Профессиональная чистка памятников и надгробных плит, удаление мха и лишайников, уход за декоративными элементами и очистка сезонных загрязнений, что улучшает общий вид места памяти.",
       },
       custom: {
         title: "Индивидуальные решения",
         description:
-          "Индивидуальные услуги в соответствии с вашими пожеланиями и потребностями в сфере ухода за могилами.",
+          "Индивидуальные услуги в соответствии с вашими особыми пожеланиями - праздничные украшения, специальные посадки, размещение фотографий или другие мемориальные элементы. Если у вас есть какие-либо другие специфические потребности, не найденные в нашем списке услуг, пожалуйста, свяжитесь с нами, и мы сделаем все возможное, чтобы помочь вам.",
       },
       learnMore: "УЗНАТЬ БОЛЬШЕ",
       all: "Все услуги",
@@ -882,9 +883,10 @@ export const translations = {
         quarterly: "в квартал",
         yearly: "в год",
         paymentNote:
-          "50% от общей суммы оплачивается до начала работ. Оставшаяся сумма оплачивается после завершения работ.",
+          "Специалисты SkyGarden найдут место захоронения, отправят фотоотчет о текущей ситуации, обсудят объем работ, и после согласования отправят смету и счет, который можно оплатить электронным способом.",
+
         additionalNote:
-          "Клиенты могут добавить дополнительные услуги за дополнительную плату, в зависимости от цены продукта.",
+          "Обычно требуется авансовый платеж в размере 30-50%, оставшаяся часть оплачивается после получения фотоотчета о выполненных работах. Все платежи обрабатываются безопасно, и мы гарантируем качество наших услуг.",
         sizes: [
           {
             title: "Маленькая",
@@ -1041,14 +1043,14 @@ export const translations = {
           "Vorbereitung der Grabstätte entsprechend der Jahreszeit - Frühjahrsreinigung, Sommerpflege, Herbstlaubsammlung und Wintervorbereitung.",
       },
       restoration: {
-        title: "Denkmalrestaurierung",
+        title: "Denkmalpflege",
         description:
-          "Denkmalsreinigung, Grabplattenrestaurierung und Verbesserung der Grabinfrastruktur.",
+          "Professionelle Reinigung von Denkmälern und Grabplatten, Entfernung von Moos und Flechten, Pflege dekorativer Elemente und Beseitigung saisonaler Verschmutzungen, die das Gesamtbild der Gedenkstätte verbessern.",
       },
       custom: {
         title: "Individuelle Lösungen",
         description:
-          "Maßgeschneiderte Dienstleistungen nach Ihren Wünschen und Bedürfnissen im Bereich der Grabpflege.",
+          "Maßgeschneiderte Dienstleistungen nach Ihren speziellen Wünschen - Feiertagsdekorationen, spezielle Bepflanzungen, Fotoplatzierung oder andere Gedenkelemente. Wenn Sie andere spezifische Bedürfnisse haben, die Sie in unserem Leistungskatalog nicht finden, kontaktieren Sie uns bitte, und wir werden unser Bestes tun, um Ihnen zu helfen.",
       },
       learnMore: "MEHR ERFAHREN",
       all: "Alle Dienstleistungen",
@@ -1222,9 +1224,10 @@ export const translations = {
         quarterly: "pro Quartal",
         yearly: "jährlich",
         paymentNote:
-          "50% der Gesamtsumme sind vor Beginn der Arbeiten zu zahlen. Der Rest ist nach Abschluss der Arbeiten zu zahlen.",
+          "Die Spezialisten von SkyGarden finden die Begräbnisstätte, senden einen Fotobericht über die aktuelle Situation, besprechen den Umfang der zu erledigenden Arbeiten und senden nach Genehmigung einen Kostenvoranschlag und eine Rechnung, die elektronisch bezahlt werden kann.",
+
         additionalNote:
-          "Kunden können zusätzliche Leistungen gegen Aufpreis hinzufügen, abhängig vom Produktpreis.",
+          "In der Regel ist eine Vorauszahlung von 30-50% erforderlich, der Restbetrag wird nach Erhalt des Fotoberichts über die abgeschlossenen Arbeiten fällig. Alle Zahlungen werden sicher verarbeitet und wir garantieren die Qualität unserer Dienstleistungen.",
         sizes: [
           {
             title: "Klein",
