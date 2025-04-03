@@ -30,7 +30,7 @@ export const translations = {
       custom: {
         title: "Individuāli risinājumi",
         description:
-          "Pielāgoti pakalpojumi atbilstoši Jūsu īpašajām vēlmēm - svētku dekorācijas, īpaši stādījumi, fotogrāfiju izvietošana vai citi piemiņas elementi. Ja Jums ir kāda cita specifiska vajadzība, ko neesat atraduši mūsu pakalpojumu klāstā, lūdzu, sazinieties ar mums, un mēs centīsimies Jums palīdzēt.",
+          "Pielāgoti pakalpojumi atbilstoši Jūsu īpašajām vēlmēm - svētku dekorācijas, īpaši stādījumi vai citi piemiņas elementi. Sazinieties ar mums par jebkurām individuālām vajadzībām.",
       },
       learnMore: "UZZINĀT VAIRĀK",
       all: "Visi pakalpojumi",
@@ -371,7 +371,7 @@ export const translations = {
       custom: {
         title: "Custom Solutions",
         description:
-          "Tailored services according to your specific wishes - holiday decorations, special plantings, photograph placement, or other memorial elements. If you have any other specific needs not found in our service list, please contact us, and we will do our best to assist you.",
+          "Tailored services according to your specific wishes - holiday decorations, special plantings or other memorial elements. Contact us for any individual needs.",
       },
       learnMore: "LEARN MORE",
       all: "All Services",
@@ -709,7 +709,7 @@ export const translations = {
       custom: {
         title: "Индивидуальные решения",
         description:
-          "Индивидуальные услуги в соответствии с вашими особыми пожеланиями - праздничные украшения, специальные посадки, размещение фотографий или другие мемориальные элементы. Если у вас есть какие-либо другие специфические потребности, не найденные в нашем списке услуг, пожалуйста, свяжитесь с нами, и мы сделаем все возможное, чтобы помочь вам.",
+          "Индивидуальные услуги в соответствии с вашими особыми пожеланиями - праздничные украшения, специальные посадки или другие мемориальные элементы. Свяжитесь с нами для обсуждения любых индивидуальных потребностей.",
       },
       learnMore: "УЗНАТЬ БОЛЬШЕ",
       all: "Все услуги",
@@ -1050,7 +1050,7 @@ export const translations = {
       custom: {
         title: "Individuelle Lösungen",
         description:
-          "Maßgeschneiderte Dienstleistungen nach Ihren speziellen Wünschen - Feiertagsdekorationen, spezielle Bepflanzungen, Fotoplatzierung oder andere Gedenkelemente. Wenn Sie andere spezifische Bedürfnisse haben, die Sie in unserem Leistungskatalog nicht finden, kontaktieren Sie uns bitte, und wir werden unser Bestes tun, um Ihnen zu helfen.",
+          "Maßgeschneiderte Dienstleistungen nach Ihren speziellen Wünschen - Feiertagsdekorationen, spezielle Bepflanzungen oder andere Gedenkelemente. Kontaktieren Sie uns für individuelle Bedürfnisse.",
       },
       learnMore: "MEHR ERFAHREN",
       all: "Alle Dienstleistungen",
