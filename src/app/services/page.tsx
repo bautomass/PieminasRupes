@@ -146,7 +146,7 @@ const ServiceCard = memo(
 
             {/* Arrow indicators */}
             <div
-              className={`absolute -bottom-${isActive ? 6 : 4} left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none flex items-center justify-center w-full`}
+              className={`absolute -bottom-4 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none flex items-center justify-center w-full`}
               aria-hidden="true"
             >
               <div className="bg-emerald-100 dark:bg-emerald-800/60 rounded-full p-2 shadow-md dark:shadow-emerald-900/30">
@@ -353,42 +353,42 @@ export default function ServicesPage() {
         description: t.services.restoration.description,
         features: [
           language === "lv"
-            ? "Pieminekļu tīrīšana ar speciāliem līdzekļiem"
+            ? "Profesionāla pieminekļu un kapu plākšņu tīrīšana"
             : language === "en"
-              ? "Monument cleaning with special products"
+              ? "Professional cleaning of monuments and grave plates"
               : language === "ru"
-                ? "Чистка памятников специальными средствами"
-                : "Denkmalsreinigung mit Spezialmitteln",
+                ? "Профессиональная чистка памятников и надгробных плит"
+                : "Professionelle Reinigung von Denkmälern und Grabplatten",
           language === "lv"
-            ? "Pieminekļu un kapu plākšņu atjaunošana"
+            ? "Sūnu, ķērpju un netīrumu noņemšana"
             : language === "en"
-              ? "Monument and grave plate restoration"
+              ? "Removal of moss, lichen and dirt"
               : language === "ru"
-                ? "Реставрация памятников и надгробных плит"
-                : "Restaurierung von Denkmälern und Grabplatten",
+                ? "Удаление мха, лишайников и загрязнений"
+                : "Entfernung von Moos, Flechten und Schmutz",
           language === "lv"
-            ? "Kapu apmales labošana un atjaunošana"
+            ? "Dekoratīvo elementu kopšana un tīrīšana"
             : language === "en"
-              ? "Grave border repair and restoration"
+              ? "Maintenance and cleaning of decorative elements"
               : language === "ru"
-                ? "Ремонт и восстановление оград"
-                : "Reparatur und Restaurierung der Grabeinfassung",
+                ? "Уход и чистка декоративных элементов"
+                : "Pflege und Reinigung dekorativer Elemente",
           language === "lv"
-            ? "Kapu vietas infrastruktūras labiekārtošana"
+            ? "Sezonas netīrumu un nogulšņu attīrīšana"
             : language === "en"
-              ? "Grave site infrastructure improvement"
+              ? "Removal of seasonal dirt and deposits"
               : language === "ru"
-                ? "Улучшение инфраструктуры места захоронения"
-                : "Verbesserung der Grabinfrastruktur",
+                ? "Удаление сезонных загрязнений и отложений"
+                : "Entfernung von saisonalen Verschmutzungen und Ablagerungen",
         ],
         imageAlt:
           language === "lv"
-            ? "Pieminekļu atjaunošana un tīrīšana"
+            ? "Pieminekļu un kapu plākšņu profesionāla tīrīšana"
             : language === "en"
-              ? "Monument restoration and cleaning"
+              ? "Professional cleaning of monuments and grave plates"
               : language === "ru"
-                ? "Реставрация и чистка памятников"
-                : "Denkmalrestaurierung und -reinigung",
+                ? "Профессиональная чистка памятников и надгробных плит"
+                : "Professionelle Reinigung von Denkmälern und Grabplatten",
       },
       {
         id: "custom",
