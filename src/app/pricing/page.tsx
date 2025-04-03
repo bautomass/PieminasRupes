@@ -336,9 +336,27 @@ const SingleServices = memo(({ services, language }: SingleServicesProps) => {
             {service.description}
           </p>
           <div className="mt-4" aria-label={`Price: ${service.price} euros`}>
-            <span className="text-4xl font-bold text-gray-900 dark:text-white">
-              €{service.price}
-            </span>
+            {service.price.toString().startsWith("no ") ? (
+              <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                {service.price.replace("no ", "no €")}
+              </span>
+            ) : service.price.toString().startsWith("from ") ? (
+              <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                {service.price.replace("from ", "from €")}
+              </span>
+            ) : service.price.toString().startsWith("от ") ? (
+              <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                {service.price.replace("от ", "от €")}
+              </span>
+            ) : service.price.toString().startsWith("ab ") ? (
+              <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                {service.price.replace("ab ", "ab €")}
+              </span>
+            ) : (
+              <span className="text-4xl font-bold text-gray-900 dark:text-white">
+                €{service.price}
+              </span>
+            )}
           </div>
 
           <ul className="flex-1 mt-6 space-y-4" aria-label="Service features">
@@ -608,12 +626,12 @@ export default function PricingPage(): React.ReactElement {
                   : "Grabrenovierung",
           price:
             language === "lv"
-              ? "no 120"
+              ? "no 100"
               : language === "en"
-                ? "from 120"
+                ? "from 100"
                 : language === "ru"
-                  ? "от 120"
-                  : "ab 120",
+                  ? "от 100"
+                  : "ab 100",
           description:
             language === "lv"
               ? "Visaptveroša kapu vietas atjaunošana"
