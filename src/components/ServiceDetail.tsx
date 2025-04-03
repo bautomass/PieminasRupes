@@ -89,66 +89,9 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
           {serviceDetails.regular.note}
         </motion.p>
 
-        {/* Grave tending service details */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-10 border-t border-gray-200 dark:border-gray-700 pt-10"
-        >
-          <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
-            {t.serviceDetails.additionalServices.graveTending.title}
-          </h4>
-          <ul className="space-y-3 bg-gray-50 dark:bg-gray-900/50 p-6 rounded-lg">
-            {t.serviceDetails.additionalServices.graveTending.features.map(
-              (feature, index) => (
-                <li key={index} className="flex items-start">
-                  <CheckIcon className="flex-shrink-0 w-5 h-5 mt-1 text-emerald-600 dark:text-emerald-400" />
-                  <span className="ml-3 text-gray-700 dark:text-gray-300">
-                    {feature}
-                  </span>
-                </li>
-              )
-            )}
-          </ul>
-        </motion.div>
-
-        {/* Yearly services options */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-10 border-t border-gray-200 dark:border-gray-700 pt-10"
-        >
-          <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-            {t.serviceDetails.additionalServices.yearlyServices.title}
-          </h4>
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
-            {t.serviceDetails.additionalServices.yearlyServices.description}
-          </p>
-          <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-lg">
-            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {t.serviceDetails.additionalServices.yearlyServices.options.map(
-                (option, index) => (
-                  <li key={index} className="flex items-center">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 mr-3 text-sm font-medium">
-                      {index + 1}
-                    </span>
-                    <span className="text-gray-700 dark:text-gray-300">
-                      {option}
-                    </span>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Photo reporting note */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-6 bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg border border-emerald-100 dark:border-emerald-900/30"
-        >
-          <p className="text-gray-700 dark:text-gray-300 italic">
-            {t.serviceDetails.additionalServices.floralDelivery.photoNote}
-          </p>
-        </motion.div>
+        {/* Removed: Grave tending service details */}
+        {/* Removed: Yearly services options */}
+        {/* Removed: Photo reporting note */}
       </motion.div>
     </div>
   );
@@ -204,71 +147,7 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
           </p>
         </motion.div>
 
-        {/* Grave decoration for special occasions */}
-        <motion.div variants={itemVariants} className="mt-10">
-          <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-            {language === "lv"
-              ? "Kapavietas dekorēšana"
-              : language === "en"
-                ? "Grave decoration"
-                : language === "ru"
-                  ? "Украшение могилы"
-                  : "Grabdekoration"}
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg">
-              <h5 className="font-medium text-gray-900 dark:text-white text-center mb-2">
-                {t.serviceDetails.packages.standard.title}
-              </h5>
-              <ul className="space-y-2">
-                {t.serviceDetails.packages.standard.features.map(
-                  (feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckIcon className="flex-shrink-0 w-4 h-4 mt-1 text-emerald-600 dark:text-emerald-400" />
-                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                        {feature}
-                      </span>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-            <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg border border-emerald-200 dark:border-emerald-800">
-              <h5 className="font-medium text-gray-900 dark:text-white text-center mb-2">
-                {t.serviceDetails.packages.plus.title}
-              </h5>
-              <ul className="space-y-2">
-                {t.serviceDetails.packages.plus.features.map(
-                  (feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckIcon className="flex-shrink-0 w-4 h-4 mt-1 text-emerald-600 dark:text-emerald-400" />
-                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                        {feature}
-                      </span>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-            <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg">
-              <h5 className="font-medium text-gray-900 dark:text-white text-center mb-2">
-                {t.serviceDetails.packages.premium.title}
-              </h5>
-              <ul className="space-y-2">
-                {t.serviceDetails.packages.premium.features.map(
-                  (feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckIcon className="flex-shrink-0 w-4 h-4 mt-1 text-emerald-600 dark:text-emerald-400" />
-                      <span className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                        {feature}
-                      </span>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-          </div>
-        </motion.div>
+        {/* Removed: Grave decoration for special occasions */}
       </motion.div>
     </div>
   );
@@ -368,24 +247,7 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
           </p>
         </motion.div>
 
-        {/* Additional restoration services */}
-        <motion.div variants={itemVariants}>
-          <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-            {t.serviceDetails.additionalServices.additional.title}
-          </h4>
-          <ul className="space-y-3 bg-gray-50 dark:bg-gray-900/50 rounded-lg p-6">
-            {t.serviceDetails.additionalServices.additional.features.map(
-              (feature, index) => (
-                <li key={index} className="flex items-start">
-                  <CheckIcon className="flex-shrink-0 w-5 h-5 mt-1 text-emerald-600 dark:text-emerald-400" />
-                  <span className="ml-3 text-gray-700 dark:text-gray-300">
-                    {feature}
-                  </span>
-                </li>
-              )
-            )}
-          </ul>
-        </motion.div>
+        {/* Removed: Additional restoration services */}
       </motion.div>
     </div>
   );
@@ -488,17 +350,7 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
           </ul>
         </motion.div>
 
-        {/* Month's Mind Service section */}
-        <motion.div variants={itemVariants} className="mb-10">
-          <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-            {t.serviceDetails.additionalServices.monthsMind.title}
-          </h4>
-          <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-lg">
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.serviceDetails.additionalServices.monthsMind.description}
-            </p>
-          </div>
-        </motion.div>
+        {/* Removed: Month's Mind Service section */}
 
         <motion.div
           variants={itemVariants}
@@ -515,29 +367,7 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
           </p>
         </motion.div>
 
-        {/* Payment information */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-10 border-t border-gray-200 dark:border-gray-700 pt-8"
-        >
-          <div className="bg-emerald-50 dark:bg-emerald-900/20 p-6 rounded-lg border border-emerald-100 dark:border-emerald-800/30">
-            <h4 className="font-bold text-gray-900 dark:text-white mb-3">
-              {language === "lv"
-                ? "Informācija par maksājumiem"
-                : language === "en"
-                  ? "Payment information"
-                  : language === "ru"
-                    ? "Информация об оплате"
-                    : "Zahlungsinformationen"}
-            </h4>
-            <p className="text-gray-700 dark:text-gray-300 mb-2">
-              {t.serviceDetails.pricing.paymentNote}
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.serviceDetails.pricing.additionalNote}
-            </p>
-          </div>
-        </motion.div>
+        {/* Removed: Payment information */}
       </motion.div>
     </div>
   );
