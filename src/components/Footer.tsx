@@ -6,6 +6,8 @@ import { PhoneIcon, EmailIcon, LogoIcon, GlobeIcon } from "@/components/Icons";
 
 export default function Footer() {
   const { language, setLanguage } = useLanguage();
+  const phoneNumber = "+37129183370";
+  const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     lv: {
@@ -16,11 +18,12 @@ export default function Footer() {
       faq: "BUJ",
       terms: "Lietošanas noteikumi",
       privacy: "Privātuma politika",
-      copyright: "© 2025 SkyGarden. Visas tiesības aizsargātas.",
+      copyright: `© ${currentYear} SkyGarden. Visas tiesības aizsargātas.`,
       serviceAreas: "Apkalpojamās teritorijas",
       contactUs: "Sazināties ar mums",
       companyInfo: "Uzņēmuma informācija",
       bankDetails: "Bankas rekvizīti",
+      whatsappContact: "Sazinies ar mums WhatsApp",
     },
     en: {
       services: "Services",
@@ -30,11 +33,12 @@ export default function Footer() {
       faq: "FAQ",
       terms: "Terms of Service",
       privacy: "Privacy Policy",
-      copyright: "© 2025 SkyGarden. All rights reserved.",
+      copyright: `© ${currentYear} SkyGarden. All rights reserved.`,
       serviceAreas: "Service Areas",
       contactUs: "Contact Us",
       companyInfo: "Company Information",
       bankDetails: "Bank Details",
+      whatsappContact: "Contact us on WhatsApp",
     },
     ru: {
       services: "Услуги",
@@ -44,11 +48,12 @@ export default function Footer() {
       faq: "ЧЗВ",
       terms: "Условия использования",
       privacy: "Политика конфиденциальности",
-      copyright: "© 2025 SkyGarden. Все права защищены.",
+      copyright: `© ${currentYear} SkyGarden. Все права защищены.`,
       serviceAreas: "Зоны обслуживания",
       contactUs: "Связаться с нами",
       companyInfo: "Информация о компании",
       bankDetails: "Банковские реквизиты",
+      whatsappContact: "Свяжитесь с нами в WhatsApp",
     },
     de: {
       services: "Dienstleistungen",
@@ -58,11 +63,12 @@ export default function Footer() {
       faq: "FAQ",
       terms: "Nutzungsbedingungen",
       privacy: "Datenschutzrichtlinie",
-      copyright: "© 2025 SkyGarden. Alle Rechte vorbehalten.",
+      copyright: `© ${currentYear} SkyGarden. Alle Rechte vorbehalten.`,
       serviceAreas: "Servicegebiete",
       contactUs: "Kontaktieren Sie uns",
       companyInfo: "Unternehmensangaben",
       bankDetails: "Bankverbindung",
+      whatsappContact: "Kontaktieren Sie uns über WhatsApp",
     },
   };
 
@@ -81,44 +87,31 @@ export default function Footer() {
       <div className="h-1 w-full bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
 
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-          {/* Logo and Description */}
-          <div>
+      <div className="container mx-auto px-4 py-8 sm:py-10 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+          {/* Logo and Company Info */}
+          <div className="text-center sm:text-left mx-auto sm:mx-0 w-full max-w-xs sm:max-w-none">
             <Link
               href="/"
-              className="flex items-center text-xl font-serif font-bold tracking-tight text-white mb-4"
+              className="flex items-center text-2xl font-serif font-bold tracking-tight text-white mb-4 justify-center sm:justify-start"
             >
-              <LogoIcon className="w-8 h-8 mr-2 text-emerald-400" />
+              <LogoIcon className="w-10 h-10 mr-2 text-emerald-400" />
               SkyGarden
             </Link>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              {language === "lv"
-                ? "Profesionāla kapavietu kopšana, kas saglabā un godina Jūsu tuvinieku piemiņu."
-                : language === "en"
-                  ? "Professional grave care that preserves and honors the memory of your loved ones."
-                  : language === "ru"
-                    ? "Профессиональный уход за могилами, который сохраняет и чтит память о ваших близких."
-                    : "Professionelle Grabpflege, die das Andenken an Ihre Lieben bewahrt und ehrt."}
-            </p>
 
             {/* Company Legal Information */}
-            <div className="pt-4 border-t border-gray-800">
+            <div className="mb-4">
               <h4 className="text-white text-sm font-medium mb-2">
                 {t.companyInfo}
               </h4>
-              <ul className="text-gray-500 text-xs space-y-1">
+              <ul className="text-gray-500 text-sm sm:text-xs space-y-2 sm:space-y-1">
                 <li>SIA &quot;MARLIN&quot;</li>
                 <li>Reģ. Nr.: 42103083865</li>
-                <li className="break-words">
-                  Dienvidkurzemes nov., Vērgales pag., Ploce,
-                  &quot;Audzes&quot;, LV-3463
-                </li>
               </ul>
             </div>
 
-            {/* Bank Details - Moved here */}
-            <div className="mt-4 pt-4 border-t border-gray-800">
+            {/* Bank Details */}
+            <div className="pt-3 border-t border-gray-800">
               <h4 className="text-white text-sm font-medium mb-2">
                 {t.bankDetails}
               </h4>
@@ -131,8 +124,8 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-medium mb-5 text-lg inline-block pb-2 border-b-2 border-emerald-500">
+          <div className="text-center sm:text-left mx-auto sm:mx-0 w-full max-w-xs sm:max-w-none">
+            <h3 className="text-white font-medium mb-5 text-xl sm:text-lg inline-block pb-2 border-b-2 border-emerald-500">
               {language === "lv"
                 ? "Ātrās saites"
                 : language === "en"
@@ -145,7 +138,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center justify-center sm:justify-start text-lg sm:text-base"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>
                   {t.services}
@@ -154,7 +147,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center justify-center sm:justify-start"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>
                   {t.about}
@@ -163,7 +156,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/pricing"
-                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center justify-center sm:justify-start"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>
                   {t.pricing}
@@ -172,7 +165,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/faq"
-                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center justify-center sm:justify-start"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>
                   {t.faq}
@@ -181,7 +174,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center"
+                  className="text-gray-400 hover:text-emerald-400 transition-colors flex items-center justify-center sm:justify-start"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>
                   {t.contact}
@@ -191,23 +184,23 @@ export default function Footer() {
           </div>
 
           {/* Service Areas */}
-          <div>
+          <div className="text-center sm:text-left mx-auto sm:mx-0 w-full max-w-xs sm:max-w-none">
             <h3 className="text-white font-medium mb-5 text-lg inline-block pb-2 border-b-2 border-emerald-500">
               {t.serviceAreas}
             </h3>
             <ul className="space-y-3 text-gray-400 mb-5">
-              <li className="flex items-center">
+              <li className="flex items-center justify-center sm:justify-start">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 mr-2.5"></span>
                 Dienvidkurzemes novads
               </li>
-              <li className="flex items-center">
+              <li className="flex items-center justify-center sm:justify-start">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 mr-2.5"></span>
                 Liepāja
               </li>
             </ul>
 
             {/* Map image with frame */}
-            <div className="mt-5 overflow-hidden rounded-lg border border-gray-700 max-w-[180px] shadow-lg">
+            <div className="mt-5 overflow-hidden rounded-lg border border-gray-700 max-w-[180px] shadow-lg mx-auto sm:mx-0">
               <div className="relative">
                 <Image
                   src="https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743622650/dienvidkurzemes-nodavads_1_dm6mgt.jpg"
@@ -222,24 +215,31 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="text-center sm:text-left mx-auto sm:mx-0 w-full max-w-xs sm:max-w-none">
             <h3 className="text-white font-medium mb-5 text-lg inline-block pb-2 border-b-2 border-emerald-500">
               {t.contactUs}
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-center group">
-                <div className="bg-gray-800 p-2 rounded-full mr-3 group-hover:bg-emerald-900 transition-colors">
-                  <PhoneIcon className="w-5 h-5 text-emerald-400" />
-                </div>
-                <span className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                  +371 2X XXX XXX
-                </span>
+              <li className="flex items-center group justify-center sm:justify-start">
+                <Link
+                  href={`https://wa.me/${phoneNumber.replace("+", "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center group"
+                >
+                  <div className="bg-gray-800 p-2.5 sm:p-2 rounded-full mr-3 group-hover:bg-emerald-900 transition-colors">
+                    <PhoneIcon className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <span className="text-gray-400 group-hover:text-emerald-400 transition-colors text-lg sm:text-sm">
+                    {t.whatsappContact}
+                  </span>
+                </Link>
               </li>
-              <li className="flex items-center group">
-                <div className="bg-gray-800 p-2 rounded-full mr-3 group-hover:bg-emerald-900 transition-colors">
+              <li className="flex items-center group justify-center sm:justify-start">
+                <div className="bg-gray-800 p-2.5 sm:p-2 rounded-full mr-3 group-hover:bg-emerald-900 transition-colors">
                   <EmailIcon className="w-5 h-5 text-emerald-400" />
                 </div>
-                <span className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-lg sm:text-sm">
                   info@skygarden.lv
                 </span>
               </li>
@@ -247,18 +247,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright and Legal Links */}
-        <div className="mt-14 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">{t.copyright}</p>
-
-          <div className="flex items-center space-x-6">
-            {/* Language selector - Moved back to bottom */}
-            <div className="relative flex items-center">
-              <GlobeIcon className="w-4 h-4 text-emerald-400 mr-2" />
+        {/* Legal Links and Language Selector */}
+        <div className="mt-14 pt-6 border-t border-gray-800 flex flex-col items-center">
+          <div className="flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-8 mb-8">
+            {/* Language selector */}
+            <div className="relative flex items-center mb-2 sm:mb-0">
+              <GlobeIcon className="w-5 h-5 text-emerald-400 mr-3" />
               <select
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
-                className="appearance-none bg-gray-800 border border-gray-700 text-gray-300 py-1 pl-2 pr-8 rounded text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                className="appearance-none bg-gray-800 border border-gray-700 text-gray-300 py-3 pl-4 pr-12 sm:py-1 sm:px-3 sm:pr-10 rounded text-base sm:text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500 min-w-[140px] sm:min-w-0"
                 aria-label={
                   language === "lv"
                     ? "Mainīt valodu"
@@ -279,9 +277,9 @@ export default function Footer() {
                   </option>
                 ))}
               </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+              <div className="pointer-events-none absolute right-4 flex items-center text-gray-400">
                 <svg
-                  className="w-4 h-4"
+                  className="w-5 h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -297,19 +295,26 @@ export default function Footer() {
               </div>
             </div>
 
-            <Link
-              href="/terms"
-              className="text-gray-500 text-sm hover:text-emerald-400 transition-colors"
-            >
-              {t.terms}
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-gray-500 text-sm hover:text-emerald-400 transition-colors"
-            >
-              {t.privacy}
-            </Link>
+            <div className="flex space-x-8">
+              <Link
+                href="/terms-of-service"
+                className="text-gray-500 text-base sm:text-sm hover:text-emerald-400 transition-colors"
+              >
+                {t.terms}
+              </Link>
+              <Link
+                href="/privacy-policy"
+                className="text-gray-500 text-base sm:text-sm hover:text-emerald-400 transition-colors"
+              >
+                {t.privacy}
+              </Link>
+            </div>
           </div>
+
+          {/* Copyright - now at the very bottom */}
+          <p className="text-gray-500 text-base sm:text-sm mb-2">
+            {t.copyright}
+          </p>
         </div>
       </div>
     </footer>
