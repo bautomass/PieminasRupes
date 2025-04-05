@@ -26,7 +26,7 @@ const seoConfig = {
     title:
       "SkyGarden | Profesionāli kapu kopšanas pakalpojumi Liepājā un Dienvidkurzemē",
     description:
-      "Profesionāli kapu kopšanas, pieminekļu atjaunošanas un sezonālie pakalpojumi Dienvidkurzemes novadā un Liepājā. Rūpējamies par jūsu tuvinieku piemiņas vietām ar cieņu un augstu kvalitāti.",
+      "Profesionāli kapu kopšanas, pieminekļu atjaunošanas un sezonālie pakalpojumi Dienvidkurzemes novadā un Liepājā. Rūpējamies par Jūsu tuvinieku piemiņas vietām ar cieņu un augstu kvalitāti.",
     keywords:
       "kapu kopšana, Liepāja, Dienvidkurzeme, pieminekļu atjaunošana, kapu vietas kopšana, kapu kopšanas pakalpojumi, sezonāla kapu kopšana, profesionāla kapu kopšana, kapu labiekārtošana, kapavietu uzkopšana, kapu pieminekļu tīrīšana, kapu pieminekļu restaurācija, regulāra kapu kopšana, vasaras kapu kopšana, rudens kapu kopšana, pavasara kapu kopšana, kapu uzkopšana pirms svētkiem, BUJ par kapu kopšanu, kapu rūpes, kapavietu apzaļumošana, kapu apmales tīrīšana, kapu vietu uzturēšana",
     ogImage:
