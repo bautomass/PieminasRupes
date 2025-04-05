@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // You can add the base URL of your website
-  const baseUrl = process.env.SITE_URL || "https://yoursite.com";
+  const baseUrl = process.env.SITE_URL || "https://sky-garden.lv";
 
   // Add all your static pages here
   const staticPages = [
