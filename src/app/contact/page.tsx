@@ -151,7 +151,7 @@ const ContactInfo = memo(({ t, language }: ContactInfoProps) => (
                       : "Telefonieren"
               }
             >
-              +371 2X XXX XXX
+              +371 29183370
             </a>
           </p>
         </div>
@@ -179,7 +179,7 @@ const ContactInfo = memo(({ t, language }: ContactInfoProps) => (
           </h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">
             <a
-              href="mailto:info@skygarden.lv"
+              href="mailto:info@sky-garden.lv"
               className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
               aria-label={
                 language === "lv"
@@ -191,7 +191,7 @@ const ContactInfo = memo(({ t, language }: ContactInfoProps) => (
                       : "E-Mail senden"
               }
             >
-              info@skygarden.lv
+              info@sky-garden.lv
             </a>
           </p>
         </div>

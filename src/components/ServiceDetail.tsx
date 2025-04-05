@@ -88,10 +88,6 @@ export default function ServiceDetail({ serviceId }: ServiceDetailProps) {
         >
           {serviceDetails.regular.note}
         </motion.p>
-
-        {/* Removed: Grave tending service details */}
-        {/* Removed: Yearly services options */}
-        {/* Removed: Photo reporting note */}
       </motion.div>
     </div>
   );

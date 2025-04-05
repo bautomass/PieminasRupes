@@ -684,34 +684,34 @@ export default function FAQPage(): React.ReactElement {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://skygarden.lv/${language === "lv" ? "" : language + "/"}faq`}
+          content={`https://sky-garden.lv/${language === "lv" ? "" : language + "/"}faq`}
         />
         {/* Add canonical URL based on current language */}
         <link
           rel="canonical"
-          href={`https://skygarden.lv/${language === "lv" ? "" : language + "/"}faq`}
+          href={`https://sky-garden.lv/${language === "lv" ? "" : language + "/"}faq`}
         />
         {/* Add alternate language links for SEO */}
-        <link rel="alternate" hrefLang="lv" href="https://skygarden.lv/faq" />
+        <link rel="alternate" hrefLang="lv" href="https://sky-garden.lv/faq" />
         <link
           rel="alternate"
           hrefLang="en"
-          href="https://skygarden.lv/en/faq"
+          href="https://sky-garden.lv/en/faq"
         />
         <link
           rel="alternate"
           hrefLang="ru"
-          href="https://skygarden.lv/ru/faq"
+          href="https://sky-garden.lv/ru/faq"
         />
         <link
           rel="alternate"
           hrefLang="de"
-          href="https://skygarden.lv/de/faq"
+          href="https://sky-garden.lv/de/faq"
         />
         <link
           rel="alternate"
           hrefLang="x-default"
-          href="https://skygarden.lv/faq"
+          href="https://sky-garden.lv/faq"
         />
         {/* Add structured data for FAQ page */}
         <script

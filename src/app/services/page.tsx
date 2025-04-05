@@ -504,7 +504,7 @@ export default function ServicesPage() {
       provider: {
         "@type": "Organization",
         name: "SkyGarden",
-        url: "https://skygarden.lv/",
+        url: "https://sky-garden.lv/",
       },
       areaServed: {
         "@type": "Place",
@@ -594,11 +594,11 @@ export default function ServicesPage() {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://skygarden.lv/${language === "lv" ? "" : language + "/"}services`}
+          content={`https://sky-garden.lv/${language === "lv" ? "" : language + "/"}services`}
         />
         <meta
           property="og:image"
-          content="https://skygarden.lv/images/og-services.jpg"
+          content="https://sky-garden.lv/images/og-services.jpg"
         />
         <meta
           property="og:locale"
@@ -621,34 +621,34 @@ export default function ServicesPage() {
         {/* Canonical URL */}
         <link
           rel="canonical"
-          href={`https://skygarden.lv/${language === "lv" ? "" : language + "/"}services`}
+          href={`https://sky-garden.lv/${language === "lv" ? "" : language + "/"}services`}
         />
 
         {/* Hreflang tags for language versions */}
         <link
           rel="alternate"
           hrefLang="lv"
-          href="https://skygarden.lv/services"
+          href="https://sky-garden.lv/services"
         />
         <link
           rel="alternate"
           hrefLang="en"
-          href="https://skygarden.lv/en/services"
+          href="https://sky-garden.lv/en/services"
         />
         <link
           rel="alternate"
           hrefLang="ru"
-          href="https://skygarden.lv/ru/services"
+          href="https://sky-garden.lv/ru/services"
         />
         <link
           rel="alternate"
           hrefLang="de"
-          href="https://skygarden.lv/de/services"
+          href="https://sky-garden.lv/de/services"
         />
         <link
           rel="alternate"
           hrefLang="x-default"
-          href="https://skygarden.lv/services"
+          href="https://sky-garden.lv/services"
         />
 
         {/* Structured data */}
@@ -791,7 +791,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.5 }}
-            className="py-12 bg-gray-50 dark:bg-gray-850 border-t border-b border-gray-200 dark:border-gray-700 overflow-hidden"
+            className="py-12 bg-gray-50 dark:bg-gray-900 border-t border-b border-gray-200 dark:border-gray-700 overflow-hidden"
             id={`service-detail-${activeService}`}
             aria-labelledby={`service-detail-title-${activeService}`}
           >
@@ -1470,34 +1470,49 @@ export default function ServicesPage() {
 
               {/* More prominently highlighted transport note */}
               <div
-                className="mt-10 text-center"
+                className="mt-8 text-center"
                 aria-label="Important transportation note"
               >
-                <div className="bg-amber-50 dark:bg-amber-900/20 border-2 border-amber-400 dark:border-amber-700 p-5 rounded-lg shadow-lg max-w-2xl mx-auto relative overflow-hidden">
+                <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-400 dark:border-amber-700 p-3 rounded-lg shadow-md max-w-2xl mx-auto relative overflow-hidden">
                   <div
                     className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-amber-300 dark:from-amber-700 dark:to-amber-600"
                     aria-hidden="true"
                   ></div>
-                  <p className="text-amber-800 dark:text-amber-300 text-lg font-semibold flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 mr-2 flex-shrink-0"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {language === "lv"
-                      ? "* Transports NAV iekļauts cenā"
-                      : "* Transportation is NOT included in the price"}
-                  </p>
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-amber-800 dark:text-amber-300 text-sm font-semibold flex items-center justify-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mr-2 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      {language === "lv"
+                        ? "* Transporta izmaksas nav iekļautas cenā"
+                        : language === "en"
+                          ? "* Transportation costs are not included in the price"
+                          : language === "ru"
+                            ? "* Транспортные расходы не включены в цену"
+                            : "* Transportkosten sind nicht im Preis inbegriffen"}
+                    </p>
+                    <p className="text-amber-700 dark:text-amber-400 text-xs px-3">
+                      {language === "lv"
+                        ? "Transporta izmaksas tiek aprēķinātas, balstoties uz degvielas cenām un attālumu. Attālumiem virs 50 km papildus tiek piemērota maksa 0,10€ par kilometru. Detalizētas izmaksas tiks pārrunātas individuāli ar katru klientu."
+                        : language === "en"
+                          ? "Transportation costs are calculated based on fuel prices and distance. For distances over 50 km, an additional fee of €0.10 per kilometer applies. Detailed costs will be discussed individually with each client."
+                          : language === "ru"
+                            ? "Транспортные расходы рассчитываются исходя из цен на топливо и расстояния. Для расстояний свыше 50 км взимается дополнительная плата в размере 0,10€ за километр. Детальные расходы будут обсуждаться индивидуально с каждым клиентом."
+                            : "Die Transportkosten werden auf Basis der Kraftstoffpreise und der Entfernung berechnet. Für Entfernungen über 50 km wird eine zusätzliche Gebühr von 0,10€ pro Kilometer erhoben. Detaillierte Kosten werden individuell mit jedem Kunden besprochen."}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

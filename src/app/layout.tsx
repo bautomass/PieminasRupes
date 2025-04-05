@@ -29,7 +29,8 @@ const seoConfig = {
       "Profesionāli kapu kopšanas, pieminekļu atjaunošanas un sezonālie pakalpojumi Dienvidkurzemes novadā un Liepājā. Rūpējamies par jūsu tuvinieku piemiņas vietām ar cieņu un augstu kvalitāti.",
     keywords:
       "kapu kopšana, Liepāja, Dienvidkurzeme, pieminekļu atjaunošana, kapu vietas kopšana, kapu kopšanas pakalpojumi, sezonāla kapu kopšana, profesionāla kapu kopšana, kapu labiekārtošana, kapavietu uzkopšana, kapu pieminekļu tīrīšana, kapu pieminekļu restaurācija, regulāra kapu kopšana, vasaras kapu kopšana, rudens kapu kopšana, pavasara kapu kopšana, kapu uzkopšana pirms svētkiem, BUJ par kapu kopšanu, kapu rūpes, kapavietu apzaļumošana, kapu apmales tīrīšana, kapu vietu uzturēšana",
-    ogImage: "/images/skygarden-og-lv.jpg",
+    ogImage:
+      "https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743838368/skygarden-og-lv_ssinbk.jpg",
   },
   en: {
     title:
@@ -47,7 +48,8 @@ const seoConfig = {
       "Профессиональный уход за могилами, реставрация памятников и сезонные услуги в Южнокурземском крае и Лиепае. Мы заботимся о местах памяти ваших близких с уважением и высоким качеством.",
     keywords:
       "уход за могилами, Лиепая, Южнокурземский край, Латвия, реставрация памятников, обслуживание мест захоронения, уход за местами памяти, сезонный уход за могилами, профессиональный уход, чистка могил, регулярный уход за могилами, озеленение могил, услуги по уходу за кладбищем, чистка памятников, восстановление памятников, весенний уход за могилой, летний уход за могилой, осенний уход за могилой, ЧЗВ по уходу за могилами, уборка могил перед праздниками, оформление могил, регулярное обслуживание могил",
-    ogImage: "/images/skygarden-og-ru.jpg",
+    ogImage:
+      "https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743838368/skygarden-og-lv_ssinbk.jpg",
   },
   de: {
     title:
@@ -56,7 +58,8 @@ const seoConfig = {
       "Professionelle Grabpflege, Denkmalrestaurierung und saisonale Pflegedienste in der Region Dienvidkurzeme und Liepaja, Lettland. Wir kümmern uns mit Respekt und hoher Qualität um die Gedenkstätten Ihrer Lieben.",
     keywords:
       "Grabpflege, Liepaja, Dienvidkurzeme, Lettland, Denkmalrestaurierung, Gedenkstättenpflege, Grabstättenpflege, saisonale Grabpflege, professionelle Grabpflege, Friedhofspflege, Grabsteinreinigung, Grabsteinsanierung, regelmäßige Grabpflege, Sommergrabpflege, Herbstgrabpflege, Frühlingsgrabpflege, Grabsteinerneuerung, Grabgestaltung, Grabeinfassungsreinigung, Grabbepflanzung, FAQ Grabpflege, Dauergrabpflege, Einzelgrabpflege, Grabumfeldpflege",
-    ogImage: "/images/skygarden-og-de.jpg",
+    ogImage:
+      "https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743838368/skygarden-og-lv_ssinbk.jpg",
   },
 };
 
@@ -65,7 +68,7 @@ export const metadata: Metadata = {
   description: seoConfig.lv.description,
   keywords: seoConfig.lv.keywords,
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || "https://skygarden.lv"
+    process.env.NEXT_PUBLIC_BASE_URL || "https://sky-garden.lv"
   ),
   alternates: {
     canonical: "/",
@@ -79,7 +82,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "lv_LV",
-    url: process.env.NEXT_PUBLIC_BASE_URL || "https://skygarden.lv",
+    url: process.env.NEXT_PUBLIC_BASE_URL || "https://sky-garden.lv",
     title: seoConfig.lv.title,
     description: seoConfig.lv.description,
     siteName: "SkyGarden",
@@ -131,8 +134,15 @@ export default function RootLayout({
   return (
     <html lang="lv" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <link
+          rel="icon"
+          href="https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743839329/favicon_oxabom.png"
+          sizes="any"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="https://res.cloudinary.com/dzbnlhbmg/image/upload/v1743839329/favicon_oxabom.png"
+        />
         <meta name="geo.region" content="LV" />
         <meta name="geo.placename" content="Liepāja, Dienvidkurzeme" />
         <meta name="geo.position" content="56.6667;21.0667" />
@@ -161,10 +171,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "SkyGarden",
-              image: `${process.env.NEXT_PUBLIC_BASE_URL || "https://skygarden.lv"}/images/skygarden-logo.jpg`,
-              "@id": `${process.env.NEXT_PUBLIC_BASE_URL || "https://skygarden.lv"}#localbusiness`,
-              url: process.env.NEXT_PUBLIC_BASE_URL || "https://skygarden.lv",
-              telephone: "+37120000000",
+              image: `${process.env.NEXT_PUBLIC_BASE_URL || "https://sky-garden.lv"}/images/skygarden-logo.jpg`,
+              "@id": `${process.env.NEXT_PUBLIC_BASE_URL || "https://sky-garden.lv"}#localbusiness`,
+              url: process.env.NEXT_PUBLIC_BASE_URL || "https://sky-garden.lv",
+              telephone: "+37129183370",
               priceRange: "€€",
               address: {
                 "@type": "PostalAddress",

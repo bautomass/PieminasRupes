@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+SkyGarden - Cemetery Care Services
+SkyGarden provides professional cemetery and grave maintenance services in Latvia. The website showcases their range of services for maintaining memorial sites with dignity and care.
+About SkyGarden
+SkyGarden specializes in professional grave and memorial maintenance that preserves and honors the memory of loved ones. They offer comprehensive care services to ensure cemetery sites remain dignified and well-maintained.
+Services Offered
+Regular Maintenance
 
-## Getting Started
+Regular grass cutting around graves
+Removal of weeds from grave sites
+Collection of leaves and other debris
+Cleaning and smoothing of gravel
+Removal of old and withered flowers
 
-First, run the development server:
+Seasonal Services
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Seasonal flower planting and maintenance
+Preparation of grave sites for holidays
+Winter care and snow clearing
+Spring general cleaning after winter
+Maintenance of decorative elements
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Monument Care
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Professional cleaning of monuments and plaques
+Removal of moss, lichen, and debris
+Cleaning of decorative elements
+Removal of seasonal dirt and residue
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Individual Solutions
 
-## Learn More
+Special preparations for grave maintenance
+Consultations on site improvement
+Cemetery site selection assistance
+Customized maintenance schedules
+Personalized service according to your wishes
 
-To learn more about Next.js, take a look at the following resources:
+Service Areas
+SkyGarden provides their services in:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dienvidkurzeme region
+Liepāja
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contact
+The website offers options to request a consultation or learn more about their services through the contact page.

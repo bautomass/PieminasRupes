@@ -36,7 +36,7 @@ export default function Hero() {
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-center"
-                quality={85}
+                quality={100}
                 loading="eager"
                 fetchPriority="high"
               />

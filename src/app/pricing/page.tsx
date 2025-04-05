@@ -728,7 +728,7 @@ export default function PricingPage(): React.ReactElement {
       description: pageDescription,
       price: sizePlans.length > 0 ? sizePlans[0].price : "40",
       priceCurrency: "EUR",
-      url: `https://skygarden.lv/${language === "lv" ? "" : language + "/"}pricing`,
+      url: `https://sky-garden.lv/${language === "lv" ? "" : language + "/"}pricing`,
     };
   }, [sizePlans, pageTitle, pageDescription, language]);
 
@@ -742,11 +742,11 @@ export default function PricingPage(): React.ReactElement {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content={`https://skygarden.lv/${language === "lv" ? "" : language + "/"}pricing`}
+          content={`https://sky-garden.lv/${language === "lv" ? "" : language + "/"}pricing`}
         />
         <link
           rel="canonical"
-          href={`https://skygarden.lv/${language === "lv" ? "" : language + "/"}pricing`}
+          href={`https://sky-garden.lv/${language === "lv" ? "" : language + "/"}pricing`}
         />
         <script
           type="application/ld+json"
