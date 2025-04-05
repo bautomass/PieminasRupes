@@ -229,17 +229,17 @@ export default function AboutPage() {
         <meta property="og:title" content={t.metaTitle} />
         <meta property="og:description" content={t.metaDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourdomain.com/about" />
-        <link rel="canonical" href="https://yourdomain.com/about" />
+        <meta property="og:url" content="https://sky-garden.lv/about" />
+        <link rel="canonical" href="https://sky-garden.lv/about" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "SkyGarden",
-            url: "https://yourdomain.com",
-            logo: "https://yourdomain.com/logo.png",
+            url: "https://sky-garden.lv",
+            logo: "https://sky-garden.lv/logo.png",
             description: t.metaDescription,
-            foundingDate: "2019",
+            foundingDate: "2025",
             areaServed: ["Latvia", "Baltic States"],
           })}
         </script>
