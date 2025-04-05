@@ -240,7 +240,7 @@ export default function Footer() {
                   <EmailIcon className="w-5 h-5 text-emerald-400" />
                 </div>
                 <span className="text-gray-400 group-hover:text-gray-300 transition-colors text-lg sm:text-sm">
-                  info@sky-garden.lv
+                  skygarden.lv@gmail.com
                 </span>
               </li>
             </ul>

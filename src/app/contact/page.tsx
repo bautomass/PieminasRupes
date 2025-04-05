@@ -179,7 +179,7 @@ const ContactInfo = memo(({ t, language }: ContactInfoProps) => (
           </h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">
             <a
-              href="mailto:info@sky-garden.lv"
+              href="mailto:skygarden.lv@gmail.com"
               className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
               aria-label={
                 language === "lv"
@@ -191,7 +191,7 @@ const ContactInfo = memo(({ t, language }: ContactInfoProps) => (
                       : "E-Mail senden"
               }
             >
-              info@sky-garden.lv
+              skygarden.lv@gmail.com
             </a>
           </p>
         </div>
