@@ -430,7 +430,7 @@ export default function ContactPage() {
   }, []);
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent) => {
       e.preventDefault();
 
       if (!validateForm()) {
@@ -439,15 +439,33 @@ export default function ContactPage() {
 
       setFormStatus("submitting");
 
-      // Simulate form submission
-      setTimeout(() => {
-        // In a real app, you would send this data to your server
-        console.log("Form submitted:", formData);
-        setFormStatus("submitted");
-        // Form is reset when user clicks "Send another message"
-      }, 1500);
+      try {
+        // Call our API endpoint
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            language,
+            formData,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          setFormStatus("submitted");
+        } else {
+          console.error("Form submission error:", result.error);
+          setFormStatus("error");
+        }
+      } catch (error) {
+        console.error("Form submission error:", error);
+        setFormStatus("error");
+      }
     },
-    [formData, validateForm]
+    [formData, validateForm, language]
   );
 
   return (
