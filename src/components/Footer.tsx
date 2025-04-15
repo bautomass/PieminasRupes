@@ -24,6 +24,8 @@ export default function Footer() {
       companyInfo: "Uzņēmuma informācija",
       bankDetails: "Bankas rekvizīti",
       whatsappContact: "Sazinies ar mums WhatsApp",
+      recipient: "SAŅĒMĒJS",
+      bank: "Banka",
     },
     en: {
       services: "Services",
@@ -39,6 +41,8 @@ export default function Footer() {
       companyInfo: "Company Information",
       bankDetails: "Bank Details",
       whatsappContact: "Contact us on WhatsApp",
+      recipient: "RECIPIENT",
+      bank: "Bank",
     },
     ru: {
       services: "Услуги",
@@ -54,6 +58,8 @@ export default function Footer() {
       companyInfo: "Информация о компании",
       bankDetails: "Банковские реквизиты",
       whatsappContact: "Свяжитесь с нами в WhatsApp",
+      recipient: "ПОЛУЧАТЕЛЬ",
+      bank: "Банк",
     },
     de: {
       services: "Dienstleistungen",
@@ -69,6 +75,8 @@ export default function Footer() {
       companyInfo: "Unternehmensangaben",
       bankDetails: "Bankverbindung",
       whatsappContact: "Kontaktieren Sie uns über WhatsApp",
+      recipient: "EMPFÄNGER",
+      bank: "Bank",
     },
   };
 
@@ -116,9 +124,10 @@ export default function Footer() {
                 {t.bankDetails}
               </h4>
               <ul className="text-gray-500 text-xs space-y-1">
-                <li>Banka: [Bankas nosaukums]</li>
-                <li>SWIFT: [SWIFT kods]</li>
-                <li>IBAN: [Konta numurs]</li>
+                <li>{t.recipient}: SIA MARLIN</li>
+                <li>{t.bank}: SEB Banka</li>
+                <li>SWIFT: UNLALV2X</li>
+                <li>IBAN: LV48UNLA0055005263910</li>
               </ul>
             </div>
           </div>

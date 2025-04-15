@@ -17,37 +17,37 @@ export default function PrivacyPolicy() {
         {
           title: "1. Ievads",
           content:
-            "SkyGarden apņemas aizsargāt jūsu privātumu un nodrošināt jūsu personas datu drošību. Šī privātuma politika skaidro, kā mēs vācam, izmantojam un aizsargājam jūsu personisko informāciju.",
+            "SkyGarden apņemas aizsargāt Jūsu privātumu un nodrošināt jūsu personas datu drošību. Šī privātuma politika skaidro, kā mēs vācam, izmantojam un aizsargājam jūsu personisko informāciju.",
         },
         {
           title: "2. Informācijas vākšana",
           content:
-            "Mēs vācam informāciju, ko jūs brīvprātīgi sniedzat, izmantojot mūsu kontaktformas, e-pastus vai tālruņa zvanus. Šī informācija var ietvert jūsu vārdu, kontaktinformāciju un detaļas par pakalpojumiem, kurus vēlaties saņemt. Mēs automātiski vācam arī noteiktus tehniskus datus, kad jūs apmeklējat mūsu vietni, piemēram, IP adresi un pārlūkprogrammas informāciju.",
+            "Mēs vācam informāciju, ko jūs brīvprātīgi sniedzat, izmantojot mūsu kontaktformas, e-pastus vai tālruņa zvanus. Šī informācija var ietvert jūsu vārdu, kontaktinformāciju un detaļas par pakalpojumiem, kurus vēlaties saņemt. Mēs automātiski vācam arī noteiktus tehniskus datus, kad Jūs apmeklējat mūsu vietni, piemēram, IP adresi un pārlūkprogrammas informāciju.",
         },
         {
           title: "3. Informācijas izmantošana",
           content:
-            "Jūsu sniegto informāciju mēs izmantojam, lai: sniegtu un uzlabotu mūsu pakalpojumus; atbildētu uz jūsu jautājumiem un pieprasījumiem; nosūtītu jums informāciju par mūsu pakalpojumiem; administrētu mūsu vietni un uzņēmējdarbību. Mēs nekad nepārdosim vai neiznomāsim jūsu personisko informāciju trešajām pusēm mārketinga nolūkos.",
+            "Jūsu sniegto informāciju mēs izmantojam, lai: sniegtu un uzlabotu mūsu pakalpojumus; atbildētu uz Jūsu jautājumiem un pieprasījumiem; nosūtītu Jums informāciju par mūsu pakalpojumiem; administrētu mūsu vietni un uzņēmējdarbību. Mēs nekad nepārdosim vai neiznomāsim jūsu personisko informāciju trešajām pusēm mārketinga nolūkos.",
         },
         {
           title: "4. Datu aizsardzība",
           content:
-            "Mēs īstenojam atbilstošus tehniskos un organizatoriskos pasākumus, lai aizsargātu jūsu personisko informāciju pret neatļautu piekļuvi, zudumu vai bojājumiem. Tomēr neviena elektroniskās datu pārraides metode nevar būt pilnīgi droša, un mēs nevaram garantēt absolūtu jūsu informācijas drošību.",
+            "Mēs īstenojam atbilstošus tehniskos un organizatoriskos pasākumus, lai aizsargātu Jūsu personisko informāciju pret neatļautu piekļuvi, zudumu vai bojājumiem. Tomēr neviena elektroniskās datu pārraides metode nevar būt pilnīgi droša, un mēs nevaram garantēt absolūtu jūsu informācijas drošību.",
         },
         {
           title: "5. Informācijas izpaušana trešajām pusēm",
           content:
-            "Mēs varam kopīgot jūsu personisko informāciju ar pakalpojumu sniedzējiem, kas palīdz mūsu uzņēmējdarbībā (piemēram, maksājumu apstrādātājiem vai IT pakalpojumu sniedzējiem). Mēs nodrošinām, ka šādi pakalpojumu sniedzēji ievēro mūsu privātuma standartus. Mēs varam arī izpaust jūsu informāciju, ja to pieprasa likums vai ja uzskatām, ka šāda izpaušana ir nepieciešama, lai aizsargātu mūsu tiesības vai novērstu iespējamas ļaunprātīgas darbības.",
+            "Mēs varam kopīgot Jūsu personisko informāciju ar pakalpojumu sniedzējiem, kas palīdz mūsu uzņēmējdarbībā (piemēram, maksājumu apstrādātājiem vai IT pakalpojumu sniedzējiem). Mēs nodrošinām, ka šādi pakalpojumu sniedzēji ievēro mūsu privātuma standartus. Mēs varam arī izpaust Jūsu informāciju, ja to pieprasa likums vai ja uzskatām, ka šāda izpaušana ir nepieciešama, lai aizsargātu mūsu tiesības vai novērstu iespējamas ļaunprātīgas darbības.",
         },
         {
           title: "6. Sīkdatnes",
           content:
-            "Mūsu vietne var izmantot sīkdatnes, kas ir mazi teksta faili, ko jūsu ierīce saglabā, kad apmeklējat mūsu vietni. Sīkdatnes palīdz mums nodrošināt labāku lietotāju pieredzi. Jūs varat konfigurēt savu pārlūkprogrammu, lai noraidītu sīkdatnes, taču tas var ietekmēt dažas mūsu vietnes funkcijas.",
+            "Mūsu vietne var izmantot sīkdatnes, kas ir mazi teksta faili, ko Jūsu ierīce saglabā, kad apmeklējat mūsu vietni. Sīkdatnes palīdz mums nodrošināt labāku lietotāju pieredzi. Jūs varat konfigurēt savu pārlūkprogrammu, lai noraidītu sīkdatnes, taču tas var ietekmēt dažas mūsu vietnes funkcijas.",
         },
         {
           title: "7. Jūsu tiesības",
           content:
-            "Saskaņā ar piemērojamiem datu aizsardzības likumiem, jums var būt tiesības piekļūt savai personiskajai informācijai, labot to, dzēst vai ierobežot tās apstrādi. Jums var būt arī tiesības iebilst pret jūsu personiskās informācijas apstrādi un tiesības uz datu pārnesamību. Lai izmantotu šīs tiesības, lūdzu, sazinieties ar mums, izmantojot tālāk norādīto kontaktinformāciju.",
+            "Saskaņā ar piemērojamiem datu aizsardzības likumiem, Jums var būt tiesības piekļūt savai personiskajai informācijai, labot to, dzēst vai ierobežot tās apstrādi. Jums var būt arī tiesības iebilst pret jūsu personiskās informācijas apstrādi un tiesības uz datu pārnesamību. Lai izmantotu šīs tiesības, lūdzu, sazinieties ar mums, izmantojot tālāk norādīto kontaktinformāciju.",
         },
         {
           title: "8. Izmaiņas privātuma politikā",
@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
         {
           title: "9. Kontaktinformācija",
           content:
-            "Ja jums ir jautājumi vai bažas par šo privātuma politiku vai par to, kā mēs apstrādājam jūsu personisko informāciju, lūdzu, sazinieties ar mums, izmantojot mūsu kontaktlapā norādīto informāciju.",
+            "Ja Jums ir jautājumi vai bažas par šo privātuma politiku vai par to, kā mēs apstrādājam Jūsu personisko informāciju, lūdzu, sazinieties ar mums, izmantojot mūsu kontaktlapā norādīto informāciju.",
         },
       ],
       copyright: `© ${currentYear} SkyGarden. Visas tiesības aizsargātas saskaņā ar Latvijas Republikas likumiem.`,

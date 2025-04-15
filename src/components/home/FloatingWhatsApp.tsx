@@ -11,19 +11,19 @@ export default function FloatingWhatsApp() {
   // Translations for the button text
   const translations = {
     lv: {
-      message: "Jautājums? Nosūtiet mums ātru ziņu!",
+      message: "Jautājums? Nosūtiet mums ziņu!",
       ariaLabel: "Sazināties ar mums WhatsApp",
     },
     en: {
-      message: "Question? Send us a quick message!",
+      message: "Question? Send us a message!",
       ariaLabel: "Contact us on WhatsApp",
     },
     ru: {
-      message: "Вопрос? Отправьте нам быстрое сообщение!",
+      message: "Вопрос? Отправьте нам сообщение!",
       ariaLabel: "Свяжитесь с нами в WhatsApp",
     },
     de: {
-      message: "Frage? Senden Sie uns eine schnelle Nachricht!",
+      message: "Frage? Senden Sie uns eine Nachricht!",
       ariaLabel: "Kontaktieren Sie uns auf WhatsApp",
     },
   };

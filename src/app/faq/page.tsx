@@ -99,7 +99,7 @@ const createFAQs = (language: string | undefined): FAQData => {
         "Wie kann ich sehen, dass die Arbeit qualitativ hochwertig ausgeführt wurde?"
       ),
       answer: translate(
-        "Pēc katra apmeklējuma mēs nosūtām jums fotoatskaiti, kurā redzams kapu vietas stāvoklis pirms un pēc mūsu darba. Tā jūs varat būt pārliecināti par darba kvalitāti, pat ja nevarat personīgi apmeklēt kapu vietu.",
+        "Pēc katra apmeklējuma mēs nosūtām Jums fotoatskaiti, kurā redzams kapu vietas stāvoklis pirms un pēc mūsu darba. Tā jūs varat būt pārliecināti par darba kvalitāti, pat ja nevarat personīgi apmeklēt kapu vietu.",
         "After each visit, we send you a photo report showing the condition of the grave site before and after our work. This way you can be confident about the quality of work, even if you cannot personally visit the grave site.",
         "После каждого посещения мы отправляем вам фотоотчет, показывающий состояние могилы до и после нашей работы. Таким образом, вы можете быть уверены в качестве работы, даже если не можете лично посетить могилу.",
         "Nach jedem Besuch senden wir Ihnen einen Fotobericht, der den Zustand des Grabes vor und nach unserer Arbeit zeigt. So können Sie von der Qualität der Arbeit überzeugt sein, auch wenn Sie das Grab nicht persönlich besuchen können."
@@ -223,7 +223,7 @@ const createFAQs = (language: string | undefined): FAQData => {
         "Was passiert, wenn ich den genauen Standort des Grabes nicht angeben kann?"
       ),
       answer: translate(
-        "Ja jums nav precīzas informācijas par kapavietas atrašanās vietu, mēs piedāvājam kapavietas meklēšanas pakalpojumu. Šis pakalpojums ietver kapsētas apmeklējumu un meklēšanu, balstoties uz pieejamo informāciju (vārds, uzvārds, miršanas datums). Kad kapavieta ir atrasta, mēs nosūtīsim jums fotogrāfijas, lai apstiprinātu, ka tā ir pareizā vieta. Kapavietas meklēšanas pakalpojumam ir papildu maksa, kas atkarīga no meklēšanas sarežģītības un laika.",
+        "Ja Jums nav precīzas informācijas par kapavietas atrašanās vietu, mēs piedāvājam kapavietas meklēšanas pakalpojumu. Šis pakalpojums ietver kapsētas apmeklējumu un meklēšanu, balstoties uz pieejamo informāciju (vārds, uzvārds, miršanas datums). Kad kapavieta ir atrasta, mēs nosūtīsim Jums fotogrāfijas, lai apstiprinātu, ka tā ir pareizā vieta. Kapavietas meklēšanas pakalpojumam ir papildu maksa, kas atkarīga no meklēšanas sarežģītības un laika.",
         "If you do not have precise information about the grave location, we offer a grave search service. This service includes visiting the cemetery and searching based on the available information (name, surname, date of death). Once the grave is found, we will send you photographs to confirm it's the correct location. The grave search service has an additional fee, depending on the complexity and time required for the search.",
         "Если у вас нет точной информации о местонахождении могилы, мы предлагаем услугу поиска могилы. Эта услуга включает посещение кладбища и поиск на основе имеющейся информации (имя, фамилия, дата смерти). Как только могила будет найдена, мы отправим вам фотографии для подтверждения правильности места. Услуга поиска могилы оплачивается дополнительно, в зависимости от сложности и времени, необходимого для поиска.",
         "Wenn Sie keine genauen Informationen über den Grabstandort haben, bieten wir einen Grabsuchdienst an. Dieser Dienst umfasst den Besuch des Friedhofs und die Suche basierend auf den verfügbaren Informationen (Name, Nachname, Sterbedatum). Sobald das Grab gefunden ist, senden wir Ihnen Fotos zur Bestätigung, dass es sich um den richtigen Standort handelt. Der Grabsuchdienst hat eine zusätzliche Gebühr, die von der Komplexität und der für die Suche benötigten Zeit abhängt."
@@ -509,7 +509,7 @@ const ContactSection = memo(
           </h2>
           <p className="text-gray-600 dark:text-gray-300">
             {translate(
-              "Ja neatradāt atbildi uz savu jautājumu, lūdzu, sazinieties ar mums. Mēs labprāt jums palīdzēsim.",
+              "Ja neatradāt atbildi uz savu jautājumu, lūdzu, sazinieties ar mums. Mēs labprāt Jums palīdzēsim.",
               "If you didn't find the answer to your question, please contact us. We'll be happy to help you.",
               "Если вы не нашли ответ на свой вопрос, пожалуйста, свяжитесь с нами. Мы будем рады вам помочь.",
               "Wenn Sie die Antwort auf Ihre Frage nicht gefunden haben, kontaktieren Sie uns bitte. Wir helfen Ihnen gerne weiter."
