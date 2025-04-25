@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback, memo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   SunIcon,
@@ -376,6 +377,10 @@ export default function Navbar() {
     { href: "/contact", label: t.contact },
   ];
 
+  // Logo path selection based on theme
+  const logoPath =
+    theme === "dark" ? "/images/logo_dark_theme.svg" : "/images/logo_dark.svg";
+
   // Server-side and initial client render - simplified version
   if (!isMounted) {
     return (
@@ -390,29 +395,11 @@ export default function Navbar() {
               href="/"
               className="flex items-center text-xl font-serif font-bold tracking-tight text-gray-900 dark:text-white"
             >
-              <svg
-                className="w-8 h-8 mr-2"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 1.99V5.5M5.99 12H2.48M21.5 12H18M12 18.5V22.01M16.05 7.95L18.53 5.47M7.95 7.95L5.47 5.47M7.95 16.05L5.47 18.53M16.05 16.05L18.53 18.53"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>SkyGarden</span>
+              <img
+                src="/images/logo_dark.svg"
+                alt="SkyGarden Logo"
+                className="w-70 h-20 mr-1"
+              />
             </Link>
 
             {/* Static placeholders for nav and controls */}
@@ -453,7 +440,7 @@ export default function Navbar() {
           }`}
         >
           <div className="flex justify-between items-center">
-            {/* Logo */}
+            {/* Logo - now using external SVG files based on theme */}
             <Link
               href="/"
               className={`flex items-center text-xl font-serif font-bold tracking-tight transition-all duration-300 ${
@@ -463,29 +450,11 @@ export default function Navbar() {
               }`}
               aria-label="SkyGarden Home"
             >
-              <svg
-                className="w-8 h-8 mr-2"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 1.99V5.5M5.99 12H2.48M21.5 12H18M12 18.5V22.01M16.05 7.95L18.53 5.47M7.95 7.95L5.47 5.47M7.95 16.05L5.47 18.53M16.05 16.05L18.53 18.53"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>SkyGarden</span>
+              <img
+                src={logoPath}
+                alt="SkyGarden Logo"
+                className="w-50 h-20 mr-1"
+              />
             </Link>
 
             {/* Desktop Navigation */}
